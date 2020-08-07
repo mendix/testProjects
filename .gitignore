@@ -1,0 +1,17 @@
+.idea
+dist
+node_modules
+*.log
+*.bak
+*.launch
+mxproject
+coverage
+GPUCache
+deployment
+javasource/system
+javasource/*/proxies
+theme
+widgets
+classpath
+project
+
