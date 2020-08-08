@@ -12,6 +12,6 @@ javasource/system
 javasource/*/proxies
 theme
 widgets
-classpath
-project
+.classpath
+.project
 
