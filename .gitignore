@@ -14,4 +14,8 @@ theme
 widgets
 .classpath
 .project
+themesource
+theme-cache
+project-settings.user.json
+*.mpr.lock
 
