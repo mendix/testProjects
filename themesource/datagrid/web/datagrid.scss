@@ -176,6 +176,7 @@ $brand-primary: #264ae5 !default;
         border-color: $grid-border-color;
         border-bottom-width: 1px;
         overflow: hidden;
+        background-color: inherit;
 
         &.td-borders {
             border-top-width: 1px;

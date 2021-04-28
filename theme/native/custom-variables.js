@@ -556,27 +556,3 @@ export const slider = {
         backgroundColor: background.secondary
     }
 };
-//
-// Group Box Styles
-export const groupbox = {
-    container: {
-        borderWidth: border.width,
-        borderColor: button.primary.borderColor,
-        borderRadius: border.radiusSmall
-    },
-    header: {
-        container: {
-            backgroundColor: button.primary.backgroundColor,
-            paddingHorizontal: spacing.regular,
-            paddingVertical: spacing.small
-        },
-        icon: {
-            size: 16,
-            color: button.primary.color
-        }
-    },
-    content: {
-        paddingHorizontal: spacing.regular,
-        paddingVertical: spacing.small
-    }
-};

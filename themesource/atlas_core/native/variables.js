@@ -579,30 +579,5 @@ let slider = {
 };
 slider = merge(slider, custom.slider || {});
 //
-// Group Box Styles
-let groupbox = {
-    container: {
-        borderWidth: border.width,
-        borderColor: button.primary.borderColor,
-        borderRadius: border.radiusSmall
-    },
-    header: {
-        container: {
-            backgroundColor: button.primary.backgroundColor,
-            paddingHorizontal: spacing.regular,
-            paddingVertical: spacing.small
-        },
-        icon: {
-            size: 16,
-            color: button.primary.color
-        }
-    },
-    content: {
-        paddingHorizontal: spacing.regular,
-        paddingVertical: spacing.small
-    }
-};
-groupbox = merge(groupbox, custom.groupbox || {});
-//
 export * from "../../../theme/native/custom-variables";
-export { brand, backgroundDefaults, background, border, button, contrast, fontDefaults, font, input, image, layoutGrid, listView, navigation, spacing, container, tabContainer, badge, floatingActionButton, introScreen, listViewSwipe, progressBar, progressCircle, slider, rating, groupbox };
+export { brand, backgroundDefaults, background, border, button, contrast, fontDefaults, font, input, image, layoutGrid, listView, navigation, spacing, container, tabContainer, badge, floatingActionButton, introScreen, listViewSwipe, progressBar, progressCircle, slider, rating };
