@@ -11,6 +11,8 @@ deployment
 javasource/system
 javasource/*/proxies
 theme
+theme-cache
+themesource
 widgets
 *.lock
 .classpath
