@@ -4,6 +4,14 @@ $pagination-button-color: #3b4251;
 $pagination-caption-color: #0a1325;
 $dragging-color-effect: rgba(10, 19, 37, 0.8);
 
+$grid-bg-striped: #fafafb !default;
+$grid-bg-hover: #f5f6f6 !default;
+$spacing-small: 8px !default;
+$spacing-medium: 16px !default;
+$grid-border-color: #ced0d3 !default;
+
+$brand-primary: #264ae5 !default;
+
 .table {
     position: relative;
     border-width: 0;
@@ -36,7 +44,6 @@ $dragging-color-effect: rgba(10, 19, 37, 0.8);
         position: -webkit-sticky; /* Safari */
         position: sticky;
         top: 0;
-        z-index: 10;
 
         /* Clickable column header (Sortable) */
         .clickable {
@@ -131,7 +138,6 @@ $dragging-color-effect: rgba(10, 19, 37, 0.8);
             /* List of columns to select */
             .column-selectors {
                 position: absolute;
-                width: max-content;
                 right: 0;
                 margin: 8px;
                 padding: 0 16px;
@@ -151,6 +157,7 @@ $dragging-color-effect: rgba(10, 19, 37, 0.8);
                     label {
                         margin: 8px;
                         font-weight: normal;
+                        white-space: nowrap;
                     }
                 }
             }
@@ -163,12 +170,14 @@ $dragging-color-effect: rgba(10, 19, 37, 0.8);
         justify-content: space-between;
         align-items: center;
         padding: $spacing-medium;
+        border-style: solid;
         border-width: 0;
         border-color: $grid-border-color;
-        overflow: hidden;
+        border-bottom-width: 1px;
+        /*overflow: hidden;*/
 
         &.td-borders {
-            border-top-width: 0px;
+            border-top-width: 1px;
             border-top-style: solid;
         }
 
@@ -178,8 +187,8 @@ $dragging-color-effect: rgba(10, 19, 37, 0.8);
 
         > .td-text,
         * {
-            text-overflow: ellipsis;
-            overflow: hidden;
+            white-space: normal;
+            word-break: break-all;
         }
 
         > .empty-placeholder {

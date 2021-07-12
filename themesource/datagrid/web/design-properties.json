@@ -16,26 +16,30 @@
                 {
                     "name": "Horizontal",
                     "class": "table-bordered-horizontal"
+                },
+                {
+                    "name": "None",
+                    "class": "table-bordered-none"
                 }
             ]
         },
         {
-            "name": "Compact?",
+            "name": "Compact",
             "type": "Toggle",
             "description": "Change the cell spacing to compact.",
             "class": "table-compact"
         },
         {
-            "name": "Hover?",
+            "name": "Hover",
             "type": "Toggle",
             "description": "Highlight a row when hovering over it. Only useful when the row is clickable.",
             "class": "table-hover"
         },
         {
-            "name": "Striped?",
+            "name": "Striped",
             "type": "Toggle",
             "description": "Add alternating background colors to rows.",
             "class": "table-striped"
-        },
+        }
     ]
 }

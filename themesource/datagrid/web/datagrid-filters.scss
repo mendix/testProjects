@@ -1,7 +1,7 @@
-$hover-color: #f8f8f8;
-$background-color: #fff;
-$selected-color: #dadcde;
-$border-color: #ced0d3;
+$hover-color: #f8f8f8 !default;
+$background-color: #fff !default;
+$selected-color: #dadcde !default;
+$border-color: #ced0d3 !default;
 $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15px' height='8px'><polyline id='Line' fill='none' stroke='%23555555' points='0.5 0.5 6 6 11.545361 0.5'></polyline></svg>";
 
 @import "DatePicker";
@@ -60,7 +60,7 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
             position: absolute;
             width: max-content;
             left: 0;
-            margin: 0 8px;
+            margin: 0 $spacing-medium;
             padding: 0;
             background: $background-color;
             z-index: 99;
@@ -114,7 +114,7 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
         position: absolute;
         width: max-content;
         left: 0;
-        margin: 0 8px;
+        margin: 0 $spacing-medium;
         padding: 0;
         background: $background-color;
         z-index: 99;
@@ -130,7 +130,7 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
             font-weight: normal;
             min-height: 32px;
             cursor: pointer;
-            padding: 0 8px;
+            padding: 0 $spacing-small;
 
             .filter-label {
                 overflow: hidden;

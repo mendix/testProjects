@@ -1,9 +1,17 @@
 .table-compact {
 	.th{
 		padding: $spacing-small;
+
+		.filter-selectors {
+			margin: 0 $spacing-small;
+		}
 	}
 	.td {
 		padding: $spacing-small;
+	}
+
+	.dropdown-container .dropdown-list {
+		margin: 0 $spacing-small;
 	}
 }
 
@@ -28,7 +36,7 @@
 
         // Column for the visibility when a column can be hidden
 		&.column-selector {
-			border-left-width: 0px;
+			border-left-width: 0;
 			border-right-width: 1px;
 	        border-right-style: solid;
 		}
@@ -46,7 +54,7 @@
 
         // Column for the visibility when a column can be hidden
 		&.column-selector {
-			border-left-width: 0px;
+			border-left-width: 0;
 			border-right-width: 1px;
 	        border-right-style: solid;
 		}
@@ -68,12 +76,32 @@
 	.th, .td {
 		border-left-width: 1px;
         border-left-style: solid;
+        border-bottom-width: 0;
 
         // Column for the visibility when a column can be hidden
 		&.column-selector {
-			border-left-width: 0px;
+			border-left-width: 0;
+			border-bottom-width: 0;
 			border-right-width: 1px;
 	        border-right-style: solid;
 		}
+
+		&.td-borders {
+            border-top-width: 0;
+        }
+	}
+}
+
+.table-bordered-none {
+	.td, .th {
+		border: 0;
+
+		&.column-selector {
+			border: 0;
+		}
+
+        &.td-borders {
+            border: 0;
+        }
 	}
 }

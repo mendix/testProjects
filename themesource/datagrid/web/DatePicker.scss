@@ -1,10 +1,10 @@
 /**
     Classes for React Date-Picker font-unit and color adjustments
 */
-$day-color: #555;
-$outside-month-color: #c8c8c8;
-$text-color: #fff;
-$border-color: #D7D7D7;
+$day-color: #555 !default;
+$outside-month-color: #c8c8c8 !default;
+$text-color: #fff !default;
+$border-color: #D7D7D7 !default;
 
 .react-datepicker {
   font-size: 1em;
