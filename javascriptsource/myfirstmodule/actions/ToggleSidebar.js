@@ -15,8 +15,6 @@ import { Big } from "big.js";
  */
 export async function ToggleSidebar() {
 	// BEGIN USER CODE
-	const sidebarToggleLocation = "com.mendix.widgets.web.sidebar.toggle";
-	
-	window[sidebarToggleLocation]?.();
+	document.dispatchEvent(new CustomEvent("toggleSidebar"));
 	// END USER CODE
 }
