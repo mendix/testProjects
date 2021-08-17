@@ -1,0 +1,14 @@
+@import "custom-variables";
+
+.mx-page {
+	>.mx-placeholder {
+		width: 100%;
+	}
+}
+
+.region-content {
+	.mx-placeholder {
+		width: 100%;
+		height: 100%
+	}
+}
