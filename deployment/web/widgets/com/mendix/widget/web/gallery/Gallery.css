@@ -1,0 +1,221 @@
+.widget-gallery {
+  /**
+  Helper classes
+   */
+}
+.widget-gallery .widget-gallery-items {
+  display: grid;
+  grid-gap: 8px;
+  /*
+  Desktop widths
+  */
+  /*
+  Tablet widths
+  */
+  /*
+  Phone widths
+  */
+}
+@media screen and (min-width: 992px) {
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-lg-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 991px) {
+  .widget-gallery .widget-gallery-items.widget-gallery-md-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-md-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+@media screen and (max-width: 767px) {
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-1 {
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-5 {
+    grid-template-columns: repeat(5, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-7 {
+    grid-template-columns: repeat(7, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-8 {
+    grid-template-columns: repeat(8, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-9 {
+    grid-template-columns: repeat(9, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-10 {
+    grid-template-columns: repeat(10, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-11 {
+    grid-template-columns: repeat(11, 1fr);
+  }
+  .widget-gallery .widget-gallery-items.widget-gallery-sm-12 {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+.widget-gallery .widget-gallery-clickable {
+  cursor: pointer;
+}
+.widget-gallery .widget-gallery-clickable:focus:not(:focus-visible) {
+  outline: none;
+}
+.widget-gallery .widget-gallery-clickable:focus-visible {
+  outline: 1px solid #0595db;
+}
+.widget-gallery .infinite-loading {
+  overflow: auto;
+}
+.widget-gallery .widget-gallery-filter,
+.widget-gallery .widget-gallery-empty,
+.widget-gallery .widget-gallery-pagination {
+  flex: 1;
+}
+.widget-gallery .widget-gallery-column-span-1 {
+  grid-column: span 1;
+}
+.widget-gallery .widget-gallery-column-span-2 {
+  grid-column: span 2;
+}
+.widget-gallery .widget-gallery-column-span-3 {
+  grid-column: span 3;
+}
+.widget-gallery .widget-gallery-column-span-4 {
+  grid-column: span 4;
+}
+.widget-gallery .widget-gallery-column-span-5 {
+  grid-column: span 5;
+}
+.widget-gallery .widget-gallery-column-span-6 {
+  grid-column: span 6;
+}
+.widget-gallery .widget-gallery-column-span-7 {
+  grid-column: span 7;
+}
+.widget-gallery .widget-gallery-column-span-8 {
+  grid-column: span 8;
+}
+.widget-gallery .widget-gallery-column-span-9 {
+  grid-column: span 9;
+}
+.widget-gallery .widget-gallery-column-span-10 {
+  grid-column: span 10;
+}
+.widget-gallery .widget-gallery-column-span-11 {
+  grid-column: span 11;
+}
+.widget-gallery .widget-gallery-column-span-12 {
+  grid-column: span 12;
+}
+.widget-gallery .widget-gallery-row-span-1 {
+  grid-row: span 1;
+}
+.widget-gallery .widget-gallery-row-span-2 {
+  grid-row: span 2;
+}
+.widget-gallery .widget-gallery-row-span-3 {
+  grid-row: span 3;
+}
+.widget-gallery .widget-gallery-row-span-4 {
+  grid-row: span 4;
+}
+.widget-gallery .widget-gallery-row-span-5 {
+  grid-row: span 5;
+}
+.widget-gallery .widget-gallery-row-span-6 {
+  grid-row: span 6;
+}
+.widget-gallery .widget-gallery-row-span-7 {
+  grid-row: span 7;
+}
+.widget-gallery .widget-gallery-row-span-8 {
+  grid-row: span 8;
+}
+.widget-gallery .widget-gallery-row-span-9 {
+  grid-row: span 9;
+}
+.widget-gallery .widget-gallery-row-span-10 {
+  grid-row: span 10;
+}
+.widget-gallery .widget-gallery-row-span-11 {
+  grid-row: span 11;
+}
+.widget-gallery .widget-gallery-row-span-12 {
+  grid-row: span 12;
+}

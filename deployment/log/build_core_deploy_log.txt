@@ -1,0 +1,10 @@
+Buildfile: Z:\Documents\Projects\widgets-resources\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\build_core.xml
+
+deploy:
+     [copy] Copying 42 files to Z:\Documents\Projects\widgets-resources\packages\pluggableWidgets\gallery-web\tests\testProject\deployment
+     [copy] Copying 5 files to Z:\Documents\Projects\widgets-resources\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\model\resources
+
+BUILD SUCCESSFUL
+Total time: 0 seconds
+
+
