@@ -1,0 +1,11 @@
+{
+  "presets": ["/tmp/mxbuild/modeler/tools/node/node_modules/metro-react-native-babel-preset"],
+  "plugins": [
+    [
+      "/tmp/mxbuild/modeler/tools/node/node_modules/babel-plugin-inline-import",
+      {
+        "extensions": [".svg"]
+      }
+    ]
+  ]
+}

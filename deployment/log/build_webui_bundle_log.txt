@@ -1,0 +1,20 @@
+Running "generate:profile" (generate) task
+/source/tests/testProject/deployment/widgets.config.json []
+
+Running "generate:javascript" (generate) task
+/source/tests/testProject/deployment/widgets.config.json []
+
+Running "dojo:dist" (dojo) task
+
+Building Dojo...
+Dojo Successfully Built...
+
+Running "copy:main" (copy) task
+Copied 1 file
+
+Running "copy:nls" (copy) task
+
+
+Done.
+
+
