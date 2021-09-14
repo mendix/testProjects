@@ -10,6 +10,7 @@
     "ScheduledEventExecution": "None"
   },
   "Constants": {
+    "DataWidgets.DataGrid_Version": "1.3.3",
     "Atlas_Core.Atlas_Core_Version": "3.0.6",
     "Atlas_Web_Content.Atlas_Web_Content_Version": "3.0.3",
     "DataGrid.DataGrid_Version": "1.3.1",

@@ -1,41 +1,18 @@
-const { join, relative } = require("path");
 const {
     nodeResolve,
-} = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/@rollup/plugin-node-resolve");
-const commonjs = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/@rollup/plugin-commonjs");
-const clear = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/rollup-plugin-clear");
-const esbuild = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/rollup-plugin-esbuild");
-const alias = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/@rollup/plugin-alias");
-const { babel } = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/@rollup/plugin-babel");
-const nodePolyfills = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/rollup-plugin-node-polyfills");
-const glob = require("C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/glob");
-const dynamicImportToGlob = require("Z:/Documents/Projects/widgets-resources/packages/pluggableWidgets/gallery-web/tests/testProject/deployment/modern-web/dynamic-import-to-glob.js");
-const JAVASCRIPT_SOURCE_PATH_REGEX = /javascriptsource/;
+} = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/@rollup/plugin-node-resolve");
+const commonjs = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/@rollup/plugin-commonjs");
+const clear = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/rollup-plugin-clear");
+const esbuild = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/rollup-plugin-esbuild");
+const { babel } = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/@rollup/plugin-babel");
+const nodePolyfills = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/rollup-plugin-node-polyfills");
+const mendixResolve = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/rollup-plugin-mendix-resolve.js");
+const css = require("C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/rollup-plugin-import-css");
 
-const mendixPages = {
-    name: "rollup-plugin-mendix-pages",
-    resolveDynamicImport(specifier, importer) {
-        const importGlob = dynamicImportToGlob(specifier);
-        if (importGlob === "./pages/*.js") {
-            const files = glob.sync(join(__dirname, "./pages/*.js"));
-            files.forEach((f) => {
-                this.emitFile({
-                    id: relative(__dirname, f),
-                    fileName: relative(__dirname, f),
-                    type: "chunk",
-                    implicitlyLoadedAfterOneOf: [importer],
-                });
-            });
-            return false;
-        }
-    },
-    renderDynamicImport() {
-        return {
-            left: "import(",
-            right: `+ "?${Date.now()}")`,
-        };
-    },
-};
+const JAVASCRIPT_SOURCE_PATH_REGEX = /javascriptsource/;
+const PLUGGABLE_WIDGETS_PATH_FILTER = "./widgets/**";
+
+const isProduction = process.env.NODE_ENV === "production";
 
 export default {
     input: "index.js",
@@ -58,12 +35,16 @@ export default {
         // moduleSideEffects: false,
     },
     plugins: [
+        mendixResolve(
+            "C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/web-resolutions.json",
+            "C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules"
+        ),
         nodePolyfills(),
         esbuild({
             // All options are optional
             sourceMap: true, // default
-            exclude: JAVASCRIPT_SOURCE_PATH_REGEX,
-            minify: process.env.NODE_ENV === "production",
+            exclude: [JAVASCRIPT_SOURCE_PATH_REGEX, PLUGGABLE_WIDGETS_PATH_FILTER],
+            minify: isProduction,
             // Like @rollup/plugin-replace
             define: {
                 "process.env.NODE_ENV": JSON.stringify(process.env.NODE_ENV),
@@ -73,36 +54,34 @@ export default {
                 ".js": "jsx",
             },
         }),
-        alias({
-            entries: {
-                react: "C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/react",
-                "big.js": "C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/big.js",
-                "mendix-web": "C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/mendix-web",
-            },
-            customResolver: nodeResolve(),
-        }),
         ignore(/react-native/),
-        nodeResolve(),
-        commonjs({ transformMixedEsModules: true }),
+        nodeResolve({
+            moduleDirectories: ["C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules"]
+        }),
+        commonjs({ transformMixedEsModules: true, exclude: [/mendix-web/, PLUGGABLE_WIDGETS_PATH_FILTER] }),
         // @rollup/plugin-babel must be placed after @rollup/plugin-commonjs
         babel({
             babelHelpers: "bundled",
             include: JAVASCRIPT_SOURCE_PATH_REGEX,
             presets: [
                 [
-                    "C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/@babel/preset-env",
-                    { targets: { safari: "12" } },
+                    "C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/@babel/preset-env",
+                    { targets: { safari: "13" } },
                 ],
             ],
             plugins: [
-                "C:/Program Files/Mendix/9.4.0.24572/modeler/tools/node/node_modules/@babel/plugin-syntax-dynamic-import",
+                "C:/Program Files/Mendix/9.5.0.25874/modeler/tools/node/node_modules/@babel/plugin-syntax-dynamic-import",
             ],
         }),
         clear({
             targets: ["dist"],
             // watch: true,
         }),
-        mendixPages,
+        css({
+            output: "widgets.css",
+            alwaysOutput: true,
+            minify: isProduction
+        })
     ],
 };
 

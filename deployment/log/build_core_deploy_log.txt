@@ -1,8 +1,8 @@
-Buildfile: Z:\Documents\Projects\widgets-resources\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\build_core.xml
+Buildfile: \\Mac\Home\Documents\Projects\testProjects\deployment\build_core.xml
 
 deploy:
-     [copy] Copying 42 files to Z:\Documents\Projects\widgets-resources\packages\pluggableWidgets\gallery-web\tests\testProject\deployment
-     [copy] Copying 5 files to Z:\Documents\Projects\widgets-resources\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\model\resources
+     [copy] Copying 41 files to \\Mac\Home\Documents\Projects\testProjects\deployment
+     [copy] Copying 5 files to \\Mac\Home\Documents\Projects\testProjects\deployment\model\resources
 
 BUILD SUCCESSFUL
 Total time: 0 seconds
