@@ -1,3 +1,0 @@
-define("widgets/widgets", [
-
-], function() {});

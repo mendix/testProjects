@@ -1,9 +1,0 @@
-Buildfile: /source/tests/testProject/deployment/build_core.xml
-
-deploy:
-     [copy] Copying 41 files to /source/tests/testProject/deployment
-     [copy] Copying 5 files to /source/tests/testProject/deployment/model/resources
-
-BUILD SUCCESSFUL
-Total time: 0 seconds
-

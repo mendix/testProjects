@@ -233,7 +233,6 @@ export const input = {
         rippleColor: contrast.lowest
     },
     itemContainer: {
-        maxWidth: 500,
         paddingVertical: 12,
         paddingHorizontal: spacing.regular,
         backgroundColor: background.primary
@@ -304,6 +303,32 @@ export const navigation = {
 export const container = {
     containerDisabled: {
         opacity: 0.6
+    }
+};
+//
+// Accordion Styles
+export const accordion = {
+    container: {
+        backgroundColor: background.primary,
+        borderColor: border.color
+    },
+    groupHeader: {
+        container: {
+            paddingVertical: spacing.regular,
+            paddingHorizontal: spacing.regular
+        },
+        heading: {
+            color: font.colorTitle
+        },
+        icon: {
+            size: font.sizeLarge,
+            color: font.colorTitle
+        }
+    },
+    groupContent: {
+        paddingTop: spacing.small,
+        paddingBottom: spacing.large,
+        paddingHorizontal: spacing.regular
     }
 };
 //

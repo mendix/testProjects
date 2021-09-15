@@ -1,1 +1,0 @@
-"/tmp/mxbuild\modeler\tools\node\node.exe" "/tmp/mxbuild\modeler\tools\node\node_modules\rollup\dist\bin\rollup" -c -w

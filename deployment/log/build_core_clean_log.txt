@@ -1,8 +1,0 @@
-Buildfile: Z:\Documents\Projects\testProjects\deployment\build_core.xml
-
-clean:
-
-BUILD SUCCESSFUL
-Total time: 0 seconds
-
-

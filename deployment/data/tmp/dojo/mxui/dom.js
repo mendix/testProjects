@@ -1,1 +1,0 @@
-define("mxui/dom", function() {});
