@@ -1,8 +1,0 @@
-Buildfile: Y:\Documents\Projects\widgets-resources\packages\pluggableWidgets\line-chart-web\tests\testProject\deployment\build_core.xml
-
-deploy:
-     [copy] Copying 46 files to Y:\Documents\Projects\widgets-resources\packages\pluggableWidgets\line-chart-web\tests\testProject\deployment
-
-BUILD SUCCESSFUL
-Total time: 0 seconds
-

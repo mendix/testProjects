@@ -1,0 +1,162 @@
+Build started: Thu Mar 17 2022 15:06:52 GMT+0000 (Coordinated Universal Time)
+Build application version: 1.16.4 (d25cb52)
+Messages:
+info(107) Package Version:
+	package: dijit; version: 1.16.4
+	package: dojo; version: 1.16.4
+warn(205) Module not tagged as pure AMD yet it contains AMD API applications.
+	module: dojox/main
+	module: mxui/dom
+	module: mxui/mxui
+	module: mxui/html/parser
+	module: mxui/lib/ColumnResizer
+	module: mxui/mixin/_Stateful
+	module: mxui/widget/_Button
+	module: mxui/widget/_WidgetBase
+	module: mendix/lang
+	module: mendix/validator
+	module: mendix/lib/MxContext
+	module: mendix/lib/MxMetaObject
+	module: mendix/lib/ObjectValidation
+	module: big/big
+	module: widgets/widgets
+warn(209) Missing or empty package.json.
+	filename: /tmp/mxbuild/modeler/tools/node/dojox/package.json
+	filename: /tmp/mxbuild/modeler/tools/node/mxui/package.json
+	filename: /tmp/mxbuild/modeler/tools/node/mendix/package.json
+	filename: /tmp/mxbuild/modeler/tools/node/big/package.json
+	filename: /source/tests/testProject/deployment/data/tmp/widgets/package.json
+warn(216) dojo/has plugin resource could not be resolved during build-time.
+	plugin resource id: dojo-bidi?./_BidiMixin; reference module id: dijit/_WidgetBase
+	plugin resource id: dojo-firebug?./_firebug/firebug; reference module id: dojo/main
+	plugin resource id: dom-addeventlistener?:./aspect; reference module id: dojo/on
+	plugin resource id: host-browser?dom-addeventlistener?:../on:; reference module id: dojo/request/watch
+warn(224) A plugin dependency was encountered but there was no build-time plugin resolver.
+	module: dijit/Fieldset; plugin: dojo/query
+	module: dijit/RadioMenuItem; plugin: dojo/query
+	module: dijit/Tree; plugin: dojo/query
+	module: dijit/form/_RadioButtonMixin; plugin: dojo/query
+	module: dojo/request; plugin: dojo/request/default
+	module: dojo/request/node; plugin: dojo/node
+	module: dojo/request/node; plugin: dojo/node
+	module: dojo/request/node; plugin: dojo/node
+	module: dojo/request/node; plugin: dojo/node
+	module: dojo/request/registry; plugin: dojo/request/default
+Layer Contents:
+mxui/mxui:
+	mxui/mxui
+	mxui/dom
+	mxui/html/parser
+	mxui/widget/_Button
+	mxui/widget/_WidgetBase
+	mxui/mixin/_Stateful
+	mxui/lib/ColumnResizer
+	mendix/lang
+	mendix/validator
+	mendix/lib/MxContext
+	mendix/lib/MxMetaObject
+	mendix/lib/ObjectValidation
+	big/big
+	dijit/BackgroundIframe
+	dijit/main
+	dijit/Destroyable
+	dijit/Tooltip
+	dijit/_base/manager
+	dijit/registry
+	dijit/place
+	dijit/Viewport
+	dojo/window
+	dijit/_Widget
+	dijit/_WidgetBase
+	dojo/Stateful
+	dijit/_OnDijitClickMixin
+	dijit/a11yclick
+	dojo/touch
+	dijit/_FocusMixin
+	dijit/focus
+	dijit/a11y
+	dojo/uacss
+	dijit/hccss
+	dojo/hccss
+	dijit/_TemplatedMixin
+	dojo/cache
+	dojo/text
+	dojo/request
+	dojo/request/default
+	dojo/string
+	dijit/_AttachMixin
+	dijit/templates/Tooltip.html
+	dijit/_Contained
+	dijit/_Container
+	dojo/fx
+	dojo/promise/all
+
+widgets/widgets:
+	widgets/widgets
+
+dojo/dojo:
+	dojo/dojo
+	dojo/main
+	dojo/_base/kernel
+	dojo/global
+	dojo/has
+	dojo/_base/config
+	dojo/sniff
+	dojo/_base/lang
+	dojo/_base/array
+	dojo/ready
+	dojo/domReady
+	dojo/_base/declare
+	dojo/_base/connect
+	dojo/on
+	dojo/topic
+	dojo/Evented
+	dojo/aspect
+	dojo/_base/event
+	dojo/dom-geometry
+	dojo/_base/window
+	dojo/dom
+	dojo/dom-style
+	dojo/mouse
+	dojo/_base/sniff
+	dojo/keys
+	dojo/_base/Deferred
+	dojo/Deferred
+	dojo/errors/CancelError
+	dojo/errors/create
+	dojo/promise/Promise
+	dojo/promise/instrumentation
+	dojo/promise/tracer
+	dojo/when
+	dojo/_base/json
+	dojo/json
+	dojo/_base/Color
+	dojo/_base/browser
+	dojo/_base/unload
+	dojo/_base/html
+	dojo/dom-attr
+	dojo/dom-prop
+	dojo/dom-construct
+	dojo/dom-class
+	dojo/_base/NodeList
+	dojo/query
+	dojo/selector/_loader
+	dojo/NodeList-dom
+	dojo/_base/xhr
+	dojo/io-query
+	dojo/dom-form
+	dojo/request/watch
+	dojo/request/util
+	dojo/errors/RequestError
+	dojo/errors/RequestTimeoutError
+	dojo/request/xhr
+	dojo/request/handlers
+	dojo/_base/fx
+	dojo/_base/loader
+
+
+
+Process finished normally
+	errors: 0
+	warnings: 34
+	build time: 3.537 seconds
