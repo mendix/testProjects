@@ -7,12 +7,19 @@ package myfirstmodule.proxies.microflows;
 import java.util.HashMap;
 import java.util.Map;
 import com.mendix.core.Core;
-import com.mendix.core.CoreException;
-import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
+import com.mendix.systemwideinterfaces.core.IMendixObject;
 
 public class Microflows
 {
+	/**
+	 * @deprecated
+	 * The default constructor of the Microflows class should not be used.
+	 * Use the static microflow invocation methods instead.
+	 */
+	@java.lang.Deprecated(since = "9.12", forRemoval = true)
+	public Microflows() {}
+
 	// These are the microflows for the MyFirstModule module
 	public static void mF_Change_Parameter(IContext context, myfirstmodule.proxies.Person _person, myfirstmodule.proxies.Filter _filter)
 	{
@@ -20,6 +27,18 @@ public class Microflows
 		params.put("Person", _person == null ? null : _person.getMendixObject());
 		params.put("Filter", _filter == null ? null : _filter.getMendixObject());
 		Core.microflowCall("MyFirstModule.MF_Change_Parameter").withParams(params).execute(context);
+	}
+	public static java.util.List<myfirstmodule.proxies.LogMessage> mF_CreateData(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		java.util.List<IMendixObject> objs = Core.microflowCall("MyFirstModule.MF_CreateData").withParams(params).execute(context);
+		if (objs == null) {
+			return null;
+		} else {
+			return objs.stream()
+				.map(obj -> myfirstmodule.proxies.LogMessage.initialize(context, obj))
+				.collect(java.util.stream.Collectors.toList());
+		}
 	}
 	public static boolean startupMF_CreatePerson(IContext context)
 	{
