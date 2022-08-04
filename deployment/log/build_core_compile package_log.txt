@@ -1,0 +1,13 @@
+Buildfile: Y:\Documents\Projects\widgets-resources\packages\pluggableWidgets\line-chart-web\tests\testProject\deployment\build_core.xml
+
+compile:
+    [javac] Compiling 42 source files to Y:\Documents\Projects\widgets-resources\packages\pluggableWidgets\line-chart-web\tests\testProject\deployment\run\bin
+    [javac] Note: Y:\Documents\Projects\widgets-resources\packages\pluggableWidgets\line-chart-web\tests\testProject\javasource\system\UserActionsRegistrar.java uses or overrides a deprecated API.
+    [javac] Note: Recompile with -Xlint:deprecation for details.
+
+package:
+      [jar] Building jar: Y:\Documents\Projects\widgets-resources\packages\pluggableWidgets\line-chart-web\tests\testProject\deployment\model\bundles\project.jar
+
+BUILD SUCCESSFUL
+Total time: 4 seconds
+
