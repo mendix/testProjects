@@ -10,8 +10,6 @@ GPUCache
 deployment
 javasource/system
 javasource/*/proxies
-theme
-widgets
 *.lock
 .classpath
 .project
