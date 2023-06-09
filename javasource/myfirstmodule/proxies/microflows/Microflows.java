@@ -32,4 +32,9 @@ public class Microflows
 		Map<java.lang.String, Object> params = new HashMap<>();
 		return (java.lang.Boolean) Core.microflowCall("MyFirstModule.StartupMF_CreatePerson").withParams(params).execute(context);
 	}
+	public static boolean startupMF_Main(IContext context)
+	{
+		Map<java.lang.String, Object> params = new HashMap<>();
+		return (java.lang.Boolean) Core.microflowCall("MyFirstModule.StartupMF_Main").withParams(params).execute(context);
+	}
 }
