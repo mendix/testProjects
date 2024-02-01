@@ -19,10 +19,6 @@ import { Big } from "big.js";
  */
 export async function SignOut() {
 	// BEGIN USER CODE
-    if (!mx.session.isGuest()) {
-        mx.logout();
-        return Promise.resolve(true);
-    }
-    return Promise.resolve(false);
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

@@ -6,7 +6,6 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import AsyncStorage from '@react-native-community/async-storage';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -18,19 +17,6 @@ import AsyncStorage from '@react-native-community/async-storage';
  */
 export async function RemoveStorageItem(key) {
 	// BEGIN USER CODE
-    if (!key) {
-        return Promise.reject(new Error("Input parameter 'Key' is required"));
-    }
-    return removeItem(key).then(() => true);
-    function removeItem(key) {
-        if (navigator && navigator.product === "ReactNative") {
-            return AsyncStorage.removeItem(key);
-        }
-        if (window) {
-            window.localStorage.removeItem(key);
-            return Promise.resolve();
-        }
-        return Promise.reject(new Error("No storage API available"));
-    }
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

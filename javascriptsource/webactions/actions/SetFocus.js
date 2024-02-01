@@ -13,7 +13,7 @@ import { isFocusable, focusFirst, setFocus } from "./FocusHelper";
 
 /**
  * Set focus to the element found with the selector, The element should be able to hold focus like a link, button, or input.
- * @param {string} targetSelector - Selector to reach the element to be scrolled to, example .mx-class or #widget-id
+ * @param {string} targetSelector - Selector to reach the element to give focus. Examples: .warning to scroll to focus element with the class warning, or .mx-name-textBox1 to focus to a text box with the class mx-name-textBox1 (and name textBox1).
  * @returns {Promise.<void>}
  */
 export async function SetFocus(targetSelector) {
@@ -22,13 +22,11 @@ export async function SetFocus(targetSelector) {
     if (targetNode) {
         if (isFocusable(targetNode)) {
             setFocus(targetNode);
-        }
-        else {
+        } else {
             // If the target is not focusable, select the first focusable within
             focusFirst(targetNode);
         }
-    }
-    else {
+    } else {
         console.warn(`No DOM node found to set focus for query selector ${targetSelector}`);
     }
 	// END USER CODE

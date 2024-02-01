@@ -9,12 +9,6 @@ import { Big } from "big.js";
 import { findNext, getFocus, setFocus } from "./FocusHelper";
 
 // BEGIN EXTRA CODE
-function focusPrevious() {
-    const previous = findNext(getFocus(), true);
-    if (previous) {
-        setFocus(previous);
-    }
-}
 // END EXTRA CODE
 
 /**
@@ -23,6 +17,12 @@ function focusPrevious() {
  */
 export async function FocusPrevious() {
 	// BEGIN USER CODE
+    function focusPrevious() {
+        const previous = findNext(getFocus(), true);
+        if (previous) {
+            setFocus(previous);
+        }
+    }
     focusPrevious();
     return Promise.resolve();
 	// END USER CODE

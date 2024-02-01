@@ -6,8 +6,6 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import { Platform, PermissionsAndroid } from 'react-native';
-import Geolocation from '@react-native-community/geolocation';
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -18,26 +16,6 @@ import Geolocation from '@react-native-community/geolocation';
  */
 export async function RequestLocationPermission() {
 	// BEGIN USER CODE
-    if (navigator && navigator.product === "ReactNative") {
-        if (!navigator.geolocation) {
-            navigator.geolocation = Geolocation;
-        }
-        if (Platform.OS === "android") {
-            const locationPermission = PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION;
-            return PermissionsAndroid.check(locationPermission).then(hasPermission => hasPermission
-                ? true
-                : PermissionsAndroid.request(locationPermission).then(status => status === PermissionsAndroid.RESULTS.GRANTED));
-        }
-        else if (navigator.geolocation && navigator.geolocation.requestAuthorization) {
-            try {
-                navigator.geolocation.requestAuthorization();
-                return Promise.resolve(true);
-            }
-            catch (error) {
-                return Promise.reject(error);
-            }
-        }
-    }
-    return Promise.reject(new Error("No permission request for location is required for web/hybrid platform"));
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

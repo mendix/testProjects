@@ -18,10 +18,6 @@ import { Big } from "big.js";
  */
 export async function ShowProgress(message, blocking) {
 	// BEGIN USER CODE
-    const id = mx.ui.showProgress(message, blocking);
-    if (id !== undefined) {
-        return Promise.resolve(new Big(id));
-    }
-    return Promise.reject(new Error("Could not open the loading dialog"));
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

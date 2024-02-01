@@ -6,7 +6,6 @@
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
 import { Big } from "big.js";
-import Geolocation from "@react-native-community/geolocation";
 
 // BEGIN EXTRA CODE
 // END EXTRA CODE
@@ -27,54 +26,6 @@ import Geolocation from "@react-native-community/geolocation";
  */
 export async function GetCurrentLocation(timeout, maximumAge, highAccuracy) {
 	// BEGIN USER CODE
-    if (navigator && navigator.product === "ReactNative" && !navigator.geolocation) {
-        navigator.geolocation = Geolocation;
-    }
-    return new Promise((resolve, reject) => {
-        const options = getOptions();
-        navigator.geolocation.getCurrentPosition(onSuccess, onError, options);
-        function onSuccess(position) {
-            mx.data.create({
-                entity: "NanoflowCommons.Geolocation",
-                callback: mxObject => {
-                    const geolocation = mapPositionToMxObject(mxObject, position);
-                    resolve(geolocation);
-                },
-                error: () =>
-                    reject(new Error("Could not create 'NanoflowCommons.Geolocation' object to store location"))
-            });
-        }
-        function onError(error) {
-            return reject(new Error(error.message));
-        }
-        function getOptions() {
-            const timeoutNumber = timeout && Number(timeout.toString());
-            const maximumAgeNumber = maximumAge && Number(maximumAge.toString());
-            return {
-                timeout: timeoutNumber,
-                maximumAge: maximumAgeNumber,
-                enableHighAccuracy: highAccuracy
-            };
-        }
-        function mapPositionToMxObject(mxObject, position) {
-            mxObject.set("Timestamp", new Date(position.timestamp));
-            mxObject.set("Latitude", new Big(position.coords.latitude.toFixed(8)));
-            mxObject.set("Longitude", new Big(position.coords.longitude.toFixed(8)));
-            mxObject.set("Accuracy", new Big(position.coords.accuracy.toFixed(8)));
-            if (position.coords.altitude != null) {
-                mxObject.set("Altitude", new Big(position.coords.altitude.toFixed(8)));
-            }
-            if (position.coords.altitudeAccuracy != null && position.coords.altitudeAccuracy !== -1) {
-                mxObject.set("AltitudeAccuracy", new Big(position.coords.altitudeAccuracy.toFixed(8)));
-            }
-            if (position.coords.heading != null && position.coords.heading !== -1) {
-                mxObject.set("Heading", new Big(position.coords.heading.toFixed(8)));
-            }
-            if (position.coords.speed != null) {
-                mxObject.set("AltitudeAccuracy", new Big(position.coords.speed.toFixed(8)));
-            }
-            return mxObject;
-        }
-    });
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

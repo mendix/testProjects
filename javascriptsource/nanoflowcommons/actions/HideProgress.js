@@ -17,10 +17,6 @@ import { Big } from "big.js";
  */
 export async function HideProgress(identifier) {
 	// BEGIN USER CODE
-    if (identifier == null) {
-        return Promise.reject(new Error("Input parameter 'Identifier' is required"));
-    }
-    mx.ui.hideProgress(Number(identifier));
-    return Promise.resolve();
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

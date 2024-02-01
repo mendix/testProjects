@@ -17,11 +17,6 @@ import { Big } from "big.js";
  */
 export async function Wait(delay) {
 	// BEGIN USER CODE
-    if (delay == null) {
-        return Promise.reject(new Error("Input parameter 'delay' is required."));
-    }
-    return new Promise(resolve => {
-        setTimeout(() => resolve(), Number(delay));
-    });
+	throw new Error("JavaScript action was not implemented");
 	// END USER CODE
 }

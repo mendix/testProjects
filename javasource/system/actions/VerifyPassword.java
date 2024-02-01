@@ -19,14 +19,18 @@ import com.mendix.webui.CustomJavaAction;
  */
 public class VerifyPassword extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String userName;
-	private java.lang.String password;
+	private final java.lang.String userName;
+	private final java.lang.String password;
 
-	public VerifyPassword(IContext context, java.lang.String userName, java.lang.String password)
+	public VerifyPassword(
+		IContext context,
+		java.lang.String _userName,
+		java.lang.String _password
+	)
 	{
 		super(context);
-		this.userName = userName;
-		this.password = password;
+		this.userName = _userName;
+		this.password = _password;
 	}
 
 	@java.lang.Override
@@ -40,6 +44,7 @@ public class VerifyPassword extends CustomJavaAction<java.lang.Boolean>
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()
