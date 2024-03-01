@@ -14,12 +14,15 @@ import com.mendix.webui.CustomJavaAction;
 
 public class Delay extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.Long dalay;
+	private final java.lang.Long dalay;
 
-	public Delay(IContext context, java.lang.Long dalay)
+	public Delay(
+		IContext context,
+		java.lang.Long _dalay
+	)
 	{
 		super(context);
-		this.dalay = dalay;
+		this.dalay = _dalay;
 	}
 
 	@java.lang.Override
@@ -33,6 +36,7 @@ public class Delay extends CustomJavaAction<java.lang.Boolean>
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()

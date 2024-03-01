@@ -4,199 +4,437 @@
 
 package testsuite.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the TestSuite module
-	public static void aCT_DeleteImage(IContext context, testsuite.proxies.Image _image)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteImageBuilder(
+		testsuite.proxies.Image _image
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Image", _image == null ? null : _image.getMendixObject());
-		Core.microflowCall("TestSuite.ACT_DeleteImage").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_DeleteImage");
+		builder = builder.withParam("Image", _image);
+		return builder;
 	}
-	public static void aCT_OnClickImage(IContext context, testsuite.proxies.Image _carouselImage)
+
+	public static void aCT_DeleteImage(
+		IContext context,
+		testsuite.proxies.Image _image
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CarouselImage", _carouselImage == null ? null : _carouselImage.getMendixObject());
-		Core.microflowCall("TestSuite.ACT_OnClickImage").withParams(params).execute(context);
+		aCT_DeleteImageBuilder(
+				_image
+			)
+			.execute(context);
 	}
-	public static void aCT_OnClickImage_ClosePage(IContext context, testsuite.proxies.Image _carouselImage)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OnClickImageBuilder(
+		testsuite.proxies.Image _carouselImage
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("CarouselImage", _carouselImage == null ? null : _carouselImage.getMendixObject());
-		Core.microflowCall("TestSuite.ACT_OnClickImage_ClosePage").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_OnClickImage");
+		builder = builder.withParam("CarouselImage", _carouselImage);
+		return builder;
 	}
+
+	public static void aCT_OnClickImage(
+		IContext context,
+		testsuite.proxies.Image _carouselImage
+	)
+	{
+		aCT_OnClickImageBuilder(
+				_carouselImage
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OnClickImage_ClosePageBuilder(
+		testsuite.proxies.Image _carouselImage
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_OnClickImage_ClosePage");
+		builder = builder.withParam("CarouselImage", _carouselImage);
+		return builder;
+	}
+
+	public static void aCT_OnClickImage_ClosePage(
+		IContext context,
+		testsuite.proxies.Image _carouselImage
+	)
+	{
+		aCT_OnClickImage_ClosePageBuilder(
+				_carouselImage
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OnClickImageNoContextBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_OnClickImageNoContext");
+		return builder;
+	}
+
 	public static void aCT_OnClickImageNoContext(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("TestSuite.ACT_OnClickImageNoContext").withParams(params).execute(context);
+		aCT_OnClickImageNoContextBuilder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OnClickImageNoContext_2Builder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_OnClickImageNoContext_2");
+		return builder;
+	}
+
 	public static void aCT_OnClickImageNoContext_2(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("TestSuite.ACT_OnClickImageNoContext_2").withParams(params).execute(context);
+		aCT_OnClickImageNoContext_2Builder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OnClickImageNoContext_3Builder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_OnClickImageNoContext_3");
+		return builder;
+	}
+
 	public static void aCT_OnClickImageNoContext_3(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("TestSuite.ACT_OnClickImageNoContext_3").withParams(params).execute(context);
+		aCT_OnClickImageNoContext_3Builder().execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_OnClickImageNoContext_4Builder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_OnClickImageNoContext_4");
+		return builder;
+	}
+
 	public static void aCT_OnClickImageNoContext_4(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("TestSuite.ACT_OnClickImageNoContext_4").withParams(params).execute(context);
+		aCT_OnClickImageNoContext_4Builder().execute(context);
 	}
-	public static void aCT_SaveAndRefresh(IContext context, testsuite.proxies.Image _image)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_SaveAndRefreshBuilder(
+		testsuite.proxies.Image _image
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Image", _image == null ? null : _image.getMendixObject());
-		Core.microflowCall("TestSuite.ACT_SaveAndRefresh").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_SaveAndRefresh");
+		builder = builder.withParam("Image", _image);
+		return builder;
 	}
-	public static void aCT_Upload(IContext context, testsuite.proxies.Carousel _carousel)
+
+	public static void aCT_SaveAndRefresh(
+		IContext context,
+		testsuite.proxies.Image _image
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		Core.microflowCall("TestSuite.ACT_Upload").withParams(params).execute(context);
+		aCT_SaveAndRefreshBuilder(
+				_image
+			)
+			.execute(context);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_UploadBuilder(
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.ACT_Upload");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
+	}
+
+	public static void aCT_Upload(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		aCT_UploadBuilder(
+				_carousel
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder afterStartupBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.AfterStartup");
+		return builder;
+	}
+
 	public static boolean afterStartup(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("TestSuite.AfterStartup").withParams(params).execute(context);
+		Object result = afterStartupBuilder().execute(context);
+		return (boolean) result;
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_GetCarouselBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.DS_GetCarousel");
+		return builder;
+	}
+
 	public static testsuite.proxies.Carousel dS_GetCarousel(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("TestSuite.DS_GetCarousel").withParams(params).execute(context);
-		return result == null ? null : testsuite.proxies.Carousel.initialize(context, result);
+		Object result = dS_GetCarouselBuilder().execute(context);
+		return result == null ? null : testsuite.proxies.Carousel.initialize(context, (IMendixObject) result);
 	}
-	public static java.util.List<testsuite.proxies.Image> dSL_DatasourceTestData(IContext context, testsuite.proxies.Carousel _carousel)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dSL_DatasourceTestDataBuilder(
+		testsuite.proxies.Carousel _carousel
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("TestSuite.DSL_DatasourceTestData").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> testsuite.proxies.Image.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.DSL_DatasourceTestData");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
 	}
-	public static java.util.List<testsuite.proxies.Image> dSL_DatasourceTestData_NoContext(IContext context, testsuite.proxies.Carousel _carousel)
+
+	public static java.util.List<testsuite.proxies.Image> dSL_DatasourceTestData(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("TestSuite.DSL_DatasourceTestData_NoContext").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> testsuite.proxies.Image.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		Object result = dSL_DatasourceTestDataBuilder(
+				_carousel
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> testsuite.proxies.Image.initialize(context, obj));
 	}
-	public static java.util.List<testsuite.proxies.Image> dSL_DatasourceTestData_withDelay(IContext context, testsuite.proxies.Carousel _carousel)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dSL_DatasourceTestData_NoContextBuilder(
+		testsuite.proxies.Carousel _carousel
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		java.util.List<IMendixObject> objs = Core.microflowCall("TestSuite.DSL_DatasourceTestData_withDelay").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> testsuite.proxies.Image.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.DSL_DatasourceTestData_NoContext");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
 	}
+
+	public static java.util.List<testsuite.proxies.Image> dSL_DatasourceTestData_NoContext(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		Object result = dSL_DatasourceTestData_NoContextBuilder(
+				_carousel
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> testsuite.proxies.Image.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dSL_DatasourceTestData_withDelayBuilder(
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.DSL_DatasourceTestData_withDelay");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
+	}
+
+	public static java.util.List<testsuite.proxies.Image> dSL_DatasourceTestData_withDelay(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		Object result = dSL_DatasourceTestData_withDelayBuilder(
+				_carousel
+			)
+			.execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> testsuite.proxies.Image.initialize(context, obj));
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dSL_TestsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.DSL_Tests");
+		return builder;
+	}
+
 	public static java.util.List<testsuite.proxies.Carousel> dSL_Tests(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> objs = Core.microflowCall("TestSuite.DSL_Tests").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> testsuite.proxies.Carousel.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		Object result = dSL_TestsBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> testsuite.proxies.Carousel.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dSS_NoContextBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.DSS_NoContext");
+		return builder;
+	}
+
 	public static testsuite.proxies.Carousel dSS_NoContext(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("TestSuite.DSS_NoContext").withParams(params).execute(context);
-		return result == null ? null : testsuite.proxies.Carousel.initialize(context, result);
+		Object result = dSS_NoContextBuilder().execute(context);
+		return result == null ? null : testsuite.proxies.Carousel.initialize(context, (IMendixObject) result);
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder gD_ReturnCarouselObjectBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.GD_ReturnCarouselObject");
+		return builder;
+	}
+
 	public static testsuite.proxies.Carousel gD_ReturnCarouselObject(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		IMendixObject result = (IMendixObject)Core.microflowCall("TestSuite.GD_ReturnCarouselObject").withParams(params).execute(context);
-		return result == null ? null : testsuite.proxies.Carousel.initialize(context, result);
+		Object result = gD_ReturnCarouselObjectBuilder().execute(context);
+		return result == null ? null : testsuite.proxies.Carousel.initialize(context, (IMendixObject) result);
 	}
-	public static void iVK_Commit(IContext context, testsuite.proxies.Carousel _test)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_CommitBuilder(
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Test", _test == null ? null : _test.getMendixObject());
-		Core.microflowCall("TestSuite.IVK_Commit").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.IVK_Commit");
+		builder = builder.withParam("Test", _test);
+		return builder;
 	}
-	public static void iVK_MicroflowWithError(IContext context, testsuite.proxies.Image _image)
+
+	public static void iVK_Commit(
+		IContext context,
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Image", _image == null ? null : _image.getMendixObject());
-		Core.microflowCall("TestSuite.IVK_MicroflowWithError").withParams(params).execute(context);
+		iVK_CommitBuilder(
+				_test
+			)
+			.execute(context);
 	}
-	public static void iVK_RefreshInClient(IContext context, testsuite.proxies.Carousel _test)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_MicroflowWithErrorBuilder(
+		testsuite.proxies.Image _image
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Test", _test == null ? null : _test.getMendixObject());
-		Core.microflowCall("TestSuite.IVK_RefreshInClient").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.IVK_MicroflowWithError");
+		builder = builder.withParam("Image", _image);
+		return builder;
 	}
-	public static void iVK_ShowValidations(IContext context, testsuite.proxies.Carousel _test)
+
+	public static void iVK_MicroflowWithError(
+		IContext context,
+		testsuite.proxies.Image _image
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Test", _test == null ? null : _test.getMendixObject());
-		Core.microflowCall("TestSuite.IVK_ShowValidations").withParams(params).execute(context);
+		iVK_MicroflowWithErrorBuilder(
+				_image
+			)
+			.execute(context);
 	}
-	public static void oCh_Test(IContext context, testsuite.proxies.Carousel _test)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_RefreshInClientBuilder(
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Test", _test == null ? null : _test.getMendixObject());
-		Core.microflowCall("TestSuite.OCh_Test").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.IVK_RefreshInClient");
+		builder = builder.withParam("Test", _test);
+		return builder;
 	}
-	public static void onClick_Dynamic(IContext context, testsuite.proxies.Image _image)
+
+	public static void iVK_RefreshInClient(
+		IContext context,
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Image", _image == null ? null : _image.getMendixObject());
-		Core.microflowCall("TestSuite.OnClick_Dynamic").withParams(params).execute(context);
+		iVK_RefreshInClientBuilder(
+				_test
+			)
+			.execute(context);
 	}
-	public static void onClick_Static1(IContext context, testsuite.proxies.Carousel _carousel)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder iVK_ShowValidationsBuilder(
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		Core.microflowCall("TestSuite.OnClick_Static1").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.IVK_ShowValidations");
+		builder = builder.withParam("Test", _test);
+		return builder;
 	}
-	public static void onClick_Static2(IContext context, testsuite.proxies.Carousel _carousel)
+
+	public static void iVK_ShowValidations(
+		IContext context,
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		Core.microflowCall("TestSuite.OnClick_Static2").withParams(params).execute(context);
+		iVK_ShowValidationsBuilder(
+				_test
+			)
+			.execute(context);
 	}
-	public static void onClickWithError(IContext context, testsuite.proxies.Carousel _carousel)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder oCh_TestBuilder(
+		testsuite.proxies.Carousel _test
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Carousel", _carousel == null ? null : _carousel.getMendixObject());
-		Core.microflowCall("TestSuite.OnClickWithError").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.OCh_Test");
+		builder = builder.withParam("Test", _test);
+		return builder;
+	}
+
+	public static void oCh_Test(
+		IContext context,
+		testsuite.proxies.Carousel _test
+	)
+	{
+		oCh_TestBuilder(
+				_test
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder onClick_DynamicBuilder(
+		testsuite.proxies.Image _image
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.OnClick_Dynamic");
+		builder = builder.withParam("Image", _image);
+		return builder;
+	}
+
+	public static void onClick_Dynamic(
+		IContext context,
+		testsuite.proxies.Image _image
+	)
+	{
+		onClick_DynamicBuilder(
+				_image
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder onClick_Static1Builder(
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.OnClick_Static1");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
+	}
+
+	public static void onClick_Static1(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		onClick_Static1Builder(
+				_carousel
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder onClick_Static2Builder(
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.OnClick_Static2");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
+	}
+
+	public static void onClick_Static2(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		onClick_Static2Builder(
+				_carousel
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder onClickWithErrorBuilder(
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("TestSuite.OnClickWithError");
+		builder = builder.withParam("Carousel", _carousel);
+		return builder;
+	}
+
+	public static void onClickWithError(
+		IContext context,
+		testsuite.proxies.Carousel _carousel
+	)
+	{
+		onClickWithErrorBuilder(
+				_carousel
+			)
+			.execute(context);
 	}
 }

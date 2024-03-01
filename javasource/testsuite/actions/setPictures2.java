@@ -18,22 +18,27 @@ import com.mendix.webui.CustomJavaAction;
 
 public class setPictures2 extends CustomJavaAction<java.lang.Boolean>
 {
-	private java.lang.String pictureName;
-	private IMendixObject __pictureObject;
-	private system.proxies.Image pictureObject;
+	private final java.lang.String pictureName;
+	/** @deprecated use pictureObject.getMendixObject() instead. */
+	@java.lang.Deprecated(forRemoval = true)
+	private final IMendixObject __pictureObject;
+	private final system.proxies.Image pictureObject;
 
-	public setPictures2(IContext context, java.lang.String pictureName, IMendixObject pictureObject)
+	public setPictures2(
+		IContext context,
+		java.lang.String _pictureName,
+		IMendixObject _pictureObject
+	)
 	{
 		super(context);
-		this.pictureName = pictureName;
-		this.__pictureObject = pictureObject;
+		this.pictureName = _pictureName;
+		this.__pictureObject = _pictureObject;
+		this.pictureObject = _pictureObject == null ? null : system.proxies.Image.initialize(getContext(), _pictureObject);
 	}
 
 	@java.lang.Override
 	public java.lang.Boolean executeAction() throws Exception
 	{
-		this.pictureObject = __pictureObject == null ? null : system.proxies.Image.initialize(getContext(), __pictureObject);
-
 		// BEGIN USER CODE
 		File image = new File(Core.getConfiguration().getResourcesPath(), pictureName);
 		pictureObject.setName(pictureName);
@@ -47,6 +52,7 @@ public class setPictures2 extends CustomJavaAction<java.lang.Boolean>
 
 	/**
 	 * Returns a string representation of this action
+	 * @return a string representation of this action
 	 */
 	@java.lang.Override
 	public java.lang.String toString()
