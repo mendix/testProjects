@@ -4,19 +4,25 @@
 
 package system.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
-import com.mendix.core.CoreException;
-import com.mendix.systemwideinterfaces.MendixRuntimeException;
 import com.mendix.systemwideinterfaces.core.IContext;
 
-public class Microflows
+public final class Microflows
 {
+	/**
+	 * Private constructor to prevent instantiation of this class. 
+	 */
+	private Microflows() {}
+
 	// These are the microflows for the System module
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder showHomePageBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("System.ShowHomePage");
+		return builder;
+	}
+
 	public static void showHomePage(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		Core.microflowCall("System.ShowHomePage").withParams(params).execute(context);
+		showHomePageBuilder().execute(context);
 	}
 }

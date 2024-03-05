@@ -21,7 +21,7 @@ public class HttpResponse extends system.proxies.HttpMessage
 		HttpVersion("HttpVersion"),
 		Content("Content");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -37,28 +37,23 @@ public class HttpResponse extends system.proxies.HttpMessage
 
 	public HttpResponse(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "System.HttpResponse"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected HttpResponse(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject httpResponseMendixObject)
 	{
 		super(context, httpResponseMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf("System.HttpResponse", httpResponseMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a System.HttpResponse");
-	}
-
-	/**
-	 * @deprecated Use 'HttpResponse.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static system.proxies.HttpResponse initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return system.proxies.HttpResponse.load(context, mendixIdentifier);
+		if (!com.mendix.core.Core.isSubClassOf(entityName, httpResponseMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 	}
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static system.proxies.HttpResponse initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -146,9 +141,9 @@ public class HttpResponse extends system.proxies.HttpMessage
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final system.proxies.HttpResponse that = (system.proxies.HttpResponse) obj;
@@ -163,22 +158,13 @@ public class HttpResponse extends system.proxies.HttpMessage
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
-		return "System.HttpResponse";
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Override
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
+		return entityName;
 	}
 }

@@ -1,7 +1,9 @@
 // Default variables
-@import "exclusion-variables";
+@import "exclusion-variables-defaults";
 @import "../../../theme/web/exclusion-variables";
+@import "generated-exclusion-variables";
 @import "variables";
+@import "variables-css-mappings";
 @import "../../../theme/web/custom-variables";
 
 // Font Family Import
@@ -214,6 +216,16 @@
     @include radio-button();
 }
 
+@import "core/widgets/scroll-container-react";
+@import "core/widgets/scroll-container-dojo";
+@if not $exclude-scroll-container {
+    @if $use-modern-client {
+        @include scroll-container-react();
+    } @else {
+        @include scroll-container-dojo();
+    }
+}
+
 @import "core/widgets/tab-container";
 @if not $exclude-tab-container {
     @include tab-container();
@@ -324,6 +336,11 @@
     @include timeline();
 }
 
+@import "core/widgets/tooltip";
+@if not $exclude-tooltip {
+    @include tooltip();
+}
+
 @import "core/helpers/helper-classes";
 @if not $exclude-helper-classes {
     @include helper-classes();
@@ -373,12 +390,4 @@
 @import "layouts/layout-atlas-tablet";
 @if not $exclude-layout-atlas-tablet {
     @include layout-atlas-tablet();
-}
-
-.red-background {
-	background-color: red;
-}
-
-.aquamarine-background {
-	background-color: aquamarine;
 }

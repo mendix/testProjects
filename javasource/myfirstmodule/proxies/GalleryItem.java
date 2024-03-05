@@ -22,6 +22,7 @@ public class GalleryItem extends system.proxies.Image
 		Birthday("Birthday"),
 		Role("Role"),
 		PublicThumbnailPath("PublicThumbnailPath"),
+		EnableCaching("EnableCaching"),
 		FileID("FileID"),
 		Name("Name"),
 		DeleteAfterDownload("DeleteAfterDownload"),
@@ -29,7 +30,7 @@ public class GalleryItem extends system.proxies.Image
 		HasContents("HasContents"),
 		Size("Size");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -45,28 +46,23 @@ public class GalleryItem extends system.proxies.Image
 
 	public GalleryItem(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "MyFirstModule.GalleryItem"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected GalleryItem(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject galleryItemMendixObject)
 	{
 		super(context, galleryItemMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf("MyFirstModule.GalleryItem", galleryItemMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a MyFirstModule.GalleryItem");
-	}
-
-	/**
-	 * @deprecated Use 'GalleryItem.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static myfirstmodule.proxies.GalleryItem initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return myfirstmodule.proxies.GalleryItem.load(context, mendixIdentifier);
+		if (!com.mendix.core.Core.isSubClassOf(entityName, galleryItemMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 	}
 
 	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static myfirstmodule.proxies.GalleryItem initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -81,10 +77,11 @@ public class GalleryItem extends system.proxies.Image
 
 	public static java.util.List<myfirstmodule.proxies.GalleryItem> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<myfirstmodule.proxies.GalleryItem> result = new java.util.ArrayList<myfirstmodule.proxies.GalleryItem>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//MyFirstModule.GalleryItem" + xpathConstraint))
-			result.add(myfirstmodule.proxies.GalleryItem.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> myfirstmodule.proxies.GalleryItem.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
 	/**
@@ -232,7 +229,7 @@ public class GalleryItem extends system.proxies.Image
 	}
 
 	/**
-	 * Set value of Role
+	 * Get value of Role
 	 * @param role
 	 */
 	public final myfirstmodule.proxies.Roles getRole()
@@ -247,9 +244,9 @@ public class GalleryItem extends system.proxies.Image
 	public final myfirstmodule.proxies.Roles getRole(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.Role.toString());
-		if (obj == null)
+		if (obj == null) {
 			return null;
-
+		}
 		return myfirstmodule.proxies.Roles.valueOf((java.lang.String) obj);
 	}
 
@@ -269,18 +266,19 @@ public class GalleryItem extends system.proxies.Image
 	 */
 	public final void setRole(com.mendix.systemwideinterfaces.core.IContext context, myfirstmodule.proxies.Roles role)
 	{
-		if (role != null)
+		if (role != null) {
 			getMendixObject().setValue(context, MemberNames.Role.toString(), role.toString());
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.Role.toString(), null);
+		}
 	}
 
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final myfirstmodule.proxies.GalleryItem that = (myfirstmodule.proxies.GalleryItem) obj;
@@ -295,22 +293,13 @@ public class GalleryItem extends system.proxies.Image
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
-		return "MyFirstModule.GalleryItem";
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Override
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
+		return entityName;
 	}
 }

@@ -6,8 +6,13 @@ package datagrid.proxies.constants;
 
 import com.mendix.core.Core;
 
-public class Constants
+public final class Constants
 {
+	/**
+	 * Private constructor to prevent instantiation of this class. 
+	 */
+	private Constants() {}
+
 	// These are the constants for the DataGrid module
 
 	public static java.lang.String getDataGrid_Version()

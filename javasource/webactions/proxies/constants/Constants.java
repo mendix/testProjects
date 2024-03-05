@@ -6,8 +6,13 @@ package webactions.proxies.constants;
 
 import com.mendix.core.Core;
 
-public class Constants
+public final class Constants
 {
+	/**
+	 * Private constructor to prevent instantiation of this class. 
+	 */
+	private Constants() {}
+
 	// These are the constants for the WebActions module
 
 	public static java.lang.String getWebActions_Version()

@@ -4,7 +4,7 @@
 
 package datagrid.proxies;
 
-public class DataGrid
+public class DataGrid implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject dataGridMendixObject;
 
@@ -26,7 +26,7 @@ public class DataGrid
 		EnumAttribute("EnumAttribute"),
 		BooleanAttribute("BooleanAttribute");
 
-		private java.lang.String metaName;
+		private final java.lang.String metaName;
 
 		MemberNames(java.lang.String s)
 		{
@@ -42,32 +42,28 @@ public class DataGrid
 
 	public DataGrid(com.mendix.systemwideinterfaces.core.IContext context)
 	{
-		this(context, com.mendix.core.Core.instantiate(context, "DataGrid.DataGrid"));
+		this(context, com.mendix.core.Core.instantiate(context, entityName));
 	}
 
 	protected DataGrid(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject dataGridMendixObject)
 	{
-		if (dataGridMendixObject == null)
+		if (dataGridMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
-		if (!com.mendix.core.Core.isSubClassOf("DataGrid.DataGrid", dataGridMendixObject.getType()))
-			throw new java.lang.IllegalArgumentException("The given object is not a DataGrid.DataGrid");
+		}
+		if (!com.mendix.core.Core.isSubClassOf(entityName, dataGridMendixObject.getType())) {
+			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
+		}	
 
 		this.dataGridMendixObject = dataGridMendixObject;
 		this.context = context;
 	}
 
 	/**
-	 * @deprecated Use 'DataGrid.load(IContext, IMendixIdentifier)' instead.
-	 */
-	@java.lang.Deprecated
-	public static datagrid.proxies.DataGrid initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixIdentifier mendixIdentifier) throws com.mendix.core.CoreException
-	{
-		return datagrid.proxies.DataGrid.load(context, mendixIdentifier);
-	}
-
-	/**
 	 * Initialize a proxy using context (recommended). This context will be used for security checking when the get- and set-methods without context parameters are called.
 	 * The get- and set-methods with context parameter should be used when for instance sudo access is necessary (IContext.createSudoClone() can be used to obtain sudo access).
+	 * @param context The context to be used
+	 * @param mendixObject The Mendix object for the new instance
+	 * @return a new instance of this proxy class
 	 */
 	public static datagrid.proxies.DataGrid initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
@@ -82,43 +78,13 @@ public class DataGrid
 
 	public static java.util.List<datagrid.proxies.DataGrid> load(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String xpathConstraint) throws com.mendix.core.CoreException
 	{
-		java.util.List<datagrid.proxies.DataGrid> result = new java.util.ArrayList<datagrid.proxies.DataGrid>();
-		for (com.mendix.systemwideinterfaces.core.IMendixObject obj : com.mendix.core.Core.retrieveXPathQuery(context, "//DataGrid.DataGrid" + xpathConstraint))
-			result.add(datagrid.proxies.DataGrid.initialize(context, obj));
-		return result;
+		return com.mendix.core.Core.createXPathQuery(String.format("//%1$s%2$s", entityName, xpathConstraint))
+			.execute(context)
+			.stream()
+			.map(obj -> datagrid.proxies.DataGrid.initialize(context, obj))
+			.collect(java.util.stream.Collectors.toList());
 	}
 
-	/**
-	 * Commit the changes made on this proxy object.
-	 */
-	public final void commit() throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Commit the changes made on this proxy object using the specified context.
-	 */
-	public final void commit(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
-	{
-		com.mendix.core.Core.commit(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object.
-	 */
-	public final void delete()
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
-
-	/**
-	 * Delete the object using the specified context.
-	 */
-	public final void delete(com.mendix.systemwideinterfaces.core.IContext context)
-	{
-		com.mendix.core.Core.delete(context, getMendixObject());
-	}
 	/**
 	 * @return value of StringAttribute
 	 */
@@ -228,7 +194,7 @@ public class DataGrid
 	}
 
 	/**
-	 * Set value of EnumAttribute
+	 * Get value of EnumAttribute
 	 * @param enumattribute
 	 */
 	public final datagrid.proxies.Enumeration_Example getEnumAttribute()
@@ -243,9 +209,9 @@ public class DataGrid
 	public final datagrid.proxies.Enumeration_Example getEnumAttribute(com.mendix.systemwideinterfaces.core.IContext context)
 	{
 		Object obj = getMendixObject().getValue(context, MemberNames.EnumAttribute.toString());
-		if (obj == null)
+		if (obj == null) {
 			return null;
-
+		}
 		return datagrid.proxies.Enumeration_Example.valueOf((java.lang.String) obj);
 	}
 
@@ -265,10 +231,11 @@ public class DataGrid
 	 */
 	public final void setEnumAttribute(com.mendix.systemwideinterfaces.core.IContext context, datagrid.proxies.Enumeration_Example enumattribute)
 	{
-		if (enumattribute != null)
+		if (enumattribute != null) {
 			getMendixObject().setValue(context, MemberNames.EnumAttribute.toString(), enumattribute.toString());
-		else
+		} else {
 			getMendixObject().setValue(context, MemberNames.EnumAttribute.toString(), null);
+		}
 	}
 
 	/**
@@ -307,17 +274,13 @@ public class DataGrid
 		getMendixObject().setValue(context, MemberNames.BooleanAttribute.toString(), booleanattribute);
 	}
 
-	/**
-	 * @return the IMendixObject instance of this proxy for use in the Core interface.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return dataGridMendixObject;
 	}
 
-	/**
-	 * @return the IContext instance of this proxy, or null if no IContext instance was specified at initialization.
-	 */
+	@Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
@@ -326,9 +289,9 @@ public class DataGrid
 	@java.lang.Override
 	public boolean equals(Object obj)
 	{
-		if (obj == this)
+		if (obj == this) {
 			return true;
-
+		}
 		if (obj != null && getClass().equals(obj.getClass()))
 		{
 			final datagrid.proxies.DataGrid that = (datagrid.proxies.DataGrid) obj;
@@ -343,21 +306,13 @@ public class DataGrid
 		return getMendixObject().hashCode();
 	}
 
-	/**
-	 * @return String name of this class
-	 */
+  /**
+   * Gives full name ("Module.Entity" name) of the type of the entity.
+   *
+   * @return the name
+   */
 	public static java.lang.String getType()
 	{
-		return "DataGrid.DataGrid";
-	}
-
-	/**
-	 * @return String GUID from this object, format: ID_0000000000
-	 * @deprecated Use getMendixObject().getId().toLong() to get a unique identifier for this object.
-	 */
-	@java.lang.Deprecated
-	public java.lang.String getGUID()
-	{
-		return "ID_" + getMendixObject().getId().toLong();
+		return entityName;
 	}
 }
