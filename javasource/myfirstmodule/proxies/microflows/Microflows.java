@@ -4,45 +4,61 @@
 
 package myfirstmodule.proxies.microflows;
 
-import java.util.HashMap;
-import java.util.Map;
 import com.mendix.core.Core;
 import com.mendix.systemwideinterfaces.core.IContext;
 import com.mendix.systemwideinterfaces.core.IMendixObject;
 
-public class Microflows
+public final class Microflows
 {
 	/**
-	 * @deprecated
-	 * The default constructor of the Microflows class should not be used.
-	 * Use the static microflow invocation methods instead.
+	 * Private constructor to prevent instantiation of this class. 
 	 */
-	@java.lang.Deprecated(since = "9.12", forRemoval = true)
-	public Microflows() {}
+	private Microflows() {}
 
 	// These are the microflows for the MyFirstModule module
-	public static void mF_Change_Parameter(IContext context, myfirstmodule.proxies.Person _person, myfirstmodule.proxies.Filter _filter)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder mF_Change_ParameterBuilder(
+		myfirstmodule.proxies.Person _person,
+		myfirstmodule.proxies.Filter _filter
+	)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		params.put("Person", _person == null ? null : _person.getMendixObject());
-		params.put("Filter", _filter == null ? null : _filter.getMendixObject());
-		Core.microflowCall("MyFirstModule.MF_Change_Parameter").withParams(params).execute(context);
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.MF_Change_Parameter");
+		builder = builder.withParam("Person", _person);
+		builder = builder.withParam("Filter", _filter);
+		return builder;
 	}
+
+	public static void mF_Change_Parameter(
+		IContext context,
+		myfirstmodule.proxies.Person _person,
+		myfirstmodule.proxies.Filter _filter
+	)
+	{
+		mF_Change_ParameterBuilder(
+				_person,
+				_filter
+			)
+			.execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder mF_CreateDataBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.MF_CreateData");
+		return builder;
+	}
+
 	public static java.util.List<myfirstmodule.proxies.LogMessage> mF_CreateData(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		java.util.List<IMendixObject> objs = Core.microflowCall("MyFirstModule.MF_CreateData").withParams(params).execute(context);
-		if (objs == null) {
-			return null;
-		} else {
-			return objs.stream()
-				.map(obj -> myfirstmodule.proxies.LogMessage.initialize(context, obj))
-				.collect(java.util.stream.Collectors.toList());
-		}
+		Object result = mF_CreateDataBuilder().execute(context);
+		return result == null ? null : com.mendix.utils.ListUtils.map((java.util.List<IMendixObject>) result, obj -> myfirstmodule.proxies.LogMessage.initialize(context, obj));
 	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder startupMF_CreatePersonBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.StartupMF_CreatePerson");
+		return builder;
+	}
+
 	public static boolean startupMF_CreatePerson(IContext context)
 	{
-		Map<java.lang.String, Object> params = new HashMap<>();
-		return (java.lang.Boolean) Core.microflowCall("MyFirstModule.StartupMF_CreatePerson").withParams(params).execute(context);
+		Object result = startupMF_CreatePersonBuilder().execute(context);
+		return (boolean) result;
 	}
 }
