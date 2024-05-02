@@ -15,4 +15,5 @@ widgets
 *.lock
 .classpath
 .project
-
+.mendix-cache
+theme-cache
