@@ -6,6 +6,18 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 
 ## [Unreleased]
 
+## [0.8.0]
+
+### Changed
+
+-   Minimal supported Studio Pro version set to 10.6.0
+
+-   New snapshots generated.
+
+### Added
+
+-   New employee properties.
+
 ## [0.7.0]
 
 ### Changed
@@ -13,5 +25,3 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 -   Minimal supported Studio Pro version set to 9.18.0
 
 -   Microflow FN_ModuleVersion is removed from public API
-
-
