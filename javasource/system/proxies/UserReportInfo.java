@@ -211,13 +211,13 @@ public class UserReportInfo implements com.mendix.systemwideinterfaces.core.IEnt
 		}
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return userReportInfoMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -308,13 +308,13 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 		getMendixObject().setValue(context, MemberNames.Size.toString(), size);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return fileDocumentMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

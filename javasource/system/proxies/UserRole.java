@@ -244,13 +244,13 @@ public class UserRole implements com.mendix.systemwideinterfaces.core.IEntityPro
 		getMendixObject().setValue(context, MemberNames.grantableRoles.toString(), identifiers);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return userRoleMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

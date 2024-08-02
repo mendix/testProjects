@@ -165,13 +165,13 @@ public class Country implements com.mendix.systemwideinterfaces.core.IEntityProx
 		}
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return countryMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

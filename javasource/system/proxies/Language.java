@@ -154,13 +154,13 @@ public class Language implements com.mendix.systemwideinterfaces.core.IEntityPro
 		getMendixObject().setValue(context, MemberNames.Description.toString(), description);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return languageMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

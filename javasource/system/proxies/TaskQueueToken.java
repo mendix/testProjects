@@ -194,13 +194,13 @@ public class TaskQueueToken implements com.mendix.systemwideinterfaces.core.IEnt
 		getMendixObject().setValue(context, MemberNames.ValidUntil.toString(), validuntil);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return taskQueueTokenMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

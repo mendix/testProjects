@@ -117,13 +117,13 @@ public class Continent implements com.mendix.systemwideinterfaces.core.IEntityPr
 		getMendixObject().setValue(context, MemberNames.Name.toString(), name);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return continentMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
