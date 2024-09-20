@@ -1,0 +1,77 @@
+Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
+Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot, JAVA_VERSION=11.0.20.1, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=11.0.20.1+1, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=11.0.20.1+1, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+Found daemon DaemonInfo{pid=1692, address=[988a167e-19c7-4c54-a730-11f9533c7c86 port:50275, addresses:[/127.0.0.1]], state=Idle, lastBusy=1726824162500, context=DefaultDaemonContext[uid=9a28a39f-812a-49d7-9879-3d2f48ef5ec5,javaHome=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot,daemonRegistryDir=C:\Users\leonardo.de.souza\.gradle\daemon,pid=1692,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+Java home is different.
+Wanted: DefaultDaemonContext[uid=null,javaHome=C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot,daemonRegistryDir=C:\Users\leonardo.de.souza\.gradle\daemon,pid=5260,idleTimeout=null,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=windows-1252,-Duser.country=US,-Duser.language=en,-Duser.variant]
+Actual: DefaultDaemonContext[uid=9a28a39f-812a-49d7-9879-3d2f48ef5ec5,javaHome=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot,daemonRegistryDir=C:\Users\leonardo.de.souza\.gradle\daemon,pid=1692,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 7528). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-7528.out.log
+Starting 9th build in daemon [uptime: 1 hrs 3 mins 19.622 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 512 MiB, non-heap usage: 18% of 384 MiB]
+Using 6 worker leases.
+Not watching Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment since the file system is not supported
+Watching the file system is configured to be enabled if available
+File system watching is active
+Starting Build
+Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\settings.gradle'.
+Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\build.gradle'.
+Included projects: [root project 'deployment']
+
+> Configure project :
+Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\build.gradle'.
+All projects evaluated.
+Task name matched 'clean-custom-classes'
+file or directory 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\vendorlib', not found
+Task name matched 'compile'
+Task name matched 'package'
+Selected primary task 'clean-custom-classes' from project :
+Selected primary task 'compile' from project :
+Selected primary task 'package' from project :
+Tasks to be executed: [task ':clean-custom-classes', task ':compile', task ':package']
+Tasks that were excluded: []
+Resolve mutations for :clean-custom-classes (Thread[Execution worker,5,main]) started.
+:clean-custom-classes (Thread[Execution worker,5,main]) started.
+destroyer locations for task group 0 (Thread[included builds,5,main]) started.
+destroyer locations for task group 1 (Thread[included builds,5,main]) started.
+
+> Task :clean-custom-classes
+Caching disabled for task ':clean-custom-classes' because:
+  Build cache is disabled
+Task ':clean-custom-classes' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :compile (Thread[Execution worker,5,main]) started.
+:compile (Thread[Execution worker,5,main]) started.
+
+> Task :compile
+Caching disabled for task ':compile' because:
+  Build cache is disabled
+Task ':compile' is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental task ':compile'.
+file or directory 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\vendorlib', not found
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain 'C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot'.
+Compiling with JDK Java compiler API.
+Class dependency analysis for incremental compilation took 0.18 secs.
+Created classpath snapshot for incremental compilation in 0.022 secs.
+Resolve mutations for :package (Thread[Execution worker,5,main]) started.
+:package (Thread[Execution worker,5,main]) started.
+
+> Task :package
+Caching disabled for task ':package' because:
+  Build cache is disabled
+Task ':package' is not up-to-date because:
+  No history is available.
+
+BUILD SUCCESSFUL in 5s
+3 actionable tasks: 3 executed
+Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
+Watched directory hierarchies: []
+
+
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+

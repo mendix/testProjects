@@ -1,0 +1,57 @@
+{
+  "RuntimeVersion": "10.12.1.39914",
+  "ProjectID": "3f7a6d8c-d95b-4ff2-be18-7b918976306c",
+  "ProjectName": "DataGrid",
+  "ModelVersion": "unversioned",
+  "Description": "",
+  "AdminUser": "MxAdmin",
+  "AdminRole": "8dd52bfa-6d7e-453b-b506-303c0a3d9567",
+  "JavaVersion": 11,
+  "Roles": {
+    "8dd52bfa-6d7e-453b-b506-303c0a3d9567": {
+      "Name": "Administrator",
+      "ManageableRoles": [
+        "8dd52bfa-6d7e-453b-b506-303c0a3d9567",
+        "53f5d6fa-6da9-4a71-b011-454ec052cce8"
+      ]
+    },
+    "53f5d6fa-6da9-4a71-b011-454ec052cce8": {
+      "Name": "User"
+    }
+  },
+  "Constants": [
+    {
+      "Name": "FeedbackModule.LocalStorageKey",
+      "Type": "String",
+      "Description": "",
+      "DefaultValue": "mxfeedback-form-data"
+    }
+  ],
+  "ScheduledEvents": [],
+  "Languages": [
+    "en_US",
+    "nl_NL"
+  ],
+  "Configuration": {
+    "SourceDatabaseType": "HSQLDB",
+    "SourceDatabaseName": "default",
+    "SourceBuiltInDatabasePath": "model/sampledata/data/database"
+  },
+  "RequestHandlers": [
+    {
+      "Name": "/api/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/link/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    },
+    {
+      "Name": "/p/",
+      "DefaultEnabled": true,
+      "MatchExactly": false
+    }
+  ]
+}

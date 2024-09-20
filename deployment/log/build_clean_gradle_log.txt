@@ -1,0 +1,51 @@
+Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
+Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot, JAVA_VERSION=11.0.20.1, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=11.0.20.1+1, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=11.0.20.1+1, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
+Found daemon DaemonInfo{pid=1692, address=[988a167e-19c7-4c54-a730-11f9533c7c86 port:50275, addresses:[/127.0.0.1]], state=Idle, lastBusy=1726824162500, context=DefaultDaemonContext[uid=9a28a39f-812a-49d7-9879-3d2f48ef5ec5,javaHome=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot,daemonRegistryDir=C:\Users\leonardo.de.souza\.gradle\daemon,pid=1692,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]} however its context does not match the desired criteria.
+Java home is different.
+Wanted: DefaultDaemonContext[uid=null,javaHome=C:\Program Files\Eclipse Adoptium\jdk-11.0.20.101-hotspot,daemonRegistryDir=C:\Users\leonardo.de.souza\.gradle\daemon,pid=5016,idleTimeout=null,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=windows-1252,-Duser.country=US,-Duser.language=en,-Duser.variant]
+Actual: DefaultDaemonContext[uid=9a28a39f-812a-49d7-9879-3d2f48ef5ec5,javaHome=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot,daemonRegistryDir=C:\Users\leonardo.de.souza\.gradle\daemon,pid=1692,idleTimeout=10800000,priority=NORMAL,applyInstrumentationAgent=true,daemonOpts=--add-opens=java.base/java.util=ALL-UNNAMED,--add-opens=java.base/java.lang=ALL-UNNAMED,--add-opens=java.base/java.lang.invoke=ALL-UNNAMED,--add-opens=java.prefs/java.util.prefs=ALL-UNNAMED,--add-opens=java.base/java.nio.charset=ALL-UNNAMED,--add-opens=java.base/java.net=ALL-UNNAMED,--add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED,-XX:MaxMetaspaceSize=384m,-XX:+HeapDumpOnOutOfMemoryError,-Xms256m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+
+  Looking for a different daemon...
+The client will now receive all logging from the daemon (pid: 7528). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-7528.out.log
+Starting 7th build in daemon [uptime: 1 hrs 3 mins 0.6 secs, performance: 100%, GC rate: 0.00/s, heap usage: 0% of 512 MiB, non-heap usage: 18% of 384 MiB]
+Using 6 worker leases.
+Not watching Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment since the file system is not supported
+Watching the file system is configured to be enabled if available
+File system watching is active
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\checksums\md5-checksums.bin
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\checksums\sha1-checksums.bin
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\checksums\sha256-checksums.bin
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\checksums\sha512-checksums.bin
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\fileHashes\fileHashes.bin
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\fileHashes\resourceHashesCache.bin
+Starting Build
+Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\settings.gradle'.
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\dependencies-accessors\executionHistory.bin
+Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\build.gradle'.
+Included projects: [root project 'deployment']
+
+> Configure project :
+Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\build.gradle'.
+All projects evaluated.
+Task name matched 'clean'
+Selected primary task 'clean' from project :
+Tasks to be executed: [task ':clean']
+Tasks that were excluded: []
+Resolve mutations for :clean (Thread[Execution worker,5,main]) started.
+:clean (Thread[Execution worker,5,main]) started.
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\8.5\executionHistory\executionHistory.bin
+Invalidating in-memory cache of Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\datagrid-web\tests\testProject\deployment\.gradle\buildOutputCleanup\outputFiles.bin
+
+> Task :clean UP-TO-DATE
+Caching disabled for task ':clean' because:
+  Build cache is disabled
+Task ':clean' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 up-to-date
+Watched directory hierarchies: []
+
+
+
