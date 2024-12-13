@@ -72,8 +72,11 @@ public class Image extends system.proxies.FileDocument
 	 */
 	public static system.proxies.Image initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("FileUploader.Image", mendixObject.getType())) {
-			return fileuploader.proxies.Image.initialize(context, mendixObject);
+		if (com.mendix.core.Core.isSubClassOf("ImageCrop.CropImage", mendixObject.getType())) {
+			return imagecrop.proxies.CropImage.initialize(context, mendixObject);
+		}
+		if (com.mendix.core.Core.isSubClassOf("FileUploader.UploadedImage", mendixObject.getType())) {
+			return fileuploader.proxies.UploadedImage.initialize(context, mendixObject);
 		}
 		return new system.proxies.Image(context, mendixObject);
 	}

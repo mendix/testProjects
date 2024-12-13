@@ -4,7 +4,7 @@
 
 package myfirstmodule.proxies;
 
-public class SupportTicket extends fileuploader.proxies.FileContext
+public class SupportTicket extends fileuploader.proxies.FileUploadContext
 {
 	/**
 	 * Internal name of this entity
