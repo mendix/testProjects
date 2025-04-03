@@ -33,3 +33,4 @@ widgets
 !/javascriptsource/**/node_modules/
 /nativemobile/builds/
 /vendorlib/temp/
+.DS_Store
