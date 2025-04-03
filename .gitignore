@@ -19,3 +19,21 @@ theme-cache
 project-settings.user.json
 *.mpr.lock
 
+/*.launch
+/deployment/
+/packages/
+/releases/
+/.mendix-cache/
+/.classpath
+/.project
+/switch.mpr.bak
+/switch.mpr.lock
+/modeler-merge-marker
+/project-settings.user.json
+/javasource/*/proxies/
+/javasource/system/
+/**/node_modules/
+!/javascriptsource/**/node_modules/
+/nativemobile/builds/
+/vendorlib/temp/
+.DS_Store
