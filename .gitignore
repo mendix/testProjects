@@ -14,3 +14,22 @@ javasource/*/proxies
 .classpath
 .project
 
+/*.launch
+/deployment/
+/packages/
+/releases/
+/.mendix-cache/
+/.classpath
+/.project
+/googletagapp.mpr.bak
+/googletagapp.mpr.lock
+/modeler-merge-marker
+/project-settings.user.json
+/javasource/*/proxies/
+/javasource/system/
+/**/node_modules/
+!/javascriptsource/**/node_modules/
+/nativemobile/builds/
+/vendorlib/temp/
+.DS_Store
+/.svn/
