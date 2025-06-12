@@ -228,13 +228,13 @@ public class SynchronizationError implements com.mendix.systemwideinterfaces.cor
 		getMendixObject().setValue(context, MemberNames.ObjectContent.toString(), objectcontent);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return synchronizationErrorMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -228,13 +228,13 @@ public class LoginContext implements com.mendix.systemwideinterfaces.core.IEntit
 		getMendixObject().setValue(context, MemberNames.ValidationMessage.toString(), validationmessage);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return loginContextMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

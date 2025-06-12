@@ -5,7 +5,7 @@
 package system.proxies;
 
 /**
- * Represents a concurrency token to limit to parallely executing tasks in whole cluster when cluster wide limit is enabled for a Queue.
+ * Represents a concurrency token to limit parallely executing tasks in the whole cluster when cluster wide limit is enabled for a Queue.
  */
 public class TaskQueueToken implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -194,13 +194,13 @@ public class TaskQueueToken implements com.mendix.systemwideinterfaces.core.IEnt
 		getMendixObject().setValue(context, MemberNames.ValidUntil.toString(), validuntil);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return taskQueueTokenMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -367,13 +367,13 @@ public class Geolocation implements com.mendix.systemwideinterfaces.core.IEntity
 		getMendixObject().setValue(context, MemberNames.Speed.toString(), speed);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return geolocationMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

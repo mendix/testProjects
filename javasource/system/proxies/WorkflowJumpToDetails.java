@@ -209,13 +209,13 @@ public class WorkflowJumpToDetails implements com.mendix.systemwideinterfaces.co
 		getMendixObject().setValue(context, MemberNames.WorkflowJumpToDetails_CurrentActivities.toString(), identifiers);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return workflowJumpToDetailsMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

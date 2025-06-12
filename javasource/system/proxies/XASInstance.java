@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Information about the nodes in a cluster of a Mendix application.
+ */
 public class XASInstance implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject xASInstanceMendixObject;
@@ -265,13 +268,13 @@ public class XASInstance implements com.mendix.systemwideinterfaces.core.IEntity
 		getMendixObject().setValue(context, MemberNames.CustomerName.toString(), customername);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return xASInstanceMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

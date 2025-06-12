@@ -151,13 +151,13 @@ public class HttpMessage implements com.mendix.systemwideinterfaces.core.IEntity
 		getMendixObject().setValue(context, MemberNames.Content.toString(), content);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return httpMessageMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

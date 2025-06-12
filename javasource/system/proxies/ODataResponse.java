@@ -108,13 +108,13 @@ public class ODataResponse implements com.mendix.systemwideinterfaces.core.IEnti
 		getMendixObject().setValue(context, MemberNames.Count.toString(), count);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return oDataResponseMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
