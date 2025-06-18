@@ -202,13 +202,13 @@ public class WorkflowUserTaskDefinition implements com.mendix.systemwideinterfac
 		}
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return workflowUserTaskDefinitionMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

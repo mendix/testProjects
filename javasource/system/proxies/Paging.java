@@ -256,13 +256,13 @@ public class Paging implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		getMendixObject().setValue(context, MemberNames.HasMoreData.toString(), hasmoredata);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return pagingMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

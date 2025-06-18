@@ -804,13 +804,13 @@ public class ProcessedQueueTask implements com.mendix.systemwideinterfaces.core.
 		getMendixObject().setValue(context, MemberNames.ScheduledEventName.toString(), scheduledeventname);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return processedQueueTaskMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -154,13 +154,13 @@ public class Country implements com.mendix.systemwideinterfaces.core.IEntityProx
 		getMendixObject().setValue(context, MemberNames.name.toString(), name);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return countryMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

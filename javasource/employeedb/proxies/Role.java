@@ -154,13 +154,13 @@ public class Role implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		getMendixObject().setValue(context, MemberNames.name.toString(), name);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return roleMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -730,13 +730,13 @@ public class QueuedTask implements com.mendix.systemwideinterfaces.core.IEntityP
 		getMendixObject().setValue(context, MemberNames.ScheduledEventName.toString(), scheduledeventname);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return queuedTaskMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

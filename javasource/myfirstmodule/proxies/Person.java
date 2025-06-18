@@ -25,7 +25,8 @@ public class Person implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		PersonId("PersonId"),
 		Age("Age"),
 		Birthday("Birthday"),
-		CustomConfig("CustomConfig");
+		CustomConfig("CustomConfig"),
+		ReferenceSet_Person("MyFirstModule.ReferenceSet_Person");
 
 		private final java.lang.String metaName;
 
@@ -302,13 +303,65 @@ public class Person implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		getMendixObject().setValue(context, MemberNames.CustomConfig.toString(), customconfig);
 	}
 
-	@Override
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of ReferenceSet_Person
+	 */
+	public final java.util.List<myfirstmodule.proxies.ReferenceSet> getReferenceSet_Person() throws com.mendix.core.CoreException
+	{
+		return getReferenceSet_Person(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of ReferenceSet_Person
+	 * @throws com.mendix.core.CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	public final java.util.List<myfirstmodule.proxies.ReferenceSet> getReferenceSet_Person(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		java.util.List<myfirstmodule.proxies.ReferenceSet> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.ReferenceSet_Person.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(myfirstmodule.proxies.ReferenceSet.initialize(context, mendixObject));
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of ReferenceSet_Person
+	 * @param referenceset_person
+	 */
+	public final void setReferenceSet_Person(java.util.List<myfirstmodule.proxies.ReferenceSet> referenceset_person)
+	{
+		setReferenceSet_Person(getContext(), referenceset_person);
+	}
+
+	/**
+	 * Set value of ReferenceSet_Person
+	 * @param context
+	 * @param referenceset_person
+	 */
+	public final void setReferenceSet_Person(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<myfirstmodule.proxies.ReferenceSet> referenceset_person)
+	{
+		var identifiers = referenceset_person
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.ReferenceSet_Person.toString(), identifiers);
+	}
+
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return personMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

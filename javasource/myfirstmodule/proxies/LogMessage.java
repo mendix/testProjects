@@ -219,13 +219,13 @@ public class LogMessage implements com.mendix.systemwideinterfaces.core.IEntityP
 		getMendixObject().setValue(context, MemberNames.Code.toString(), code);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return logMessageMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

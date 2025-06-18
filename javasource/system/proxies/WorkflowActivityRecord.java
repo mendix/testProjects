@@ -35,12 +35,15 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 		TaskDueDate("TaskDueDate"),
 		TaskCompletionType("TaskCompletionType"),
 		TaskRequiredUsers("TaskRequiredUsers"),
+		TaskKey("TaskKey"),
 		Reason("Reason"),
 		WorkflowActivityRecord_PreviousActivity("System.WorkflowActivityRecord_PreviousActivity"),
 		WorkflowActivityRecord_Actor("System.WorkflowActivityRecord_Actor"),
 		WorkflowActivityRecord_SubWorkflow("System.WorkflowActivityRecord_SubWorkflow"),
 		WorkflowActivityRecord_UserTask("System.WorkflowActivityRecord_UserTask"),
-		WorkflowActivityRecord_WorkflowUserTaskDefinition("System.WorkflowActivityRecord_WorkflowUserTaskDefinition");
+		WorkflowActivityRecord_WorkflowUserTaskDefinition("System.WorkflowActivityRecord_WorkflowUserTaskDefinition"),
+		WorkflowActivityRecord_TaskTargetedUsers("System.WorkflowActivityRecord_TaskTargetedUsers"),
+		WorkflowActivityRecord_TaskAssignedUsers("System.WorkflowActivityRecord_TaskAssignedUsers");
 
 		private final java.lang.String metaName;
 
@@ -660,6 +663,42 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 	}
 
 	/**
+	 * @return value of TaskKey
+	 */
+	public final java.lang.String getTaskKey()
+	{
+		return getTaskKey(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of TaskKey
+	 */
+	public final java.lang.String getTaskKey(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.String) getMendixObject().getValue(context, MemberNames.TaskKey.toString());
+	}
+
+	/**
+	 * Set value of TaskKey
+	 * @param taskkey
+	 */
+	public final void setTaskKey(java.lang.String taskkey)
+	{
+		setTaskKey(getContext(), taskkey);
+	}
+
+	/**
+	 * Set value of TaskKey
+	 * @param context
+	 * @param taskkey
+	 */
+	public final void setTaskKey(com.mendix.systemwideinterfaces.core.IContext context, java.lang.String taskkey)
+	{
+		getMendixObject().setValue(context, MemberNames.TaskKey.toString(), taskkey);
+	}
+
+	/**
 	 * @return value of Reason
 	 */
 	public final java.lang.String getReason()
@@ -930,13 +969,117 @@ public class WorkflowActivityRecord implements com.mendix.systemwideinterfaces.c
 		}
 	}
 
-	@Override
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowActivityRecord_TaskTargetedUsers
+	 */
+	public final java.util.List<system.proxies.User> getWorkflowActivityRecord_TaskTargetedUsers() throws com.mendix.core.CoreException
+	{
+		return getWorkflowActivityRecord_TaskTargetedUsers(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowActivityRecord_TaskTargetedUsers
+	 * @throws com.mendix.core.CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	public final java.util.List<system.proxies.User> getWorkflowActivityRecord_TaskTargetedUsers(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		java.util.List<system.proxies.User> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.WorkflowActivityRecord_TaskTargetedUsers.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(system.proxies.User.initialize(context, mendixObject));
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_TaskTargetedUsers
+	 * @param workflowactivityrecord_tasktargetedusers
+	 */
+	public final void setWorkflowActivityRecord_TaskTargetedUsers(java.util.List<system.proxies.User> workflowactivityrecord_tasktargetedusers)
+	{
+		setWorkflowActivityRecord_TaskTargetedUsers(getContext(), workflowactivityrecord_tasktargetedusers);
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_TaskTargetedUsers
+	 * @param context
+	 * @param workflowactivityrecord_tasktargetedusers
+	 */
+	public final void setWorkflowActivityRecord_TaskTargetedUsers(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<system.proxies.User> workflowactivityrecord_tasktargetedusers)
+	{
+		var identifiers = workflowactivityrecord_tasktargetedusers
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_TaskTargetedUsers.toString(), identifiers);
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of WorkflowActivityRecord_TaskAssignedUsers
+	 */
+	public final java.util.List<system.proxies.User> getWorkflowActivityRecord_TaskAssignedUsers() throws com.mendix.core.CoreException
+	{
+		return getWorkflowActivityRecord_TaskAssignedUsers(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of WorkflowActivityRecord_TaskAssignedUsers
+	 * @throws com.mendix.core.CoreException
+	 */
+	@SuppressWarnings("unchecked")
+	public final java.util.List<system.proxies.User> getWorkflowActivityRecord_TaskAssignedUsers(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		java.util.List<system.proxies.User> result = new java.util.ArrayList<>();
+		Object valueObject = getMendixObject().getValue(context, MemberNames.WorkflowActivityRecord_TaskAssignedUsers.toString());
+		if (valueObject == null) {
+			return result;
+		}
+		for (com.mendix.systemwideinterfaces.core.IMendixObject mendixObject : com.mendix.core.Core.retrieveIdList(context, (java.util.List<com.mendix.systemwideinterfaces.core.IMendixIdentifier>) valueObject)) {
+			result.add(system.proxies.User.initialize(context, mendixObject));
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_TaskAssignedUsers
+	 * @param workflowactivityrecord_taskassignedusers
+	 */
+	public final void setWorkflowActivityRecord_TaskAssignedUsers(java.util.List<system.proxies.User> workflowactivityrecord_taskassignedusers)
+	{
+		setWorkflowActivityRecord_TaskAssignedUsers(getContext(), workflowactivityrecord_taskassignedusers);
+	}
+
+	/**
+	 * Set value of WorkflowActivityRecord_TaskAssignedUsers
+	 * @param context
+	 * @param workflowactivityrecord_taskassignedusers
+	 */
+	public final void setWorkflowActivityRecord_TaskAssignedUsers(com.mendix.systemwideinterfaces.core.IContext context, java.util.List<system.proxies.User> workflowactivityrecord_taskassignedusers)
+	{
+		var identifiers = workflowactivityrecord_taskassignedusers
+			.stream()
+			.map(proxyObject -> proxyObject.getMendixObject().getId())
+			.collect(java.util.stream.Collectors.toList());
+		
+		getMendixObject().setValue(context, MemberNames.WorkflowActivityRecord_TaskAssignedUsers.toString(), identifiers);
+	}
+
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return workflowActivityRecordMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
