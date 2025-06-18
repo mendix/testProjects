@@ -1,5 +1,0 @@
-Manifest-Version: 1.0
-Bundle-Name: testProject
-Bundle-SymbolicName: project
-Service-Component: OSGI-INF/component.xml
-
