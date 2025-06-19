@@ -228,13 +228,13 @@ public class WorkflowActivityDetails implements com.mendix.systemwideinterfaces.
 		getMendixObject().setValue(context, MemberNames.ExistsInCurrentVersion.toString(), existsincurrentversion);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return workflowActivityDetailsMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

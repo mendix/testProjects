@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Information about Scheduled Events.
+ */
 public class ScheduledEventInformation implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject scheduledEventInformationMendixObject;
@@ -322,13 +325,13 @@ public class ScheduledEventInformation implements com.mendix.systemwideinterface
 		}
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return scheduledEventInformationMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

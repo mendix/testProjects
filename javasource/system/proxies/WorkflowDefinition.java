@@ -228,13 +228,13 @@ public class WorkflowDefinition implements com.mendix.systemwideinterfaces.core.
 		getMendixObject().setValue(context, MemberNames.IsLocked.toString(), islocked);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return workflowDefinitionMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

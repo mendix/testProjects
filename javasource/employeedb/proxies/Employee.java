@@ -560,13 +560,13 @@ public class Employee implements com.mendix.systemwideinterfaces.core.IEntityPro
 		getMendixObject().setValue(context, MemberNames.Employee_Role.toString(), identifiers);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return employeeMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -154,13 +154,13 @@ public class Snapshot implements com.mendix.systemwideinterfaces.core.IEntityPro
 		getMendixObject().setValue(context, MemberNames.snapshot_version.toString(), snapshot_version);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return snapshotMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -185,13 +185,13 @@ public class Error implements com.mendix.systemwideinterfaces.core.IEntityProxy
 		getMendixObject().setValue(context, MemberNames.Stacktrace.toString(), stacktrace);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return errorMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Represents a time zone.
+ */
 public class TimeZone implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject timeZoneMendixObject;
@@ -191,13 +194,13 @@ public class TimeZone implements com.mendix.systemwideinterfaces.core.IEntityPro
 		getMendixObject().setValue(context, MemberNames.RawOffset.toString(), rawoffset);
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return timeZoneMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;

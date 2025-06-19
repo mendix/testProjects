@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * To manage user login information/other data under a context.
+ */
 public class Session implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject sessionMendixObject;
@@ -239,13 +242,13 @@ public class Session implements com.mendix.systemwideinterfaces.core.IEntityProx
 		}
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IMendixObject getMendixObject()
 	{
 		return sessionMendixObject;
 	}
 
-	@Override
+	@java.lang.Override
 	public final com.mendix.systemwideinterfaces.core.IContext getContext()
 	{
 		return context;
