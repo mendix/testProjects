@@ -466,6 +466,13 @@ let floatingActionButton = {
         borderColor: brand.primary,
         backgroundColor: brand.primary
     },
+    buttonContainer: {
+        heigh: 50,
+        width: 50,
+        borderRadius: 25,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     buttonIcon: {
         size: font.sizeLarge,
         color: contrast.lowest
@@ -673,7 +680,9 @@ radioButtons = merge(radioButtons, custom.radioButtons || {});
 //
 // Background Gradient
 let backgroundGradient = {
-    container: {}
+    container: {},
+    angle: 0,
+    opacity: 100
 };
 backgroundGradient = merge(backgroundGradient, custom.backgroundGradient || {});
 // column chart styles
