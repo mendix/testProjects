@@ -1,17 +1,22 @@
-$hover-color: #f8f8f8 !default;
-$background-color: #fff !default;
-$selected-color: #dadcde !default;
-$border-color: #ced0d3 !default;
-$arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='15px' height='8px'><polyline id='Line' fill='none' stroke='%23555555' points='0.5 0.5 6 6 11.545361 0.5'></polyline></svg>";
+$dg-hover-color: #f8f8f8;
+$dg-background-color: #fff;
+$dg-selected-color: #dadcde;
+$dg-border-color: #ced0d3;
+$dg-spacing-small: 8px;
+$arrow: "resources/dropdown-arrow.svg";
+$dg-item-min-height: 32px;
 
-@import "DatePicker";
+@import "date-picker";
 
 @font-face {
     font-family: "datagrid-filters";
     src: url("./fonts/datagrid-filters.eot");
-    src: url("./fonts/datagrid-filters.eot") format("embedded-opentype"),
-        url("./fonts/datagrid-filters.woff2") format("woff2"), url("./fonts/datagrid-filters.woff") format("woff"),
-        url("./fonts/datagrid-filters.ttf") format("truetype"), url("./fonts/datagrid-filters.svg") format("svg");
+    src:
+        url("./fonts/datagrid-filters.eot") format("embedded-opentype"),
+        url("./fonts/datagrid-filters.woff2") format("woff2"),
+        url("./fonts/datagrid-filters.woff") format("woff"),
+        url("./fonts/datagrid-filters.ttf") format("truetype"),
+        url("./fonts/datagrid-filters.svg") format("svg");
     font-weight: normal;
     font-style: normal;
 }
@@ -20,6 +25,7 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
     display: flex;
     flex-direction: row;
     flex-grow: 1;
+    position: relative;
 
     .filter-input {
         border-top-left-radius: 0;
@@ -28,6 +34,10 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
 
     .btn-calendar {
         margin-left: 5px; //Review in atlas, the current date picker is also 5px
+        .button-icon {
+            width: 18px;
+            height: 18px;
+        }
     }
 }
 
@@ -53,54 +63,25 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
                 padding-left: 4px; /* The font has spaces in the right side, so to align in the middle we need this */
             }
         }
-
-        .filter-selectors {
-            position: absolute;
-            width: max-content;
-            left: 0;
-            margin: 0 $spacing-small;
-            padding: 0;
-            background: $background-color;
-            z-index: 102;
-            border-radius: 8px;
-            list-style-type: none;
-            box-shadow: 0 2px 20px 1px rgba(5, 15, 129, 0.05), 0 2px 16px 0 rgba(33, 43, 54, 0.08);
-            overflow: hidden;
-
-            li {
-                display: flex;
-                align-items: center;
-                font-weight: normal;
-                line-height: 32px;
-                cursor: pointer;
-
-                .filter-label {
-                    padding-right: 8px;
-                }
-
-                &.filter-selected {
-                    background-color: $hover-color;
-                    color: $brand-primary;
-                }
-
-                &:hover,
-                &:focus {
-                    background-color: $hover-color;
-                }
-            }
-        }
     }
 }
 
 .filter-selectors {
+    position: absolute;
+    width: max-content;
+    left: 0;
     padding: 0;
-    background: $background-color;
+    margin: 0;
+    background: var(--bg-color-secondary, $dg-background-color);
+    z-index: 51;
     border-radius: 8px;
     list-style-type: none;
-    box-shadow: 0 2px 20px 1px rgba(5, 15, 129, 0.05), 0 2px 16px 0 rgba(33, 43, 54, 0.08);
+    box-shadow:
+        0 2px 20px 1px rgba(5, 15, 129, 0.05),
+        0 2px 16px 0 rgba(33, 43, 54, 0.08);
     overflow: hidden;
-    z-index: 102;
 
+    .filter-listitem,
     li {
         display: flex;
         align-items: center;
@@ -113,34 +94,29 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
         }
 
         &.filter-selected {
-            background-color: $hover-color;
-            color: $brand-primary;
+            background-color: var(--gray-lighter, $dg-hover-color);
+            color: var(--brand-primary, $dg-brand-primary);
         }
 
         &:hover,
-        &:focus {
-            background-color: $hover-color;
+        &.filter-highlighted {
+            background-color: var(--gray-lighter, $dg-hover-color);
         }
     }
 }
 
 .dropdown-list {
-    padding: 0;
-    background: $background-color;
-    border-radius: 8px;
     list-style-type: none;
-    box-shadow: 0 2px 20px 1px rgba(5, 15, 129, 0.05), 0 2px 16px 0 rgba(33, 43, 54, 0.08);
-    overflow-x: hidden;
-    max-height: 40vh;
-    z-index: 102;
+    padding: 0;
+    margin-bottom: 0;
 
     li {
         display: flex;
         align-items: center;
         font-weight: normal;
-        min-height: 32px;
+        min-height: var(--spacing-larger, $dg-item-min-height);
         cursor: pointer;
-        padding: 0 $spacing-small;
+        padding: 0 var(--spacing-small, $dg-spacing-small);
 
         .filter-label {
             overflow: hidden;
@@ -149,13 +125,13 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
         }
 
         &.filter-selected {
-            background-color: $hover-color;
-            color: $brand-primary;
+            background-color: var(--gray-lighter, $dg-hover-color);
+            color: var(--brand-primary, $dg-brand-primary);
         }
 
         &:hover,
         &:focus {
-            background-color: $hover-color;
+            background-color: var(--gray-lighter, $dg-hover-color);
         }
 
         label {
@@ -169,8 +145,49 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
     }
 }
 
+:not(.dropdown-content) > .dropdown-list {
+    background: var(--bg-color-secondary, $dg-background-color);
+    border-radius: 8px;
+    box-shadow:
+        0 2px 20px 1px rgba(5, 15, 129, 0.05),
+        0 2px 16px 0 rgba(33, 43, 54, 0.08);
+    max-height: 40vh;
+    z-index: 102;
+}
+
+.dropdown-content {
+    background: var(--bg-color-secondary, $dg-background-color);
+    border-radius: 8px;
+    box-shadow:
+        0 2px 20px 1px rgba(5, 15, 129, 0.05),
+        0 2px 16px 0 rgba(33, 43, 54, 0.08);
+    max-height: 40vh;
+    z-index: 140;
+}
+
+.dropdown-footer {
+    position: sticky;
+    bottom: 0;
+    background: inherit;
+    z-index: 50;
+}
+
+.dropdown-footer-item {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    padding: 0 var(--spacing-small, $dg-spacing-small);
+    min-height: 40px;
+}
+
+.dropdown-loading {
+    flex-grow: 1;
+    text-align: center;
+}
+
 .dropdown-container {
     flex: 1;
+    position: relative;
 
     .dropdown-triggerer {
         caret-color: transparent;
@@ -187,16 +204,16 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
     }
 
     .dropdown-list {
-        position: absolute;
-        width: max-content;
         left: 0;
-        margin: 0 $spacing-small;
+        margin: 0 var(--spacing-small, $dg-spacing-small);
         padding: 0;
-        background: $background-color;
+        background: var(--bg-color-secondary, $dg-background-color);
         z-index: 102;
         border-radius: 8px;
         list-style-type: none;
-        box-shadow: 0 2px 20px 1px rgba(5, 15, 129, 0.05), 0 2px 16px 0 rgba(33, 43, 54, 0.08);
+        box-shadow:
+            0 2px 20px 1px rgba(5, 15, 129, 0.05),
+            0 2px 16px 0 rgba(33, 43, 54, 0.08);
         overflow-x: hidden;
         max-height: 40vh;
 
@@ -204,9 +221,9 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
             display: flex;
             align-items: center;
             font-weight: normal;
-            min-height: 32px;
+            min-height: var(--spacing-larger, $dg-item-min-height);
             cursor: pointer;
-            padding: 0 $spacing-small;
+            padding: 0 var(--spacing-small, $dg-spacing-small);
 
             .filter-label {
                 overflow: hidden;
@@ -215,13 +232,13 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
             }
 
             &.filter-selected {
-                background-color: $hover-color;
-                color: $brand-primary;
+                background-color: var(--gray-lighter, $dg-hover-color);
+                color: var(--brand-primary, $dg-brand-primary);
             }
 
             &:hover,
             &:focus {
-                background-color: $hover-color;
+                background-color: var(--gray-lighter, $dg-hover-color);
             }
 
             label {
@@ -234,10 +251,6 @@ $arrow: "data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='
             }
         }
     }
-}
-
-.date-filter-container {
-    z-index: 102;
 }
 
 /**
@@ -295,6 +308,12 @@ Icons
 .between:before {
     content: "\e900";
 }
+.empty:before {
+    content: "\e901";
+}
+.notEmpty:before {
+    content: "\e903";
+}
 
 /**
 * Specific styles for filters inside Data Grid 2
@@ -303,13 +322,13 @@ div:not(.table-compact) > .table {
     .th {
         .filter-selector {
             .filter-selectors {
-                margin: 0 $spacing-medium;
+                margin: 0;
             }
         }
 
         .dropdown-container {
             .dropdown-list {
-                margin: 0 $spacing-medium;
+                margin: 0;
             }
         }
     }
