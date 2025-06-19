@@ -76,7 +76,7 @@ $link-hover-color: darken($link-color, 15%);
 //## Change your font family, weight, line-height, headings and more (used in components/typography)
 
 // Font Family Import (Used for google font plugin in theme creater)
-$font-family-import: "https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700";
+$font-family-import: "resources/fonts/open-sans/open-sans.css";
 
 // Font Family / False = fallback from Bootstrap (Helvetica Neue)
 $font-family-base: "Open Sans", sans-serif;
@@ -327,6 +327,10 @@ $listview-padding-top: 16px;
 $listview-padding-right: 16px;
 $listview-padding-bottom: 16px;
 $listview-padding-left: 16px;
+
+// Dropdown
+$dropdown-outer-padding: 10px;
+$dropdown-border-radius: 7px;
 
 // Background Colors
 $grid-bg: transparent;

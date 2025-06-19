@@ -449,6 +449,13 @@ export const floatingActionButton = {
         borderColor: brand.primary,
         backgroundColor: brand.primary
     },
+    buttonContainer: {
+        width: 50,
+        heigh: 50,
+        borderRadius: 25,
+        justifyContent: "center",
+        alignItems: "center"
+    },
     buttonIcon: {
         size: font.sizeLarge,
         color: contrast.lowest
@@ -647,5 +654,146 @@ export const radioButtons = {
 //
 // Background gradient style
 export const backgroundGradient = {
-    container: {}
+    container: {},
+    angle: 0,
+    opacity: 100
+};
+// column chart styles
+export const columnChart = {
+    container: {},
+    errorMessage: {
+        fontFamily: font.family,
+        fontSize: font.sizeSmall,
+        fontWeight: font.weightNormal
+    },
+    chart: {},
+    grid: {
+        lineColor: border.color
+    },
+    xAxis: {
+        color: font.colorTitle,
+        fontFamily: font.family,
+        fontSize: font.sizeSmall,
+        fontWeight: font.weightNormal,
+        label: {
+            color: font.colorParagraph,
+            alignSelf: "center",
+            marginHorizontal: 0,
+            marginVertical: 8,
+            fontFamily: font.family,
+            fontSize: font.sizeSmall,
+            fontWeight: font.weightNormal
+        },
+        lineColor: border.color
+    },
+    yAxis: {
+        color: font.colorTitle,
+        fontFamily: font.family,
+        fontSize: font.sizeSmall,
+        fontWeight: font.weightNormal,
+        label: {
+            color: font.colorParagraph,
+            marginHorizontal: 0,
+            marginVertical: 8,
+            fontFamily: font.family,
+            fontSize: font.sizeSmall,
+            fontWeight: font.weightNormal
+        },
+        lineColor: border.color
+    },
+    columns: {
+        columnColorPalette: Object.entries(brand)
+            .reduce((accumulator, [key, value]) => (key.endsWith("Light") ? accumulator : [...accumulator, value]), [])
+            .join(";"),
+        columnsOffset: 20,
+        customColumnStyles: {
+            your_static_or_dynamic_attribute_value: {
+                column: {},
+                label: {}
+            }
+        }
+    },
+    legend: {
+        container: {
+            justifyContent: "flex-start",
+            marginHorizontal: 0,
+            marginVertical: spacing.small
+        },
+        item: {
+            padding: 0,
+            paddingRight: spacing.regular
+        },
+        indicator: {
+            marginRight: spacing.small
+        },
+        label: {
+            color: font.colorTitle,
+            fontFamily: font.family,
+            fontSize: font.sizeSmall,
+            fontWeight: font.weightNormal
+        }
+    }
+};
+// TODO add bar chart styles
+// Gallery style
+export const gallery = {
+    container: {},
+    emptyPlaceholder: {},
+    firstItem: {},
+    lastItem: {},
+    list: {},
+    listItem: { flexGrow: 1 },
+    loadMoreButtonContainer: {
+        alignSelf: "stretch"
+    },
+    loadMoreButtonPressableContainer: {
+        // Ripplecolor and all ViewStyle properties are allowed
+        borderWidth: 1,
+        borderStyle: "solid",
+        rippleColor: button.container.rippleColor,
+        borderColor: button.primary.borderColor,
+        backgroundColor: button.primary.backgroundColor,
+        alignItems: "center",
+        justifyContent: "center",
+        borderRadius: button.container.borderRadius,
+        minWidth: button.container.minWidth,
+        minHeight: button.container.minHeight,
+        paddingVertical: button.container.paddingVertical,
+        paddingHorizontal: button.container.paddingHorizontal
+    },
+    loadMoreButtonCaption: {
+        // All TextStyle properties are allowed
+        color: button.primary.color,
+        fontSize: button.caption.fontSize,
+        fontFamily: font.family,
+        fontWeight: button.caption.fontWeight,
+        lineHeight: font.lineHeight
+    }
+};
+// Gallery text filter style
+export const galleryTextFilter = {
+    textInputContainer: {
+        flexDirection: "row",
+        justifyContent: "space-between",
+        borderWidth: input.input.borderWidth,
+        borderColor: input.input.borderColor,
+        borderRadius: input.input.borderRadius,
+        paddingEnd: 8
+    },
+    textInputContainerFocused: {
+        borderColor: brand.primary
+    },
+    textInput: {
+        height: 40,
+        marginStart: spacing.regular,
+        width: "90%",
+        color: input.input.color,
+        backgroundColor: input.input.backgroundColor,
+        selectionColor: input.input.selectionColor,
+        placeholderTextColor: input.input.placeholderTextColor
+    },
+    textInputClearIcon: {
+        justifyContent: "center",
+        alignContent: "center"
+    }
 };
