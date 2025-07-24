@@ -2952,18 +2952,6 @@
   content: "\ea6d";
 }
 
-.mx-administration-lv-dg-list.mx-listview > ul {
-  margin: 0;
-}
-.mx-administration-lv-dg-list .mx-listview-empty {
-  display: none;
-}
-.mx-administration-lv-dg-list .mx-button.mx-listview-loadMore {
-  text-align: left;
-  width: auto;
-  margin: 8px 0 0 0;
-}
-
 /* ==========================================================================
   Take picture styles
 ========================================================================== */
