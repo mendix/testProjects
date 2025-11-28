@@ -17,6 +17,7 @@
 @if $font-family-import != false {
     @import url($font-family-import);
 }
+@import "./poppins";
 
 //=============================== Bootstrap ================================\\
 
@@ -64,6 +65,10 @@
 @import "core/base/card";
 @if not $exclude-card {
     @include card();
+}
+@import "core/base/focus-ring";
+@if not $exclude-focus-ring {
+    @include focus-ring();
 }
 
 // Widgets
@@ -115,6 +120,11 @@
 @import "core/widgets/check-box";
 @if not $exclude-check-box {
     @include check-box();
+}
+
+@import "core/widgets/checkboxradiobutton";
+@if not $exclude-check-box-radio-button {
+    @include checkboxradiobutton();
 }
 
 @import "core/widgets/grid";
@@ -300,6 +310,11 @@
 @import "core/widgets/progress";
 @if not $exclude-progress {
     @include progress();
+}
+
+@import "core/widgets/combobox";
+@if not $exclude-combobox {
+    @include combobox();
 }
 
 @import "core/widgets/progress-bar";
