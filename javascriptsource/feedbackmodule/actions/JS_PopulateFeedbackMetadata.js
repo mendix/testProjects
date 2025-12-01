@@ -11,28 +11,46 @@ import { getUserRoleNames } from "mx-api/session";
 import { ui, session } from "mx-api";
 
 // BEGIN EXTRA CODE
-
     const handleUserRoles = async () => {
-        
         try {
-            if(typeof getUserRoleNames !== "function" || getUserRoleNames === undefined) {
-               console.error("Feedback module cannot get the user role name.");
-               return undefined;
-            }
+            let userRoles;
 
-            const userRoles = getUserRoleNames();
-            if(!Array.isArray(userRoles) || userRoles.length === 0) {
+            if (
+                typeof mx !== "undefined" &&
+                typeof mx.session === "object" &&
+                typeof mx.session.getUserRoleNames === "function"
+            ) {
+                userRoles = mx.session.getUserRoleNames();
+            } else if (typeof getUserRoleNames !== "function" || getUserRoleNames === undefined) {
+                userRoles = getUserRoleNames();
+            } else {
+                console.error("Feedback module cannot access a valid user role retrieval function.");
                 return undefined;
             }
+
+            if (!Array.isArray(userRoles) || userRoles.length === 0) {
+                console.error("User roles not available or empty.");
+                return undefined;
+            }
+
             return userRoles[0];
-        } catch (error){
-            console.error("Feedback module cannot get the user role name.", error);
+        } catch (error) {
+            console.error("Feedback module failed to get the user role name.", error);
             return undefined;
         }
     };
+
     const handlePagePath = async () => {
         try {
-            return window.history.state.pageName;
+            if (
+                typeof mx !== "undefined" &&
+                typeof mx.ui.getContentForm === "function" &&
+                typeof mx.ui.getContentForm().path !== "undefined"
+            ) {
+                return mx.ui.getContentForm().path;
+            } else {
+                return window.history.state.pageName;
+            }
         } catch(error) {
             console.error("Feedback module cannot get the Mendix App page name", error);
             return undefined;
@@ -62,12 +80,12 @@ export async function JS_PopulateFeedbackMetadata(feedback) {
         const userRoles = await handleUserRoles();
         const pagePath = await handlePagePath();
 
-        feedback.set("ActiveUserRoles", userRoles);
-        feedback.set("PageName", pagePath);
-        feedback.set("EnvironmentURL", window.location.href);
-        feedback.set("Browser", navigator.userAgent);
-        feedback.set("ScreenWidth", window.screen.width);
-        feedback.set("ScreenHeight", window.screen.height);
+        feedback.set("ActiveUserRoles", userRoles || "");
+        feedback.set("PageName", pagePath || "");
+        feedback.set("EnvironmentURL", window.location.href || "");
+        feedback.set("Browser", navigator.userAgent || "");
+        feedback.set("ScreenWidth", window.screen.width || "");
+        feedback.set("ScreenHeight", window.screen.height || "");
         return feedback;
     } catch (error) {
         console.error("Feedback Module cannot correctly set meta data.", error);

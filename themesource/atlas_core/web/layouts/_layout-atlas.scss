@@ -35,7 +35,6 @@
                 z-index: 101;
             }
             box-shadow: var(--navsidebar-shadow);
-            border-right: var(--navsidebar-border-right);
 
             .mx-scrollcontainer-wrapper {
                 display: flex;
@@ -65,16 +64,9 @@
         // Topbar
         .region-topbar {
             position: relative;
-            align-content: center;
             z-index: 60; // Show dropshadow
             min-height: var(--topbar-minimalheight);
             background: var(--navtopbar-bg);
-            border-bottom: var(--navtopbar-border-bottom);
-
-            // allow secondary color for different type of navbar
-            &.topbar-secondary{
-                background: var(--navtopbar-bg-secondary, --navtopbar-bg);
-            }
 
             // Topbar Content
             .topbar-content {
@@ -86,6 +78,7 @@
             // Toggle btn
             .toggle-btn {
                 padding: 0;
+                margin-right: var(--spacing-medium);
                 border-color: transparent;
                 border-radius: 0;
                 background: transparent;
@@ -119,8 +112,9 @@
                 }
 
                 a {
+                    margin-left: var(--spacing-small);
                     color: var(--navbar-brand-name);
-                    font-size: var(--navtopbar-font-size);
+                    font-size: 20px;
 
                     &:hover,
                     &:focus {
@@ -130,6 +124,7 @@
             }
 
             .mx-navbar {
+                display: inline-flex;
                 vertical-align: middle;
                 background: transparent;
                 justify-content: center;
