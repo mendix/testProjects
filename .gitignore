@@ -18,3 +18,5 @@
 .DS_Store
 /.svn/
 /mprcontents/mprjournal*
+/skiplink-web.mpr.bak
+/skiplink-web.mpr.lock
