@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Information about Scheduled Events.
+ */
 public class ScheduledEventInformation implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject scheduledEventInformationMendixObject;
@@ -51,7 +54,7 @@ public class ScheduledEventInformation implements com.mendix.systemwideinterface
 		if (scheduledEventInformationMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, scheduledEventInformationMendixObject.getType())) {
+		if (!scheduledEventInformationMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

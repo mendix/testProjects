@@ -5,6 +5,7 @@
 // - the code between BEGIN USER CODE and END USER CODE
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
+import "mx-global";
 import { Big } from "big.js";
 
 // BEGIN EXTRA CODE
@@ -32,6 +33,18 @@ import { Big } from "big.js";
  */
 export async function JS_RevokeUploadedFileFromMemory(fileBlobURL) {
 	// BEGIN USER CODE
-	throw new Error("JavaScript action was not implemented");
+	/* We use the URL.createObjectURL() static method which creates a string containing a URL representing the
+	   image uploaded. 
+	   The image blob is stored in the clients browser and takes up memory whilst the session is active. So here we 
+	   revoke the image when the user deletes the image. Note that the image is automaticlly revoked when the browser refreshes
+	   or closes.
+
+	   You have to pass the fileBlobURL that was created using the URL.createObjectURL() in the JS Action called 'JS_UploadAndConvertToFileBlobURL'
+	 */
+	if(fileBlobURL && typeof fileBlobURL === "string"){
+		URL.revokeObjectURL(fileBlobURL);
+	} else {
+		throw new Error("Image was not removed from browser memory");
+	}
 	// END USER CODE
 }

@@ -9,10 +9,12 @@
 
 package feedbackmodule.actions;
 
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
+import com.mendix.systemwideinterfaces.core.UserAction;
 
-public class XSS_Sanitizer extends CustomJavaAction<java.lang.String>
+public class XSS_Sanitizer extends UserAction<java.lang.String>
 {
 	private final java.lang.String stringToSanitize;
 
@@ -29,7 +31,11 @@ public class XSS_Sanitizer extends CustomJavaAction<java.lang.String>
 	public java.lang.String executeAction() throws Exception
 	{
 		// BEGIN USER CODE
-		throw new com.mendix.systemwideinterfaces.MendixRuntimeException("Java action was not implemented");
+
+        //It's a simple XSS sanitation with regex replace.
+        String sanitizedString = sanitize(stringToSanitize);
+        return sanitizedString;
+
 		// END USER CODE
 	}
 
@@ -44,5 +50,41 @@ public class XSS_Sanitizer extends CustomJavaAction<java.lang.String>
 	}
 
 	// BEGIN EXTRA CODE
+    public static String sanitize(String input) {
+        if (input == null || input.isEmpty()) {
+            return input;
+        }
+
+        // Remove all occurrences of <script> tags and their contents
+        input = input.replaceAll("(?i)<script[^>]*>.*?</script>", "");
+
+        // Remove all event handler attributes (e.g., onclick, onmouseover)
+        input = input.replaceAll("(?i)\\bon\\w+\\s*=\\s*(\"[^\"]*\"|'[^']*'|[^\\s>]+)", "");
+
+        // Remove all javascript: URLs
+        input = input.replaceAll("(?i)javascript:", "");
+
+        // Remove all <iframe> tags
+        input = input.replaceAll("(?i)<iframe[^>]*>.*?</iframe>", "");
+
+        // Remove all <object> tags
+        input = input.replaceAll("(?i)<object[^>]*>.*?</object>", "");
+
+        // Remove all <embed> tags
+        input = input.replaceAll("(?i)<embed[^>]*>.*?</embed>", "");
+
+        // Remove all <applet> tags
+        input = input.replaceAll("(?i)<applet[^>]*>.*?</applet>", "");
+
+        // Remove all <meta> tags that could potentially cause redirection
+        input = input.replaceAll("(?i)<meta[^>]*http-equiv[^>]*>", "");
+
+        // Remove all other potentially dangerous HTML tags
+        Pattern pattern = Pattern.compile("<[^>]*(>|$)");
+        Matcher matcher = pattern.matcher(input);
+        input = matcher.replaceAll("");
+
+        return input;
+    }
 	// END EXTRA CODE
 }

@@ -1,0 +1,18 @@
+.widget-tree-node.widget-tree-node-v2 .widget-tree-node-v2-body {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  opacity: 1;
+  transition: grid-template-rows 220ms ease, opacity 180ms ease;
+  will-change: grid-template-rows, opacity;
+}
+.widget-tree-node.widget-tree-node-v2 .widget-tree-node-v2-body > ul,
+.widget-tree-node.widget-tree-node-v2 .widget-tree-node-v2-body > div {
+  min-height: 0;
+  overflow: hidden;
+}
+.widget-tree-node.widget-tree-node-v2 .widget-tree-node-v2-body.widget-tree-node-v2-body-collapsed {
+  grid-template-rows: 0fr 0fr;
+  opacity: 0;
+}
+/*# sourceMappingURL=inline */
+/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZpbGU6Ly8vVXNlcnMvbGVvbmFyZG8uZGUuc291emEvRG9jdW1lbnRzL1Byb2plY3RzL3dlYi13aWRnZXRzL3BhY2thZ2VzL3BsdWdnYWJsZVdpZGdldHMvdHJlZS1ub2RlLXdlYi9zcmMvY29tcG9uZW50cy92Mi91aS9UcmVlTm9kZVYyLnNjc3MiLCIuLi8uLi8uLi8uLi8uLi8uLi8uLi8uLi9zcmMvY29tcG9uZW50cy92Mi91aS9UcmVlTm9kZVYyLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBRVE7RUFDSSxhQUFBO0VBQ0EsNEJBQUE7RUFDQSxVQUFBO0VBQ0EsNkRBQ0k7RUFFSix3Q0FBQTtBQ0haO0FES1k7O0VBRUksYUFBQTtFQUNBLGdCQUFBO0FDSGhCO0FET1E7RUFDSSwyQkFBQTtFQUNBLFVBQUE7QUNMWjtBQUVBLDZCQUE2QiIsImZpbGUiOiJUcmVlTm9kZS5jc3MifQ==*/

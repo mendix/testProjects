@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Information about the nodes in a cluster of a Mendix application.
+ */
 public class XASInstance implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject xASInstanceMendixObject;
@@ -50,7 +53,7 @@ public class XASInstance implements com.mendix.systemwideinterfaces.core.IEntity
 		if (xASInstanceMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, xASInstanceMendixObject.getType())) {
+		if (!xASInstanceMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

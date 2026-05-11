@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * List of user roles in the application. `Administrator`/`User` or any custom roles.
+ */
 public class UserRole implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject userRoleMendixObject;
@@ -49,7 +52,7 @@ public class UserRole implements com.mendix.systemwideinterfaces.core.IEntityPro
 		if (userRoleMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, userRoleMendixObject.getType())) {
+		if (!userRoleMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

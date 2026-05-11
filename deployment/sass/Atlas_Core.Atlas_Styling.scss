@@ -1,0 +1,125 @@
+@font-face {
+  font-family: "Atlas_Core$Atlas_Styling";
+  src: url("./fonts/Atlas_Core$Atlas_Styling.ttf") format("truetype");
+}
+.Atlas_Core_Controls {
+  display: inline-block;
+  font-style: normal;
+  font-weight: normal;
+  line-height: 1;
+  font-family: "Atlas_Core$Atlas_Styling";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-vertical-center::before {
+  content: "\e800";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-vertical-top::before {
+  content: "\e801";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-vertical-bottom::before {
+  content: "\e802";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-vertical-space-around::before {
+  content: "\e803";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-vertical-space-between::before {
+  content: "\e804";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-vertical-space-even::before {
+  content: "\e805";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-stretch::before {
+  content: "\e806";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-horizontal-center::before {
+  content: "\e807";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-horizontal-left::before {
+  content: "\e808";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-horizontal-space-around::before {
+  content: "\e809";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-horizontal-space-between::before {
+  content: "\e80a";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-horizontal-space-even::before {
+  content: "\e80b";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-radius-large::before {
+  content: "\e80c";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-radius-medium::before {
+  content: "\e80d";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-radius-small::before {
+  content: "\e80e";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-style-dashed::before {
+  content: "\e80f";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-aligncontent-horizontal-right::before {
+  content: "\e810";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-style-solid::before {
+  content: "\e811";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-width-medium::before {
+  content: "\e812";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-width-thin::before {
+  content: "\e813";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-borders-left::before {
+  content: "\e814";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-borders-bottom::before {
+  content: "\e815";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-style-dotted::before {
+  content: "\e816";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-borders-all::before {
+  content: "\e817";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-direction-vertical::before {
+  content: "\e818";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-borders-top::before {
+  content: "\e819";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-grow-shrink-auto-fit::before {
+  content: "\e81a";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-direction-horizontal::before {
+  content: "\e81b";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-border-width-thick::before {
+  content: "\e81c";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-borders-right::before {
+  content: "\e81d";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-grow-shrink-auto-fill::before {
+  content: "\e81e";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-grow-shrink-none-fixed::before {
+  content: "\e81f";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-shadows-large::before {
+  content: "\e820";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-overflow-visible::before {
+  content: "\e821";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-shadows-medium::before {
+  content: "\e822";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-overflow-hidden::before {
+  content: "\e823";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-shadows-small::before {
+  content: "\e824";
+}
+.Atlas_Core_Controls.Atlas_Core_Controls-none::before {
+  content: "\e825";
+}

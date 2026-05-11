@@ -1,0 +1,36 @@
+ext {
+	mendixJavaVersion = 21
+	mendixInstallDir = "/tmp/mxbuild"
+	projectName = "TreeView"
+	projectSafeName = "testProject"
+	mendixProjectDir = "/source/tests/testProject"
+	deploymentDir = "/source/tests/testProject/deployment"
+	dataSnapshotFile = "/source/tests/testProject/data-snapshot.zip"
+	dataDir = "/source/tests/testProject/deployment/data"
+	extractDataSnapshot = false
+	templatesDir = "/tmp/mxbuild/modeler/runtemplates"
+	runDir = "run"
+	compileTargetDir = "run/bin"
+	deploymentDirName = "deployment"
+	modelDirName = "model"
+	resourcesDirName = "resources"
+	javaSourceDirName = "javasource"
+	libDirName = "lib"
+	userlibDirName = "userlib"
+	vendorlibDirName = "vendorlib"
+	generateFullDebugInfo = false
+	excludedRunTemplatesFiles = [
+		"**/*.template",
+		"web/index-example.html"
+	]
+	excludedJavaActions = []
+	publicApiJars = [
+		"runtime/bundles/com.mendix.json.jar",
+		"runtime/bundles/com.mendix.logging-api.jar",
+		"runtime/bundles/com.mendix.public-api.jar",
+		"runtime/bundles/org.eclipse.jetty.toolchain.jetty-servlet-api.jar",
+		"runtime/bundles/org.eclipse.jetty.toolchain.jetty-javax-websocket-api.jar"
+	]
+	excludedJars = []
+	protectedModules = []
+}

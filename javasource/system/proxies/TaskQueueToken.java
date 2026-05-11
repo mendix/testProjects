@@ -5,7 +5,7 @@
 package system.proxies;
 
 /**
- * Represents a concurrency token to limit to parallely executing tasks in whole cluster when cluster wide limit is enabled for a Queue.
+ * Represents a concurrency token to limit parallely executing tasks in the whole cluster when cluster wide limit is enabled for a Queue.
  */
 public class TaskQueueToken implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
@@ -51,7 +51,7 @@ public class TaskQueueToken implements com.mendix.systemwideinterfaces.core.IEnt
 		if (taskQueueTokenMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, taskQueueTokenMendixObject.getType())) {
+		if (!taskQueueTokenMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

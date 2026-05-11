@@ -4,6 +4,9 @@
 
 package system.proxies;
 
+/**
+ * Authentication token to extract back the session. Helps in getting session data back for the specific user.
+ */
 public class TokenInformation implements com.mendix.systemwideinterfaces.core.IEntityProxy
 {
 	private final com.mendix.systemwideinterfaces.core.IMendixObject tokenInformationMendixObject;
@@ -49,7 +52,7 @@ public class TokenInformation implements com.mendix.systemwideinterfaces.core.IE
 		if (tokenInformationMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, tokenInformationMendixObject.getType())) {
+		if (!tokenInformationMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

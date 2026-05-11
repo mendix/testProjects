@@ -55,7 +55,7 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 		if (fileDocumentMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, fileDocumentMendixObject.getType())) {
+		if (!fileDocumentMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 
@@ -72,10 +72,10 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 	 */
 	public static system.proxies.FileDocument initialize(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject mendixObject)
 	{
-		if (com.mendix.core.Core.isSubClassOf("System.Image", mendixObject.getType())) {
+		if (mendixObject.isInstanceOf("System.Image")) {
 			return system.proxies.Image.initialize(context, mendixObject);
 		}
-		if (com.mendix.core.Core.isSubClassOf("System.SynchronizationErrorFile", mendixObject.getType())) {
+		if (mendixObject.isInstanceOf("System.SynchronizationErrorFile")) {
 			return system.proxies.SynchronizationErrorFile.initialize(context, mendixObject);
 		}
 		return new system.proxies.FileDocument(context, mendixObject);
@@ -213,7 +213,7 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 	  */
 	public final void getContents(com.mendix.systemwideinterfaces.core.IContext context, java.io.OutputStream outputStream)
 	{
-		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(context, MemberNames.Contents.toString());
+		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(MemberNames.Contents.toString());
 		binary.retrieveValue(context, outputStream);
 	}
 
@@ -232,7 +232,7 @@ public class FileDocument implements com.mendix.systemwideinterfaces.core.IEntit
 		if (getMendixObject().getState() == com.mendix.systemwideinterfaces.core.IMendixObject.ObjectState.INSTANTIATED) {
 			try { commit(); } catch (com.mendix.core.CoreException ex) { }
 		}
-		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(context, MemberNames.Contents.toString());
+		com.mendix.core.objectmanagement.member.MendixBinary binary = (com.mendix.core.objectmanagement.member.MendixBinary) getMendixObject().getMember(MemberNames.Contents.toString());
 		binary.storeValue(context, inputStream, length);
 	}
 

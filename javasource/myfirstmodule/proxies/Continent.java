@@ -46,7 +46,7 @@ public class Continent implements com.mendix.systemwideinterfaces.core.IEntityPr
 		if (continentMendixObject == null) {
 			throw new java.lang.IllegalArgumentException("The given object cannot be null.");
 		}
-		if (!com.mendix.core.Core.isSubClassOf(entityName, continentMendixObject.getType())) {
+		if (!continentMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 

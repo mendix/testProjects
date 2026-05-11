@@ -5,9 +5,30 @@
 // - the code between BEGIN USER CODE and END USER CODE
 // - the code between BEGIN EXTRA CODE and END EXTRA CODE
 // Other code you write will be lost the next time you deploy the project.
+import "mx-global";
 import { Big } from "big.js";
 
 // BEGIN EXTRA CODE
+// messageActionTypes are to identify the postMessage types between the JS Action & Feedback Widget.
+const messageAction_toggleAnnotateMode = "mxFeedbackWidget_toggleScreenshotMode"; // The Feedback widget reads this to trigger a specific screenshot mode stage.
+const messageAction_isBase64 = "mxFeedbackWidget_convertedToBase64"; // We expect this string from the widget when screenshot mode in enabled.
+const messageAction_actionCancelled = "mxFeedbackWidget_actionCancelled" // The Feedback widget will send this back if screenshot/annotation actions are cancelled by the user.
+
+/* 
+	The widget and JS action communicate with the following postMessage object structure:
+	messageObject = {messageActionType: string;messageData: string;}
+*/
+const messageObject = {
+	"messageActionType": messageAction_toggleAnnotateMode //The Feedback widget reads this to trigger a specific Mode.
+};
+
+const parseJson = (event) => {
+	try {
+		return JSON.parse(event);
+	} catch {
+		return undefined;
+	}
+};
 // END EXTRA CODE
 
 /**
@@ -28,6 +49,25 @@ import { Big } from "big.js";
  */
 export async function JS_ToggleFeedbackScreenshotWidget() {
 	// BEGIN USER CODE
-	throw new Error("JavaScript action was not implemented");
+	    postMessage(JSON.stringify(messageObject), window.origin); // Send a message to the Feedback Wiget to trigger screenshot mode.
+		
+		return new Promise(resolve => {
+
+			function handleEvent(event){
+				const parsedData = parseJson(event.data);
+				if(parsedData && event.origin === window.origin) {
+					if (parsedData.messageActionType === messageAction_isBase64) {
+						window.removeEventListener("message", handleEvent);
+						resolve(parsedData.messageData); // Resolve & return the base64 image to the nanoflow.
+					};
+					if(parsedData.messageActionType === messageAction_actionCancelled){
+						resolve("uploadCancelled");
+					}
+				}
+			};
+
+			window.addEventListener("message", handleEvent); // Listen and wait for the Feedback Widget to send back the edited screenshot as base64.
+
+    });
 	// END USER CODE
 }
