@@ -1,34 +1,56 @@
-Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
-Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
-Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot, JAVA_VERSION=21.0.2, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.2+13-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.2+13-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
-The client will now receive all logging from the daemon (pid: 13668). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-13668.out.log
-Starting 6th build in daemon [uptime: 1 hrs 10 mins 49.526 secs, performance: 98%, GC rate: 0.00/s, heap usage: 0% of 512 MiB, non-heap usage: 17% of 384 MiB]
-Using 8 worker leases.
-Not watching Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\tree-node-web\tests\testProject\deployment since the file system is not supported
+Initialized native services in: /root/.gradle/native
+Initialized jansi services in: /root/.gradle/native
+
+Welcome to Gradle 8.5!
+
+Here are the highlights of this release:
+ - Support for running on Java 21
+ - Faster first use with Kotlin DSL
+ - Improved error and warning messages
+
+For more details see https://docs.gradle.org/8.5/release-notes.html
+
+Received JVM installation metadata from '/opt/java/openjdk': {JAVA_HOME=/opt/java/openjdk, JAVA_VERSION=21.0.11, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.11+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.11+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+Removing 0 daemon stop events from registry
+Starting a Gradle Daemon (subsequent builds will be faster)
+Starting process 'Gradle build daemon'. Working directory: /root/.gradle/daemon/8.5 Command: /opt/java/openjdk/bin/java --add-opens=java.base/java.util=ALL-UNNAMED --add-opens=java.base/java.lang=ALL-UNNAMED --add-opens=java.base/java.lang.invoke=ALL-UNNAMED --add-opens=java.prefs/java.util.prefs=ALL-UNNAMED --add-opens=java.base/java.nio.charset=ALL-UNNAMED --add-opens=java.base/java.net=ALL-UNNAMED --add-opens=java.base/java.util.concurrent.atomic=ALL-UNNAMED -XX:MaxMetaspaceSize=384m -XX:+HeapDumpOnOutOfMemoryError -Xms256m -Xmx512m -Dfile.encoding=UTF-8 -Duser.country=US -Duser.language=en -Duser.variant -cp /tmp/mxbuild/modeler/tools/gradle/lib/gradle-launcher-8.5.jar -javaagent:/tmp/mxbuild/modeler/tools/gradle/lib/agents/gradle-instrumentation-agent-8.5.jar org.gradle.launcher.daemon.bootstrap.GradleDaemon 8.5
+Successfully started process 'Gradle build daemon'
+An attempt to start the daemon took 0.374 secs.
+The client will now receive all logging from the daemon (pid: 108). The daemon log file: /root/.gradle/daemon/8.5/daemon-108.out.log
+Starting build in new daemon [memory: 512 MiB]
+Closing daemon's stdin at end of input.
+The daemon will no longer process any standard input.
+Using 14 worker leases.
+Received JVM installation metadata from '/opt/java/openjdk': {JAVA_HOME=/opt/java/openjdk, JAVA_VERSION=21.0.11, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.11+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.11+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
 Watching the file system is configured to be enabled if available
+Not watching /source/tests/testProject/deployment since the file system is not supported
 File system watching is active
 Starting Build
-Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\tree-node-web\tests\testProject\deployment\settings.gradle'.
-Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\tree-node-web\tests\testProject\deployment\build.gradle'.
+Settings evaluated using settings file '/source/tests/testProject/deployment/settings.gradle'.
+Projects loaded. Root project using build file '/source/tests/testProject/deployment/build.gradle'.
 Included projects: [root project 'deployment']
 
 > Configure project :
-Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\tree-node-web\tests\testProject\deployment\build.gradle'.
+Evaluating root project 'deployment' using build file '/source/tests/testProject/deployment/build.gradle'.
+Compiling build file '/source/tests/testProject/deployment/build.gradle' using SubsetScriptTransformer.
+Compiling build file '/source/tests/testProject/deployment/build.gradle' using BuildScriptTransformer.
+Compiling script '/source/tests/testProject/deployment/variables.gradle' using SubsetScriptTransformer.
+Compiling script '/source/tests/testProject/deployment/variables.gradle' using BuildScriptTransformer.
 All projects evaluated.
 Task name matched 'clean'
 Selected primary task 'clean' from project :
 Tasks to be executed: [task ':clean']
 Tasks that were excluded: []
-Resolve mutations for :clean (Thread[#184,Execution worker,5,main]) started.
-:clean (Thread[#184,Execution worker,5,main]) started.
+Resolve mutations for :clean (Thread[#62,Execution worker,5,main]) started.
+:clean (Thread[#62,Execution worker,5,main]) started.
 
-> Task :clean UP-TO-DATE
+> Task :clean
 Caching disabled for task ':clean' because:
   Build cache is disabled
 Task ':clean' is not up-to-date because:
   Task has not declared any outputs despite executing actions.
 
-BUILD SUCCESSFUL in 1s
-1 actionable task: 1 up-to-date
-Watched directory hierarchies: []
+BUILD SUCCESSFUL in 2s
+1 actionable task: 1 executed
+Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
 

@@ -1,14 +1,14 @@
 ext {
 	mendixJavaVersion = 21
-	mendixInstallDir = "/tmp/mxbuild"
+	mendixInstallDir = "C:/Program Files/Mendix/11.9.1"
 	projectName = "TreeView"
 	projectSafeName = "testProject"
-	mendixProjectDir = "/source/tests/testProject"
-	deploymentDir = "/source/tests/testProject/deployment"
-	dataSnapshotFile = "/source/tests/testProject/data-snapshot.zip"
-	dataDir = "/source/tests/testProject/deployment/data"
+	mendixProjectDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/tree-node-web/tests/testProject"
+	deploymentDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/tree-node-web/tests/testProject/deployment"
+	dataSnapshotFile = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/tree-node-web/tests/testProject/data-snapshot.zip"
+	dataDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/tree-node-web/tests/testProject/deployment/data"
 	extractDataSnapshot = false
-	templatesDir = "/tmp/mxbuild/modeler/runtemplates"
+	templatesDir = "C:/Program Files/Mendix/11.9.1/modeler/runtemplates"
 	runDir = "run"
 	compileTargetDir = "run/bin"
 	deploymentDirName = "deployment"
@@ -20,8 +20,7 @@ ext {
 	vendorlibDirName = "vendorlib"
 	generateFullDebugInfo = false
 	excludedRunTemplatesFiles = [
-		"**/*.template",
-		"web/index-example.html"
+		"**/*.template"
 	]
 	excludedJavaActions = []
 	publicApiJars = [
