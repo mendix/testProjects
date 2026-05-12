@@ -1,0 +1,35 @@
+ext {
+	mendixJavaVersion = 21
+	mendixInstallDir = "C:/Program Files/Mendix/11.9.1"
+	projectName = "RichText"
+	projectSafeName = "testProject"
+	mendixProjectDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject"
+	deploymentDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/deployment"
+	dataSnapshotFile = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/data-snapshot.zip"
+	dataDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/deployment/data"
+	extractDataSnapshot = false
+	templatesDir = "C:/Program Files/Mendix/11.9.1/modeler/runtemplates"
+	runDir = "run"
+	compileTargetDir = "run/bin"
+	deploymentDirName = "deployment"
+	modelDirName = "model"
+	resourcesDirName = "resources"
+	javaSourceDirName = "javasource"
+	libDirName = "lib"
+	userlibDirName = "userlib"
+	vendorlibDirName = "vendorlib"
+	generateFullDebugInfo = false
+	excludedRunTemplatesFiles = [
+		"**/*.template"
+	]
+	excludedJavaActions = []
+	publicApiJars = [
+		"runtime/bundles/com.mendix.json.jar",
+		"runtime/bundles/com.mendix.logging-api.jar",
+		"runtime/bundles/com.mendix.public-api.jar",
+		"runtime/bundles/org.eclipse.jetty.toolchain.jetty-servlet-api.jar",
+		"runtime/bundles/org.eclipse.jetty.toolchain.jetty-javax-websocket-api.jar"
+	]
+	excludedJars = []
+	protectedModules = []
+}
