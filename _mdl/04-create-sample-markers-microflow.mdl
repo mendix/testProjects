@@ -1,0 +1,34 @@
+-- Step 4: Create microflow to populate sample map markers with Code=2
+
+CREATE OR MODIFY MICROFLOW MyFirstModule.ACT_CreateSampleMarkers ()
+RETURNS Boolean AS $Success
+BEGIN
+  DECLARE $Success Boolean = true;
+
+  -- Check if markers with Code = 2 already exist
+  RETRIEVE $ExistingMarkers FROM MyFirstModule.MapMarker WHERE Code = 2;
+
+  -- Only create markers if none exist with Code = 2
+  IF $ExistingMarkers = empty THEN
+    -- Create Updated Marker 1
+    $Marker1 = CREATE MyFirstModule.MapMarker (
+      Title = 'Updated Marker 1',
+      Latitude = 51.90540223125941,
+      Longitude = 4.4886116496963115,
+      Code = 2
+    );
+    COMMIT $Marker1;
+
+    -- Create Updated Marker 2
+    $Marker2 = CREATE MyFirstModule.MapMarker (
+      Title = 'Updated Marker 2',
+      Latitude = 51.905881137852404,
+      Longitude = 4.487886875912563,
+      Code = 2
+    );
+    COMMIT $Marker2;
+  END IF;
+
+  RETURN $Success;
+END;
+/
