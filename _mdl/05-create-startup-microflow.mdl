@@ -1,0 +1,17 @@
+-- Step 5: Create startup microflow and configure it to run on app start
+
+CREATE MICROFLOW MyFirstModule.ASU_MxStartup ()
+RETURNS Boolean AS $Success
+BEGIN
+  DECLARE $Success Boolean = true;
+
+  -- Initialize sample markers on startup
+  CALL MICROFLOW MyFirstModule.ACT_CreateSampleMarkers ();
+
+  RETURN $Success;
+END;
+/
+
+-- Set as after startup microflow
+ALTER SETTINGS MODEL
+  AfterStartupMicroflow = MyFirstModule.ASU_MxStartup;
