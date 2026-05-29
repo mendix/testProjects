@@ -1,0 +1,8 @@
+-- Step 3: Create MapMarker entity with location and code attributes
+
+CREATE PERSISTENT ENTITY MyFirstModule.MapMarker (
+  Latitude: Decimal,
+  Longitude: Decimal,
+  Title: String(200),
+  Code: Integer
+);
