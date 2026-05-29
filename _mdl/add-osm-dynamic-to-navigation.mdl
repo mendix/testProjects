@@ -1,0 +1,16 @@
+-- Add OSM Dynamic page to navigation menu
+
+CREATE OR REPLACE NAVIGATION Responsive
+  HOME PAGE MyFirstModule.GoogleMaps
+  MENU (
+    MENU ITEM 'Google Maps' PAGE MyFirstModule.GoogleMaps;
+    MENU ITEM 'OpenStreet' PAGE MyFirstModule.OSM;
+    MENU ITEM 'OSM Dynamic' PAGE MyFirstModule.OSMDynamic;
+    MENU ITEM 'MapBox' PAGE MyFirstModule.MapBox;
+    MENU ITEM 'Here' PAGE MyFirstModule.Here;
+    MENU ITEM 'Data Management' PAGE MyFirstModule.Maps_Overview;
+    MENU ITEM 'No markers' PAGE MyFirstModule.NoMarkers;
+    MENU ITEM 'No title no action' PAGE MyFirstModule.NoTitleNoAction;
+    MENU ITEM 'No title with action' PAGE MyFirstModule.NoTitleWithAction;
+  )
+;

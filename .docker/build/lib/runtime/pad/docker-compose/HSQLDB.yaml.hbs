@@ -1,0 +1,23 @@
+﻿{{!-- This is a handlebars template for HSQLDB (Default) docker compose yaml file --}}
+# This file provides an example on how to start the runtime with HSQLDB.
+# This setup is intended for local testing only.
+# It is based on the configuration named {{Config}}.
+
+services:
+  mendix-app:
+    image: eclipse-temurin:21-jdk
+    container_name: mendix-app
+    working_dir: /mendix
+    volumes:
+      - ../app:/mendix/app
+      - ../bin:/mendix/bin
+      - ../etc:/mendix/etc
+      - ../lib:/mendix/lib
+    environment:
+      - MX_LOG_LEVEL=info
+      - M2EE_ADMIN_PASS=${M2EE_ADMIN_PASS}
+    ports:
+{{#each AppPorts}}
+      - "{{Port}}:{{Port}}"
+{{/each}}
+    command: ["./bin/start", "etc/{{Config}}"]

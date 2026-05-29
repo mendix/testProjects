@@ -1,0 +1,1 @@
+define({buttonOk:"OK",buttonCancel:"Откажи",buttonSave:"Зачувај",itemClose:"Затвори"});

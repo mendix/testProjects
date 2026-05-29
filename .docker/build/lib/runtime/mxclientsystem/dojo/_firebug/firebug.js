@@ -1,0 +1,1 @@
+define([],function(){if(/Trident/.test(window.navigator.userAgent)){for(var o=["log","info","debug","warn","error"],n=0;n<o.length;n++){var e=o[n];if(console[e]&&!console[e]._fake){var r="_"+o[n];console[r]=console[e],console[e]=function(){var o=r;return function(){console[o](Array.prototype.join.call(arguments," "))}}()}}try{console.clear()}catch(o){}}});

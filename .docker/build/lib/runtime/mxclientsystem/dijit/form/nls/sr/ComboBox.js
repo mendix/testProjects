@@ -1,0 +1,1 @@
+define({previousMessage:"Prethodne opcije",nextMessage:"Više opcija"});

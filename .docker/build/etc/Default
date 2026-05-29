@@ -1,0 +1,11 @@
+# This file includes all configuration files for starting the defined Default Configuration
+# It allows all settings and constants to be overridden using environment variables
+
+include file("etc/StudioPro.conf")
+include file("etc/constants/defaults.conf")
+include file("etc/configurations/Default.conf")
+include file("etc/variables.conf")
+include file("etc/constants/variables.conf")
+
+# mxcli: bind admin API to all interfaces for dev access
+admin.addresses = ["*"]

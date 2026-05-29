@@ -1,0 +1,1 @@
+define({previousMessage:"Претходни избори",nextMessage:"Повеќе избори"});

@@ -1,0 +1,7 @@
+-- Create MapMarker entity with location and title attributes
+
+CREATE PERSISTENT ENTITY MyFirstModule."MapMarker" (
+  "Latitude": Decimal,
+  "Longitude": Decimal,
+  "Title": String(200)
+);

@@ -1,0 +1,47 @@
+-- Add dynamic markers datasource to OSM Dynamic page with Code = 1 filter
+
+CREATE OR REPLACE PAGE MyFirstModule.OSMDynamic (
+  Title: 'OSM Dynamic',
+  Layout: Atlas_Core.Atlas_Default,
+  Url: 'osm-dynamic',
+  Folder: 'OpenStreetMaps'
+) {
+  container container1 (Class: 'pageheader') {
+    layoutgrid layoutGrid2 {
+      row row1 {
+        column col1 (DesktopWidth: AutoFill) {
+          dynamictext text1 (Content: 'OSM Dynamic', RenderMode: H3, Class: 'pageheader-title')
+          dynamictext text2 (
+            Content: 'Dynamic OpenStreet Map with Markers',
+            RenderMode: Paragraph,
+            Class: 'pageheader-subtitle'
+          )
+        }
+      }
+    }
+  }
+  layoutgrid layoutGrid1 {
+    row row1 {
+      column col1 (DesktopWidth: AutoFill) {
+        pluggablewidget 'com.mendix.widget.custom.Maps.Maps' maps1 (
+          zoom: automatic,
+          widthUnit: percentage,
+          width: 100,
+          heightUnit: percentageOfWidth,
+          height: 75,
+          mapProvider: openStreet
+        ) {
+          dynamicmarker marker1 (
+            markersDS: MyFirstModule.MapMarker,
+            locationType: latitudeLongitude,
+            latitude: Latitude,
+            longitude: Longitude,
+            title: Title
+          )
+        }
+      }
+    }
+  }
+};
+
+GRANT VIEW ON PAGE MyFirstModule.OSMDynamic TO MyFirstModule.User;

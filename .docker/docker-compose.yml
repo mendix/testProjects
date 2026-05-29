@@ -1,0 +1,55 @@
+services:
+  mendix:
+    image: eclipse-temurin:21-jre
+    working_dir: /mendix
+    volumes:
+      - ./build:/mendix
+    command: ["./bin/start", "-J", "-Dmendix.live-preview=enabled"]
+    ports:
+      - "${APP_PORT:-8080}:8080"
+      - "${ADMIN_PORT:-8090}:8090"   # admin API — bound to * by build patch
+    environment:
+      - M2EE_ADMIN_PASS=${M2EE_ADMIN_PASS:-AdminPassword1!}
+      - ADMIN_ADMINPASSWORD=${M2EE_ADMIN_PASS:-AdminPassword1!}
+      - RUNTIME_DEBUGGER_PASSWORD=${M2EE_ADMIN_PASS:-AdminPassword1!}
+      - RUNTIME_PARAMS_DATABASETYPE=POSTGRESQL
+      - RUNTIME_PARAMS_DATABASEHOST=db:5432
+      - RUNTIME_PARAMS_DATABASENAME=${DB_NAME:-mendix}
+      - RUNTIME_PARAMS_DATABASEUSERNAME=${DB_USER:-mendix}
+      - RUNTIME_PARAMS_DATABASEPASSWORD=${DB_PASSWORD:-mendix}
+      - MX_LOG_LEVEL=${MX_LOG_LEVEL:-info}
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - mendix-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 60s
+
+  db:
+    image: postgres:17-alpine
+    ports:
+      - "${DB_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_DB=${DB_NAME:-mendix}
+      - POSTGRES_USER=${DB_USER:-mendix}
+      - POSTGRES_PASSWORD=${DB_PASSWORD:-mendix}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - mendix-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-mendix}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres-data:
+
+networks:
+  mendix-network:

@@ -1,0 +1,1 @@
+function a(a){addEventListener("message",(async s=>{const e=s.data.id;try{const t=await a({...s,data:s.data.data});postMessage({id:e,isSuccess:!0,data:t})}catch(a){console.error(`Error while processing request with id ${e}.`,a),postMessage({id:e,failure:{...a}})}}))}export{a as h};

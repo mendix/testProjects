@@ -1,0 +1,1 @@
+define(["exports","require","../has"],function(o,e,r){var t,n=r("config-requestProvider");r("host-browser")||r("host-webworker")?t="./xhr":r("host-node")&&(t="./node"),n||(n=t),o.getPlatformDefaultId=function(){return t},o.load=function(o,r,f,i){e(["platform"==o?t:n],function(o){f(o)})}});

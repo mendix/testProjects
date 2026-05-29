@@ -1,0 +1,4 @@
+-- Add code attribute to MapMarker entity
+
+ALTER ENTITY MyFirstModule.MapMarker ADD ATTRIBUTE
+  Code: Integer;

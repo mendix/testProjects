@@ -1,0 +1,4 @@
+-- Set ASU_MxStartup as the after startup microflow
+
+ALTER SETTINGS MODEL
+  AfterStartupMicroflow = MyFirstModule.ASU_MxStartup;

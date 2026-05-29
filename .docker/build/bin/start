@@ -1,0 +1,87 @@
+#!/bin/sh
+
+DEFAULT_CONF="etc/Default"
+CONFIG_FILES=""
+JVM_OPTIONS=""
+
+# Print command line options
+print_usage() {
+  echo "Usage: $(filename "$0") [options..] [config-file...]"
+  echo
+  echo "Options:"
+  echo " -h|--help: print this usage text"
+  echo " -J option: pass option to the JVM"
+  echo
+  echo "Default config: $DEFAULT_CONF"
+}
+
+# Warn if admin password is not set.
+if [ "$M2EE_ADMIN_PASS" != "" ]; then
+  echo "\$M2EE_ADMIN_PASS detected in the environment variables."
+else
+  echo "\$M2EE_ADMIN_PASS is not set. Ensure that admin.adminPassword is set in one of the specified config file(s) instead."
+fi
+
+# Parse/collect arguments
+while [ $# -gt 0 ]; do
+  case "$1" in
+    -h|--help)
+      print_usage
+      exit 0
+      ;;
+    -J)
+      JVM_OPTIONS="$JVM_OPTIONS $2"
+      shift
+      shift
+      ;;
+    -*)
+      echo "Unknown option: $1"
+      echo
+      print_usage
+      exit 1
+      ;;
+    *)
+      CONFIG_FILES="$CONFIG_FILES $1"
+      shift
+      ;;
+  esac
+done
+
+ROOT_PATH=$(realpath "$(dirname "$0")"/..)
+
+export ROOT_PATH
+export MX_INSTALL_PATH="$ROOT_PATH"/lib
+export DEFAULT_CONF_PATH="$ROOT_PATH"/$DEFAULT_CONF
+export CONFIG="${CONFIG_FILES:-$DEFAULT_CONF_PATH}"
+
+# Collect JVM options from a file
+get_jvm_options() {
+  _get_jvm_options_file="$1"
+  HEAP=$(grep -E '^\s*jvm\.heap' "$_get_jvm_options_file" 2> /dev/null | sed 's/\s*jvm\.heap\s*=\s*//g' | tr -d '\r')
+  if [ "$HEAP" != "" ]; then
+    JVM_OPTIONS="-Xmx$HEAP $JVM_OPTIONS"
+  fi
+  PARAMS=$(grep '^\s*jvm\.params' "$_get_jvm_options_file" 2> /dev/null | sed 's/^\s*jvm\.params\s*=\s*//g' | sed 's/"\s*//g' | tr -d '\r')
+  if [ "$PARAMS" != "" ]; then
+    JVM_OPTIONS="$JVM_OPTIONS $PARAMS"
+  fi
+  for INCLUDE in $(grep -E '^\s*include\sfile' "$_get_jvm_options_file" 2> /dev/null | sed 's/include\s*file("//g' | sed 's/")\s*//g' | tr -d '\r'); do
+    get_jvm_options "$INCLUDE"
+  done
+}
+
+# Collect JVM options from configuration files (and embedded includes)
+for FILE in $CONFIG; do
+  get_jvm_options "$FILE"
+done
+
+# Start the runtime
+cd "$ROOT_PATH" || exit
+exec java \
+  -DMX_LOG_LEVEL=${MX_LOG_LEVEL:-INFO} \
+  -Dfile.encoding=UTF-8 \
+  -Djava.io.tmpdir="/tmp" \
+  -Djava.library.path="$MX_INSTALL_PATH/runtime/lib/x64;$ROOT_PATH/app/model/lib/userlib" \
+  $JVM_OPTIONS \
+  -jar "$MX_INSTALL_PATH/runtime/launcher/runtimelauncher.jar" \
+  "$ROOT_PATH"/app/. $CONFIG

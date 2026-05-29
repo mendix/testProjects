@@ -1,0 +1,39 @@
+{{!-- This is a handlebars template for the Studio Pro configuration file --}}
+# This file contains all settings that are specified in Studio Pro, outside of Configurations
+
+runtime {
+  params {
+
+    # Development mode
+    DTAPMode = D
+
+    # Enabled scheduled events
+    ScheduledEventExecution = "{{ScheduledEventExecution}}"
+    MyScheduledEvents = "{{ScheduledEvents}}"
+
+    # Configured certificates
+    CACertificates = "{{CACertificates}}"
+    ClientCertificates = "{{ClientCertificates}}"
+    ClientCertificatePasswords = "{{ClientCertificatePasswords}}"
+
+    # Runtime tab
+    HashAlgorithm = "{{HashAlgorithm}}"
+  }
+
+  # MxAdmin password (updates admin password when set)
+  adminUser.password = "{{AdminUserPassword}}"
+
+  # Debugger password (enables debugger when set)
+  debugger.password = "{{DebuggerPassword}}"
+}
+
+logging = [
+  {
+    name = MySubscriber
+    type = console
+    autoSubscribe = INFO
+    levels {
+      # No overrides defined
+    }
+  }
+]

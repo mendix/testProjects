@@ -1,0 +1,1 @@
+define({buttonOk:"U redu",buttonCancel:"Otkaži",buttonSave:"Sačuvaj",itemClose:"Zatvori"});

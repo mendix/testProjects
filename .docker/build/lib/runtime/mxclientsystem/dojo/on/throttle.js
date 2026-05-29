@@ -1,0 +1,1 @@
+define(["../throttle","../on"],function(n,t){return function(r,e){return function(u,o){return t(u,r,n(o,e))}}});
