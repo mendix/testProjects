@@ -33,3 +33,4 @@ widgets
 /vendorlib/temp/
 .DS_Store
 theme-cache
+/.svn/
