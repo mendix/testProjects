@@ -1,1 +1,0 @@
-define({loadingState:"Učitavanje...",errorState:"Izvinite, došlo je do greške"});

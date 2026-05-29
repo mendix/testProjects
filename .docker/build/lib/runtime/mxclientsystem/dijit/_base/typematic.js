@@ -1,1 +1,0 @@
-define(["../typematic"],function(){});

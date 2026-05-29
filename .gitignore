@@ -35,3 +35,4 @@ widgets
 .DS_Store
 /.svn/
 /mprcontents/mprjournal*
+.docker/

@@ -1,1 +1,0 @@
-define({CAD_symbol:"$"});

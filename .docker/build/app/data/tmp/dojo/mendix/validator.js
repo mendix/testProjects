@@ -1,1 +1,0 @@
-define("mendix/validator", function() {});

@@ -1,1 +1,0 @@
-define(["./request/default!"],function(e){return e});

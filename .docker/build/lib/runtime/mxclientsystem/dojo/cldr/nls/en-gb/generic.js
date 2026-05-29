@@ -1,1 +1,0 @@
-define({"field-year-narrow":"yr","field-second-narrow":"sec","dateFormatItem-MEd":"E dd/MM","dateFormatItem-MMMEd":"E d MMM","field-hour-narrow":"hr"});

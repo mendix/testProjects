@@ -1,1 +1,0 @@
-define({invalidMessage:"Внесената вредност не е важечка.",missingMessage:"Вредноста е задолжителна.",rangeMessage:"Вредноста е надвор од опсегот."});

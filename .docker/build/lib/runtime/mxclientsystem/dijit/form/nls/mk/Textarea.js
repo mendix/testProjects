@@ -1,1 +1,0 @@
-define({iframeEditTitle:"уреди област",iframeFocusTitle:"уреди рамка на област"});

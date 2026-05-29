@@ -1,1 +1,0 @@
-define(["./json5/parse"],function(e){return{parse:e}});

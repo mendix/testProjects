@@ -1,1 +1,0 @@
-define(["dojo/_base/declare","dojo/dom","./_WidgetBase","./_TemplatedMixin","./_Contained","dojo/text!./templates/MenuSeparator.html"],function(e,t,i,n,o,d){return e("dijit.MenuSeparator",[i,n,o],{templateString:d,buildRendering:function(){this.inherited(arguments),t.setSelectable(this.domNode,!1)},isFocusable:function(){return!1}})});
