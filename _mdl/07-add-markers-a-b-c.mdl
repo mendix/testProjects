@@ -1,0 +1,62 @@
+-- Add original three markers (A, B, C) with Code=1
+
+CREATE OR MODIFY MICROFLOW MyFirstModule.ACT_CreateSampleMarkers ()
+RETURNS Boolean AS $Success
+BEGIN
+  DECLARE $Success Boolean = true;
+
+  -- Check if markers with Code = 1 already exist
+  RETRIEVE $ExistingCode1 FROM MyFirstModule.MapMarker WHERE Code = 1;
+
+  -- Create markers A, B, C with Code = 1 if they don't exist
+  IF $ExistingCode1 = empty THEN
+    $MarkerA = CREATE MyFirstModule.MapMarker (
+      Title = 'Marker A',
+      Latitude = 51.90557417380158,
+      Longitude = 4.486081422140893,
+      Code = 1
+    );
+    COMMIT $MarkerA;
+
+    $MarkerB = CREATE MyFirstModule.MapMarker (
+      Title = 'Marker B',
+      Latitude = 51.905142937664614,
+      Longitude = 4.487925507731213,
+      Code = 1
+    );
+    COMMIT $MarkerB;
+
+    $MarkerC = CREATE MyFirstModule.MapMarker (
+      Title = 'Marker C',
+      Latitude = 51.90670663928622,
+      Longitude = 4.488543023953209,
+      Code = 1
+    );
+    COMMIT $MarkerC;
+  END IF;
+
+  -- Check if markers with Code = 2 already exist
+  RETRIEVE $ExistingCode2 FROM MyFirstModule.MapMarker WHERE Code = 2;
+
+  -- Create Updated markers with Code = 2 if they don't exist
+  IF $ExistingCode2 = empty THEN
+    $Marker1 = CREATE MyFirstModule.MapMarker (
+      Title = 'Updated Marker 1',
+      Latitude = 51.90540223125941,
+      Longitude = 4.4886116496963115,
+      Code = 2
+    );
+    COMMIT $Marker1;
+
+    $Marker2 = CREATE MyFirstModule.MapMarker (
+      Title = 'Updated Marker 2',
+      Latitude = 51.905881137852404,
+      Longitude = 4.487886875912563,
+      Code = 2
+    );
+    COMMIT $Marker2;
+  END IF;
+
+  RETURN $Success;
+END;
+/
