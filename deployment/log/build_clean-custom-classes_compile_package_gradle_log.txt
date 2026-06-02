@@ -1,0 +1,67 @@
+Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
+Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot, JAVA_VERSION=21.0.5, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.5+11-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.5+11-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+The client will now receive all logging from the daemon (pid: 9364). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-9364.out.log
+Starting 3rd build in daemon [uptime: 11.017 secs, performance: 98%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 13% of 384 MiB]
+Using 8 worker leases.
+Watching the file system is configured to be enabled if available
+File system watching is inactive
+Starting Build
+Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\bubble-chart-web\tests\testProject\deployment\settings.gradle'.
+Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\bubble-chart-web\tests\testProject\deployment\build.gradle'.
+Included projects: [root project 'deployment']
+
+> Configure project :
+Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\bubble-chart-web\tests\testProject\deployment\build.gradle'.
+All projects evaluated.
+Task name matched 'clean-custom-classes'
+This JVM does not support getting OS memory, so no OS memory status updates will be broadcast
+file or directory 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\bubble-chart-web\tests\testProject\vendorlib', not found
+Task name matched 'compile'
+Task name matched 'package'
+Selected primary task 'clean-custom-classes' from project :
+Selected primary task 'compile' from project :
+Selected primary task 'package' from project :
+Tasks to be executed: [task ':clean-custom-classes', task ':compile', task ':package']
+Tasks that were excluded: []
+Resolve mutations for :clean-custom-classes (Thread[#98,Execution worker,5,main]) started.
+:clean-custom-classes (Thread[#98,Execution worker,5,main]) started.
+destroyer locations for task group 0 (Thread[#99,Execution worker Thread 2,5,main]) started.
+destroyer locations for task group 1 (Thread[#99,Execution worker Thread 2,5,main]) started.
+
+> Task :clean-custom-classes
+Caching disabled for task ':clean-custom-classes' because:
+  Build cache is disabled
+Task ':clean-custom-classes' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :compile (Thread[#98,Execution worker,5,main]) started.
+:compile (Thread[#98,Execution worker,5,main]) started.
+
+> Task :compile
+Caching disabled for task ':compile' because:
+  Build cache is disabled
+Task ':compile' is not up-to-date because:
+  No history is available.
+The input changes require a full rebuild for incremental task ':compile'.
+file or directory 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\bubble-chart-web\tests\testProject\vendorlib', not found
+Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
+Compiling with toolchain 'C:\Program Files\Eclipse Adoptium\jdk-21.0.5.11-hotspot'.
+Compiling with JDK Java compiler API.
+Class dependency analysis for incremental compilation took 0.208 secs.
+Created classpath snapshot for incremental compilation in 0.029 secs.
+Resolve mutations for :package (Thread[#98,Execution worker,5,main]) started.
+:package (Thread[#98,Execution worker,5,main]) started.
+
+> Task :package
+Caching disabled for task ':package' because:
+  Build cache is disabled
+Task ':package' is not up-to-date because:
+  No history is available.
+
+BUILD SUCCESSFUL in 4s
+3 actionable tasks: 3 executed
+
+
+Note: Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\bubble-chart-web\tests\testProject\javasource\administration\proxies\microflows\Microflows.java uses unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+

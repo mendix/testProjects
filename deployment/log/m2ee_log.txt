@@ -1,0 +1,3 @@
+[rtlauncher:container$] INFO Container start took 3838. Ready to accept admin requests.
+
+

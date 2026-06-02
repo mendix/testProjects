@@ -1,0 +1,241 @@
+import java.nio.file.FileVisitResult
+import java.nio.file.Files
+import java.nio.file.Paths
+import java.nio.file.SimpleFileVisitor
+import java.nio.file.attribute.BasicFileAttributes
+import java.util.stream.Collectors
+
+apply from: "variables.gradle"
+
+def protectedModules = protectedModules
+        .stream()
+        .map { new ProtectedModule(project.ext, it[0], it[1], it[2]) }
+        .collect(Collectors.toList())
+
+def modelDir = "$deploymentDir/$modelDirName"
+
+def debugLevel = "lines,source"
+if (generateFullDebugInfo) {
+    debugLevel = "lines,source,vars"
+}
+
+def publicApiJars = publicApiJars
+        .stream()
+        .map { "$mendixInstallDir/$it" }
+        .collect(Collectors.toList())
+
+
+class ProtectedModule {
+    org.gradle.api.plugins.ExtraPropertiesExtension ext
+    String modulePath
+    List<String> included
+    List<String> excluded
+
+    ProtectedModule(ext, modulePath, included, excluded) {
+        this.ext = ext
+        this.modulePath = modulePath
+        this.included = included
+        this.excluded = excluded
+    }
+
+    private String root() {
+        "${ext.mendixProjectDir}/${modulePath}"
+    }
+
+    String userlib() {
+        "${root()}/${ext.userlibDirName}"
+    }
+
+    String javasource() {
+        "${root()}/${ext.javaSourceDirName}"
+    }
+
+    String resolveJar(String jar) {
+        "${userlib()}/$jar"
+    }
+}
+
+class SimpleFileTreeElement implements FileTreeElement {
+    private final File file
+
+    SimpleFileTreeElement(File file) { this.file = file }
+
+    File getFile() { file }
+
+    boolean isDirectory() { file.isDirectory() }
+
+    long getLastModified() { -1 }
+
+    long getSize() { -1 }
+
+    InputStream open() { null }
+
+    void copyTo(OutputStream output) { }
+
+    boolean copyTo(File target) { false }
+
+    String getName() { file.name }
+
+    String getPath() { file.path }
+
+    RelativePath getRelativePath() { RelativePath.parse(file.isFile(), file.getAbsolutePath()) }
+
+    int getMode() { -1 }
+
+    FilePermissions getPermissions() { null }
+}
+
+class FileCopyingVisitor extends SimpleFileVisitor<java.nio.file.Path> {
+    private final java.nio.file.Path targetRoot;
+    private final java.nio.file.Path sourceRoot
+    private final PatternSet patternSet;
+
+    FileCopyingVisitor(java.nio.file.Path sourceRoot, java.nio.file.Path targetRoot, PatternSet patternSet) {
+        this.sourceRoot = sourceRoot
+        this.targetRoot = targetRoot
+        this.patternSet = patternSet
+    }
+
+    @Override
+    FileVisitResult preVisitDirectory(java.nio.file.Path dir, BasicFileAttributes attrs) throws IOException {
+        def directoryToCreate = targetRoot.resolve(sourceRoot.relativize(dir))
+
+        if (patternSet.asSpec.isSatisfiedBy(new SimpleFileTreeElement(dir.toFile()))) {
+            if (!Files.exists(directoryToCreate)) {
+                Files.createDirectory(directoryToCreate)
+            }
+
+            return FileVisitResult.CONTINUE
+        } else {
+            return FileVisitResult.SKIP_SUBTREE
+        }
+    }
+
+    @Override
+    FileVisitResult visitFile(java.nio.file.Path file, BasicFileAttributes attrs) throws IOException {
+        if (patternSet.asSpec.isSatisfiedBy(new SimpleFileTreeElement(file.toFile()))) {
+            def targetFile = targetRoot.resolve(sourceRoot.relativize(file))
+
+            if (!Files.exists(targetFile)) {
+                Files.copy(file, targetFile)
+            }
+        }
+
+        return FileVisitResult.CONTINUE
+    }
+}
+
+tasks.register('clean', Delete) {
+    description 'clean the deployment directory'
+    delete modelDir
+    delete "$deploymentDir/$runDir"
+}
+
+tasks.register('clean-custom-classes', Delete) {
+    description 'clean the compiled custom java action classes'
+    delete "$deploymentDir/$compileTargetDir"
+}
+
+tasks.register('clean-excluded-jars', Delete) {
+    description = 'clean the jar files that should be excluded'
+    (excludedJars + protectedModules.collectMany { it.excluded }).each { delete("$modelDir/$libDirName/$userlibDirName/$it") }
+}
+
+tasks.register('copyDeploymentArtifacts') {
+    doLast {
+        def patternSet = new PatternSet()
+        patternSet.exclude(excludedRunTemplatesFiles)
+
+        // Do not use built-in Copy task, sometimes it does not work with some setups, such as some file shares, etc.
+        Files.walkFileTree(
+                Paths.get("$templatesDir/$deploymentDirName"),
+                new FileCopyingVisitor(Paths.get("$templatesDir/$deploymentDirName"), Paths.get(deploymentDir), patternSet)
+        )
+    }
+}
+
+def unzipDataSnapshot = tasks.register('unzipDataSnapshot', Copy) {
+    if (!file(dataDir).exists()) {
+        from zipTree(dataSnapshotFile)
+        into deploymentDir
+    }
+    doNotTrackState("Always unzip data snapshot")
+}
+
+unzipDataSnapshot.configure {
+    enabled = extractDataSnapshot
+}
+
+tasks.register('copyLibs', Copy) {
+    duplicatesStrategy = 'include'
+
+    protectedModules.forEach { module ->
+        from(module.userlib()) { module.excluded.forEach { exclude(it) } }
+    }
+
+    from("$mendixProjectDir/$vendorlibDirName")
+    from("$mendixProjectDir/$userlibDirName")
+    excludedJars.each { f -> exclude f }       
+    into "$modelDir/$libDirName/$userlibDirName"
+}
+
+tasks.register("copyResources", Copy) {
+    duplicatesStrategy = 'include'
+    from "$mendixProjectDir/$resourcesDirName"
+    into "$modelDir/$resourcesDirName"
+}
+
+tasks.register("deploy") {
+    dependsOn("unzipDataSnapshot")
+    dependsOn("copyDeploymentArtifacts")
+    dependsOn("copyLibs")
+    dependsOn("copyResources")
+}
+
+tasks.register("compile", JavaCompile) {
+    description "Compile Java Actions"
+    
+    options.debug = true
+    options.debugOptions.debugLevel = debugLevel
+
+    options.encoding = "UTF-8"
+
+    options.release = mendixJavaVersion
+    sourceCompatibility = mendixJavaVersion
+    targetCompatibility = mendixJavaVersion
+
+    def protectedModulesSources = protectedModules.stream().map { fileTree(it.javasource()) }.collect(Collectors.toList())
+    def publicApiJarFiles = files(publicApiJars)
+    def protectedModulesJarFiles = files(protectedModules.stream().flatMap { module -> module.included.stream().map { module.resolveJar(it) } }.collect(Collectors.toList()))
+    def userlibJarFiles = fileTree("$mendixProjectDir/$userlibDirName").matching {
+        include("*.jar")
+        excludedJars.forEach { exclude(it) }
+    }
+    def vendorlibJarFiles = fileTree("$mendixProjectDir/$vendorlibDirName")  {
+        include("*.jar")
+        excludedJars.forEach { exclude(it) }
+    }
+
+    options.annotationProcessorPath = userlibJarFiles + vendorlibJarFiles
+
+    source = [fileTree("$mendixProjectDir/$javaSourceDirName")] + protectedModulesSources
+    classpath = project.files((publicApiJarFiles + userlibJarFiles + protectedModulesJarFiles + vendorlibJarFiles).sort())
+    destinationDirectory.set(project.file("$deploymentDir/$compileTargetDir"))
+}
+
+tasks.register("package", Jar) {
+    dependsOn("compile")
+    description = "Generate Jar file"
+    destinationDirectory.set(project.file("$modelDir/bundles"))
+    archiveBaseName.set("project")
+    from("$deploymentDir/$compileTargetDir") { exclude(".keep") }
+    from("$mendixProjectDir/$userlibDirName") { exclude { it.file.getName().toLowerCase().endsWith(".jar") } }
+    from("$deploymentDir/$runDir/component.xml") { into("OSGI-INF") }
+    manifest {
+        attributes([
+                "Bundle-Name"        : projectSafeName,
+                "Bundle-SymbolicName": "project",
+                "Service-Component"  : "OSGI-INF/component.xml"
+        ])
+    }
+}
