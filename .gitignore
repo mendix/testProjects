@@ -36,3 +36,4 @@ widgets
 /.svn/
 /mprcontents/mprjournal*
 .docker/
+.mendix-docker
