@@ -10,7 +10,6 @@
 package pusher.actions;
 
 import com.mendix.systemwideinterfaces.core.IContext;
-import com.mendix.webui.CustomJavaAction;
 import com.pusher.rest.Pusher;
 import com.mendix.systemwideinterfaces.core.UserAction;
 
