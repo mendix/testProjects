@@ -6,32 +6,30 @@ package employeedb.proxies;
 
 public enum Color
 {
-	Aqua(new java.lang.String[][] { new java.lang.String[] { "en_US", "Aqua" } }),
-	Black(new java.lang.String[][] { new java.lang.String[] { "en_US", "Black" } }),
-	Blue(new java.lang.String[][] { new java.lang.String[] { "en_US", "Blue" } }),
-	Blush(new java.lang.String[][] { new java.lang.String[] { "en_US", "Blush" } }),
-	Cyan(new java.lang.String[][] { new java.lang.String[] { "en_US", "Cyan" } }),
-	Green(new java.lang.String[][] { new java.lang.String[] { "en_US", "Green" } }),
-	Pink(new java.lang.String[][] { new java.lang.String[] { "en_US", "Pink" } }),
-	Red(new java.lang.String[][] { new java.lang.String[] { "en_US", "Red" } });
+	Aqua("cee349fc-1a89-4091-b67f-2c0afebe81fd"),
+	Black("c7564e8d-1d9d-4c18-81f8-803e11d8c353"),
+	Blue("fe54cf7c-0a28-43c3-87b2-73ce3962eae6"),
+	Blush("fac9f60e-2d54-42da-8ca7-c8a66bae954a"),
+	Cyan("032a6824-aee3-4cc4-90df-5f4509f3bb63"),
+	Green("702baf7a-b9e2-4ff5-ae03-a46aaacaae57"),
+	Pink("db68c62c-f013-4b39-af96-24d83a2be706"),
+	Red("b98a4b73-5759-405c-8b99-381da3df2cda");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private Color(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private Color(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }
