@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="javasource"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="lib" path="/Applications/Mendix Studio Pro 11.8.0 Beta.app/Contents/runtime/bundles/com.mendix.json.jar"/>
+	<classpathentry kind="lib" path="/Applications/Mendix Studio Pro 11.8.0 Beta.app/Contents/runtime/bundles/com.mendix.logging-api.jar"/>
+	<classpathentry kind="lib" path="/Applications/Mendix Studio Pro 11.8.0 Beta.app/Contents/runtime/bundles/com.mendix.public-api.jar"/>
+	<classpathentry kind="lib" path="/Applications/Mendix Studio Pro 11.8.0 Beta.app/Contents/runtime/bundles/org.eclipse.jetty.toolchain.jetty-servlet-api.jar"/>
+	<classpathentry kind="lib" path="/Applications/Mendix Studio Pro 11.8.0 Beta.app/Contents/runtime/bundles/org.eclipse.jetty.toolchain.jetty-javax-websocket-api.jar"/>
+	<classpathentry kind="output" path="deployment/run/bin"/>
+</classpath>

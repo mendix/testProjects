@@ -1,21 +1,12 @@
-.idea
 dist
 node_modules
 *.log
 *.bak
-*.launch
-mxproject
 coverage
 GPUCache
 deployment/*
 !deployment/data/
 deployment/data/files/
 deployment/data/tmp/
-javasource/system
-javasource/*/proxies
-theme
-widgets
 *.lock
-.classpath
-.project
 
