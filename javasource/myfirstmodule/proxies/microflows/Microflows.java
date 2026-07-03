@@ -27,44 +27,15 @@ public final class Microflows
 		Object result = copy_MountainBuilder().execute(context);
 		return result == null ? null : myfirstmodule.proxies.Img.initialize(context, (IMendixObject) result);
 	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder myFirstLogicBuilder()
-	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.MyFirstLogic");
-		return builder;
-	}
-
-	public static void myFirstLogic(IContext context)
-	{
-		myFirstLogicBuilder().execute(context);
-	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder set_Fresh_ImgBuilder(
-		myfirstmodule.proxies.FileHolder _fileHolder
-	)
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder set_Fresh_ImgBuilder()
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.Set_Fresh_Img");
-		builder = builder.withParam("FileHolder", _fileHolder);
 		return builder;
 	}
 
-	public static myfirstmodule.proxies.Img set_Fresh_Img(
-		IContext context,
-		myfirstmodule.proxies.FileHolder _fileHolder
-	)
+	public static myfirstmodule.proxies.FileHolder set_Fresh_Img(IContext context)
 	{
-		Object result = set_Fresh_ImgBuilder(
-				_fileHolder
-			)
-			.execute(context);
-		return result == null ? null : myfirstmodule.proxies.Img.initialize(context, (IMendixObject) result);
-	}
-	public static com.mendix.core.actionmanagement.MicroflowCallBuilder show_HomeBuilder()
-	{
-		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.Show_Home");
-		return builder;
-	}
-
-	public static void show_Home(IContext context)
-	{
-		show_HomeBuilder().execute(context);
+		Object result = set_Fresh_ImgBuilder().execute(context);
+		return result == null ? null : myfirstmodule.proxies.FileHolder.initialize(context, (IMendixObject) result);
 	}
 }
