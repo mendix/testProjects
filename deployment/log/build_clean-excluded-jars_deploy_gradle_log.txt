@@ -1,0 +1,63 @@
+Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
+Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.11.10-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.11.10-hotspot, JAVA_VERSION=21.0.11, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.11+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.11+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+The client will now receive all logging from the daemon (pid: 12380). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-12380.out.log
+Starting 2nd build in daemon [uptime: 6.95 secs, performance: 97%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 12% of 384 MiB]
+Using 8 worker leases.
+Watching the file system is configured to be enabled if available
+File system watching is inactive
+Starting Build
+Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\badge-web\tests\testProject\deployment\settings.gradle'.
+Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\badge-web\tests\testProject\deployment\build.gradle'.
+Included projects: [root project 'deployment']
+
+> Configure project :
+Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\badge-web\tests\testProject\deployment\build.gradle'.
+All projects evaluated.
+Task name matched 'clean-excluded-jars'
+Task name matched 'deploy'
+Selected primary task 'clean-excluded-jars' from project :
+Selected primary task 'deploy' from project :
+Tasks to be executed: [task ':clean-excluded-jars', task ':copyDeploymentArtifacts', task ':copyLibs', task ':copyResources', task ':unzipDataSnapshot', task ':deploy']
+Tasks that were excluded: []
+Resolve mutations for :clean-excluded-jars (Thread[#77,Execution worker,5,main]) started.
+:clean-excluded-jars (Thread[#83,Execution worker Thread 7,5,main]) started.
+destroyer locations for task group 0 (Thread[#76,included builds,5,main]) started.
+
+> Task :clean-excluded-jars UP-TO-DATE
+Caching disabled for task ':clean-excluded-jars' because:
+  Build cache is disabled
+Task ':clean-excluded-jars' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :copyDeploymentArtifacts (Thread[#83,Execution worker Thread 7,5,main]) started.
+:copyDeploymentArtifacts (Thread[#76,included builds,5,main]) started.
+
+> Task :copyDeploymentArtifacts
+Caching disabled for task ':copyDeploymentArtifacts' because:
+  Build cache is disabled
+Task ':copyDeploymentArtifacts' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+Resolve mutations for :copyLibs (Thread[#76,included builds,5,main]) started.
+:copyLibs (Thread[#76,included builds,5,main]) started.
+
+> Task :copyLibs NO-SOURCE
+Skipping task ':copyLibs' as it has no source files and no previous output files.
+Resolve mutations for :copyResources (Thread[#76,included builds,5,main]) started.
+:copyResources (Thread[#76,included builds,5,main]) started.
+
+> Task :copyResources NO-SOURCE
+Skipping task ':copyResources' as it has no source files and no previous output files.
+Resolve mutations for :unzipDataSnapshot (Thread[#76,included builds,5,main]) started.
+:unzipDataSnapshot (Thread[#76,included builds,5,main]) started.
+
+> Task :unzipDataSnapshot SKIPPED
+Skipping task ':unzipDataSnapshot' as task onlyIf 'Task is enabled' is false.
+Resolve mutations for :deploy (Thread[#76,included builds,5,main]) started.
+:deploy (Thread[#76,included builds,5,main]) started.
+
+> Task :deploy
+Skipping task ':deploy' as it has no actions.
+
+BUILD SUCCESSFUL in 1s
+2 actionable tasks: 1 executed, 1 up-to-date
+

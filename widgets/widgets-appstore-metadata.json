@@ -1,0 +1,11 @@
+{
+  "schemaVersion": "1.0",
+  "widgets": [
+    {
+      "sha-256": "5b565d39721447414b5a1416417b04beb6d2a6a7c4a98e9b4acb516c633fda3a",
+      "name": "Combo box",
+      "version": "2.9.0",
+      "appStoreVersionGuid": "dce845f4-d051-4161-847c-016c01703caa"
+    }
+  ]
+}

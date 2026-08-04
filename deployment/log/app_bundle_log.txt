@@ -1,0 +1,5 @@
+2026-08-04T08:36:28.863Z INFO Build started (Rspack)
+2026-08-04T08:36:28.900Z INFO Bundling started in watch mode.
+2026-08-04T08:36:29.601Z INFO Bundling finished.
+2026-08-04T08:36:29.601Z INFO Development Build took 659 ms
+2026-08-04T08:36:29.602Z DEBUG Suspending compiler until next 'resume' message from SP.
