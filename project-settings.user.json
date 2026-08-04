@@ -1,0 +1,23 @@
+{
+  "serializationVersion": 0,
+  "settingsParts": [
+    {
+      "suppressions": [],
+      "suppressAppStoreWarnings": false,
+      "showSuppressionInfo": true,
+      "type": "Mendix.Modeler.Suppressions.SuppressionRules, Mendix.Modeler.Core, Version=11.12.2.0, Culture=neutral, PublicKeyToken=null"
+    },
+    {
+      "suppressions": [],
+      "disabledBestPractices": [],
+      "readRecommendations": [],
+      "suppressedRecommendations": [],
+      "hasShownRecommendationsNotificationForThisApp": true,
+      "type": "Mendix.Modeler.MxAssist.PerformanceBot.Serialization.Configuration.PerformanceBotConfiguration, Mendix.Modeler.MxAssist.PerformanceBot.Serialization, Version=11.12.2.0, Culture=neutral, PublicKeyToken=null"
+    },
+    {
+      "hasShownNotificationForThisApp": false,
+      "type": "Mendix.Modeler.WebUI.Deployment.Web.Packager.BundlerNotificationConfiguration, Mendix.Modeler.WebUI, Version=11.12.2.0, Culture=neutral, PublicKeyToken=null"
+    }
+  ]
+}

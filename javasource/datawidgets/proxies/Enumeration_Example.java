@@ -6,26 +6,24 @@ package datawidgets.proxies;
 
 public enum Enumeration_Example
 {
-	Example_1(new java.lang.String[][] { new java.lang.String[] { "en_US", "Example 1" } }),
-	Example_2(new java.lang.String[][] { new java.lang.String[] { "en_US", "Example 2" } });
+	Example_1("5b5413aa-b992-484d-b9ca-bd70d3695cf4"),
+	Example_2("6ade4d25-c639-4c8c-9890-4226dd892c42");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private Enumeration_Example(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private Enumeration_Example(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }

@@ -1,0 +1,12 @@
+2026-08-04T14:18:05.398Z INFO Build started (Rspack)
+2026-08-04T14:18:05.419Z INFO Bundling started in watch mode.
+2026-08-04T14:18:05.971Z INFO Bundling finished.
+2026-08-04T14:18:05.971Z INFO Development Build took 498 ms
+2026-08-04T14:18:06.001Z WARN Build threw warnings: 
+{
+  "message": "  ⚠ ESModulesLinkingWarning: export 'findDOMNode' (imported as 'findDOMNode') was not found in 'react-dom' (possible exports: __DOM_INTERNALS_DO_NOT_USE_OR_WARN_USERS_THEY_CANNOT_UPGRADE, createPortal, flushSync, preconnect, prefetchDNS, preinit, preinitModule, preload, preloadModule, requestFormReset, unstable_batchedUpdates, useFormState, useFormStatus, version)\n       ╭─[18412:15]\n 18410 │           return instance.setClickOutsideRef();\n 18411 │         }\n 18412 │         return findDOMNode(instance);\n       ·                ───────────\n 18413 │       };\n 18414 │       _this.enableOnClickOutside = function () {\n       ╰────\n",
+  "moduleIdentifier": "Z:\\Documents\\Projects\\web-widgets\\packages\\pluggableWidgets\\gallery-web\\tests\\testProject\\deployment\\web\\widgets\\com\\mendix\\widget\\web\\datagriddatefilter\\DatagridDateFilter.mjs",
+  "moduleName": "Z:\\Documents\\Projects\\web-widgets\\packages\\pluggableWidgets\\gallery-web\\tests\\testProject\\deployment\\web\\widgets\\com\\mendix\\widget\\web\\datagriddatefilter\\DatagridDateFilter.mjs",
+  "loc": "18412:16-26"
+}
+2026-08-04T14:18:06.001Z DEBUG Suspending compiler until next 'resume' message from SP.

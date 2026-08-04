@@ -6,32 +6,30 @@ package myfirstmodule.proxies;
 
 public enum Roles
 {
-	Architect(new java.lang.String[][] { new java.lang.String[] { "en_US", "Architect" } }),
-	Product_Designer(new java.lang.String[][] { new java.lang.String[] { "en_US", "Product Designer" } }),
-	Product_Manager(new java.lang.String[][] { new java.lang.String[] { "en_US", "Product Manager" } }),
-	QA_Engineer(new java.lang.String[][] { new java.lang.String[] { "en_US", "QA Engineer" } }),
-	Software_Development_Manager(new java.lang.String[][] { new java.lang.String[] { "en_US", "Software Development Manager" } }),
-	Software_Engineer(new java.lang.String[][] { new java.lang.String[] { "en_US", "Software Engineer" } }),
-	Team_Lead(new java.lang.String[][] { new java.lang.String[] { "en_US", "Team Lead" } }),
-	Tech_Lead(new java.lang.String[][] { new java.lang.String[] { "en_US", "Tech Lead" } });
+	Architect("ce3fa684-df90-422e-ab3a-ee141542ee52"),
+	Product_Designer("b0396bab-324e-41c9-9bfe-db364c681317"),
+	Product_Manager("51499411-dd54-4530-803d-5f03c44f3e40"),
+	QA_Engineer("d1d88ef6-9a44-42ce-b270-2b37678fedb5"),
+	Software_Development_Manager("3fdb7fc3-27b7-4ec7-986c-581c30812798"),
+	Software_Engineer("cf9af638-405f-49f3-a9fd-bfc049306250"),
+	Team_Lead("f34d507f-04d9-4ba2-a2cc-c16e6bf2c1fa"),
+	Tech_Lead("c818fdc1-6af3-4a93-94a3-ceddc4afdb5e");
 
-	private final java.util.Map<java.lang.String, java.lang.String> captions;
-
-	private Roles(java.lang.String[][] captionStrings)
+	private final java.lang.String i18nCaptionKey;
+	
+	private Roles(java.lang.String i18nCaptionKey)
 	{
-		this.captions = new java.util.HashMap<>();
-		for (java.lang.String[] captionString : captionStrings) {
-			captions.put(captionString[0], captionString[1]);
-		}
+		this.i18nCaptionKey = i18nCaptionKey;
 	}
 
 	public java.lang.String getCaption(java.lang.String languageCode)
 	{
-		return captions.getOrDefault(languageCode, "en_US");
+		String caption = com.mendix.core.Core.getInternationalizedString(languageCode, i18nCaptionKey);
+		return caption.isEmpty() ? getCaption() : caption;
 	}
 
 	public java.lang.String getCaption()
 	{
-		return captions.get("en_US");
+		return com.mendix.core.Core.getInternationalizedString("en_US", i18nCaptionKey);
 	}
 }

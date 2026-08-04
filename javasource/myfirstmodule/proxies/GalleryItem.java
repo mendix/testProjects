@@ -52,7 +52,7 @@ public class GalleryItem extends system.proxies.Image
 	protected GalleryItem(com.mendix.systemwideinterfaces.core.IContext context, com.mendix.systemwideinterfaces.core.IMendixObject galleryItemMendixObject)
 	{
 		super(context, galleryItemMendixObject);
-		if (!com.mendix.core.Core.isSubClassOf(entityName, galleryItemMendixObject.getType())) {
+		if (!galleryItemMendixObject.isInstanceOf(entityName)) {
 			throw new java.lang.IllegalArgumentException(String.format("The given object is not a %s", entityName));
 		}	
 	}

@@ -1,0 +1,34 @@
+Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
+Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
+Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.11.10-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.11.10-hotspot, JAVA_VERSION=21.0.11, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.11+10-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.11+10-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+The client will now receive all logging from the daemon (pid: 12380). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-12380.out.log
+Starting 4th build in daemon [uptime: 2 hrs 47 mins 25.546 secs, performance: 97%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 19% of 384 MiB]
+Using 8 worker leases.
+Watching the file system is configured to be enabled if available
+File system watching is inactive
+Starting Build
+Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\settings.gradle'.
+Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\build.gradle'.
+Included projects: [root project 'deployment']
+
+> Configure project :
+Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\build.gradle'.
+Compiling script 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\variables.gradle' using SubsetScriptTransformer.
+Compiling script 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\gallery-web\tests\testProject\deployment\variables.gradle' using BuildScriptTransformer.
+All projects evaluated.
+Task name matched 'clean'
+Selected primary task 'clean' from project :
+Tasks to be executed: [task ':clean']
+Tasks that were excluded: []
+Resolve mutations for :clean (Thread[#130,Execution worker,5,main]) started.
+:clean (Thread[#130,Execution worker,5,main]) started.
+
+> Task :clean UP-TO-DATE
+Caching disabled for task ':clean' because:
+  Build cache is disabled
+Task ':clean' is not up-to-date because:
+  Task has not declared any outputs despite executing actions.
+
+BUILD SUCCESSFUL in 1s
+1 actionable task: 1 up-to-date
+
