@@ -34,3 +34,5 @@ widgets
 /nativemobile/builds/
 /vendorlib/temp/
 .DS_Store
+/.svn/
+/mprcontents/mprjournal*
