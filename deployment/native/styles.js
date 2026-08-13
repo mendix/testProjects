@@ -1,6 +1,6 @@
-import * as style0 from "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/themesource/atlas_core/native/main";
-import * as style1 from "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/themesource/myfirstmodule/native/main";
-import * as style2 from "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/theme/native/main";
+import * as style0 from "/Users/Grand.Julivan/repo/testProject2/themesource/atlas_core/native/main";
+import * as style1 from "/Users/Grand.Julivan/repo/testProject2/themesource/myfirstmodule/native/main";
+import * as style2 from "/Users/Grand.Julivan/repo/testProject2/theme/native/main";
 
 import { flatten } from "mendix/native";
 

@@ -1,19 +1,21 @@
-Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
-Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
-Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot, JAVA_VERSION=21.0.2, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.2+13-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.2+13-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
-The client will now receive all logging from the daemon (pid: 11280). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-11280.out.log
-Starting 10th build in daemon [uptime: 1 hrs 16 mins 32.435 secs, performance: 98%, GC rate: 0.00/s, heap usage: 0% of 512 MiB, non-heap usage: 15% of 384 MiB]
-Using 8 worker leases.
-Not watching Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment since the file system is not supported
+Initialized native services in: /Users/Grand.Julivan/.gradle/native
+Initialized jansi services in: /Users/Grand.Julivan/.gradle/native
+Received JVM installation metadata from '/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home': {JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home, JAVA_VERSION=21.0.5, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.5+11-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.5+11-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+The client will now receive all logging from the daemon (pid: 35460). The daemon log file: /Users/Grand.Julivan/.gradle/daemon/8.5/daemon-35460.out.log
+Starting 3rd build in daemon [uptime: 6 mins 55.068 secs, performance: 100%, GC rate: 0.00/s, heap usage: 4% of 512 MiB, non-heap usage: 11% of 384 MiB]
+Using 18 worker leases.
+Closing daemon's stdin at end of input.
+The daemon will no longer process any standard input.
+Now considering [/Users/Grand.Julivan/repo/testProject2/deployment] as hierarchies to watch
 Watching the file system is configured to be enabled if available
 File system watching is active
 Starting Build
-Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\settings.gradle'.
-Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\build.gradle'.
+Settings evaluated using settings file '/Users/Grand.Julivan/repo/testProject2/deployment/settings.gradle'.
+Projects loaded. Root project using build file '/Users/Grand.Julivan/repo/testProject2/deployment/build.gradle'.
 Included projects: [root project 'deployment']
 
 > Configure project :
-Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\build.gradle'.
+Evaluating root project 'deployment' using build file '/Users/Grand.Julivan/repo/testProject2/deployment/build.gradle'.
 All projects evaluated.
 Task name matched 'clean-excluded-jars'
 Task name matched 'deploy'
@@ -21,46 +23,45 @@ Selected primary task 'clean-excluded-jars' from project :
 Selected primary task 'deploy' from project :
 Tasks to be executed: [task ':clean-excluded-jars', task ':copyDeploymentArtifacts', task ':copyLibs', task ':copyResources', task ':unzipDataSnapshot', task ':deploy']
 Tasks that were excluded: []
-Resolve mutations for :clean-excluded-jars (Thread[#278,Execution worker,5,main]) started.
-:clean-excluded-jars (Thread[#278,Execution worker,5,main]) started.
-destroyer locations for task group 0 (Thread[#277,included builds,5,main]) started.
+Resolve mutations for :clean-excluded-jars (Thread[#138,Execution worker,5,main]) started.
+:clean-excluded-jars (Thread[#138,Execution worker,5,main]) started.
+destroyer locations for task group 0 (Thread[#139,Execution worker Thread 2,5,main]) started.
 
 > Task :clean-excluded-jars UP-TO-DATE
 Caching disabled for task ':clean-excluded-jars' because:
   Build cache is disabled
 Task ':clean-excluded-jars' is not up-to-date because:
   Task has not declared any outputs despite executing actions.
-Resolve mutations for :copyDeploymentArtifacts (Thread[#278,Execution worker,5,main]) started.
-:copyDeploymentArtifacts (Thread[#277,included builds,5,main]) started.
+Resolve mutations for :copyDeploymentArtifacts (Thread[#138,Execution worker,5,main]) started.
+:copyDeploymentArtifacts (Thread[#138,Execution worker,5,main]) started.
 
 > Task :copyDeploymentArtifacts
 Caching disabled for task ':copyDeploymentArtifacts' because:
   Build cache is disabled
 Task ':copyDeploymentArtifacts' is not up-to-date because:
   Task has not declared any outputs despite executing actions.
-Resolve mutations for :copyLibs (Thread[#277,included builds,5,main]) started.
-:copyLibs (Thread[#277,included builds,5,main]) started.
+Resolve mutations for :copyLibs (Thread[#138,Execution worker,5,main]) started.
+:copyLibs (Thread[#138,Execution worker,5,main]) started.
 
 > Task :copyLibs NO-SOURCE
 Skipping task ':copyLibs' as it has no source files and no previous output files.
-Resolve mutations for :copyResources (Thread[#277,included builds,5,main]) started.
-:copyResources (Thread[#277,included builds,5,main]) started.
+Resolve mutations for :copyResources (Thread[#138,Execution worker,5,main]) started.
+:copyResources (Thread[#138,Execution worker,5,main]) started.
 
 > Task :copyResources NO-SOURCE
 Skipping task ':copyResources' as it has no source files and no previous output files.
-Resolve mutations for :unzipDataSnapshot (Thread[#277,included builds,5,main]) started.
-:unzipDataSnapshot (Thread[#277,included builds,5,main]) started.
+Resolve mutations for :unzipDataSnapshot (Thread[#138,Execution worker,5,main]) started.
+:unzipDataSnapshot (Thread[#138,Execution worker,5,main]) started.
 
 > Task :unzipDataSnapshot SKIPPED
 Skipping task ':unzipDataSnapshot' as task onlyIf 'Task is enabled' is false.
-Resolve mutations for :deploy (Thread[#277,included builds,5,main]) started.
-:deploy (Thread[#277,included builds,5,main]) started.
+Resolve mutations for :deploy (Thread[#138,Execution worker,5,main]) started.
+:deploy (Thread[#138,Execution worker,5,main]) started.
 
 > Task :deploy
 Skipping task ':deploy' as it has no actions.
 
-BUILD SUCCESSFUL in 2s
+BUILD SUCCESSFUL in 261ms
 2 actionable tasks: 1 executed, 1 up-to-date
-Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
 Watched directory hierarchies: []
 

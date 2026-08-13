@@ -1,14 +1,14 @@
 ext {
 	mendixJavaVersion = 21
-	mendixInstallDir = "C:/Program Files/Mendix/11.9.1"
+	mendixInstallDir = "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents"
 	projectName = "RichText"
-	projectSafeName = "testProject"
-	mendixProjectDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject"
-	deploymentDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/deployment"
-	dataSnapshotFile = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/data-snapshot.zip"
-	dataDir = "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/deployment/data"
+	projectSafeName = "testProject2"
+	mendixProjectDir = "/Users/Grand.Julivan/repo/testProject2"
+	deploymentDir = "/Users/Grand.Julivan/repo/testProject2/deployment"
+	dataSnapshotFile = "/Users/Grand.Julivan/repo/testProject2/data-snapshot.zip"
+	dataDir = "/Users/Grand.Julivan/repo/testProject2/deployment/data"
 	extractDataSnapshot = false
-	templatesDir = "C:/Program Files/Mendix/11.9.1/modeler/runtemplates"
+	templatesDir = "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/runtemplates"
 	runDir = "run"
 	compileTargetDir = "run/bin"
 	deploymentDirName = "deployment"

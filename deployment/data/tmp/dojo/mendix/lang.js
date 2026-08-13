@@ -1,1 +1,0 @@
-define("mendix/lang", function() {});

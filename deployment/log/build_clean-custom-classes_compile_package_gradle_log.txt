@@ -1,22 +1,24 @@
-Initialized native services in: C:\Users\leonardo.de.souza\.gradle\native
-Initialized jansi services in: C:\Users\leonardo.de.souza\.gradle\native
-Received JVM installation metadata from 'C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot': {JAVA_HOME=C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot, JAVA_VERSION=21.0.2, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.2+13-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.2+13-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=amd64}
-The client will now receive all logging from the daemon (pid: 11280). The daemon log file: C:\Users\leonardo.de.souza\.gradle\daemon\8.5\daemon-11280.out.log
-Starting 11th build in daemon [uptime: 1 hrs 16 mins 37.302 secs, performance: 98%, GC rate: 0.00/s, heap usage: 0% of 512 MiB, non-heap usage: 15% of 384 MiB]
-Using 8 worker leases.
-Not watching Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment since the file system is not supported
+Initialized native services in: /Users/Grand.Julivan/.gradle/native
+Initialized jansi services in: /Users/Grand.Julivan/.gradle/native
+Received JVM installation metadata from '/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home': {JAVA_HOME=/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home, JAVA_VERSION=21.0.5, JAVA_VENDOR=Eclipse Adoptium, RUNTIME_NAME=OpenJDK Runtime Environment, RUNTIME_VERSION=21.0.5+11-LTS, VM_NAME=OpenJDK 64-Bit Server VM, VM_VERSION=21.0.5+11-LTS, VM_VENDOR=Eclipse Adoptium, OS_ARCH=aarch64}
+The client will now receive all logging from the daemon (pid: 9980). The daemon log file: /Users/Grand.Julivan/.gradle/daemon/8.5/daemon-9980.out.log
+Starting 9th build in daemon [uptime: 2 hrs 3 mins 50.793 secs, performance: 99%, GC rate: 0.00/s, heap usage: 2% of 512 MiB, non-heap usage: 21% of 384 MiB]
+Using 18 worker leases.
+Closing daemon's stdin at end of input.
+The daemon will no longer process any standard input.
+Now considering [/Users/Grand.Julivan/repo/testProject2/deployment] as hierarchies to watch
 Watching the file system is configured to be enabled if available
 File system watching is active
 Starting Build
-Settings evaluated using settings file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\settings.gradle'.
-Projects loaded. Root project using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\build.gradle'.
+Settings evaluated using settings file '/Users/Grand.Julivan/repo/testProject2/deployment/settings.gradle'.
+Projects loaded. Root project using build file '/Users/Grand.Julivan/repo/testProject2/deployment/build.gradle'.
 Included projects: [root project 'deployment']
 
 > Configure project :
-Evaluating root project 'deployment' using build file 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\build.gradle'.
+Evaluating root project 'deployment' using build file '/Users/Grand.Julivan/repo/testProject2/deployment/build.gradle'.
 All projects evaluated.
 Task name matched 'clean-custom-classes'
-file or directory 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\vendorlib', not found
+file or directory '/Users/Grand.Julivan/repo/testProject2/vendorlib', not found
 Task name matched 'compile'
 Task name matched 'package'
 Selected primary task 'clean-custom-classes' from project :
@@ -24,47 +26,47 @@ Selected primary task 'compile' from project :
 Selected primary task 'package' from project :
 Tasks to be executed: [task ':clean-custom-classes', task ':compile', task ':package']
 Tasks that were excluded: []
-Resolve mutations for :clean-custom-classes (Thread[#299,Execution worker,5,main]) started.
-:clean-custom-classes (Thread[#299,Execution worker,5,main]) started.
-destroyer locations for task group 0 (Thread[#298,included builds,5,main]) started.
-destroyer locations for task group 1 (Thread[#298,included builds,5,main]) started.
+Resolve mutations for :clean-custom-classes (Thread[#370,Execution worker,5,main]) started.
+:clean-custom-classes (Thread[#370,Execution worker,5,main]) started.
+destroyer locations for task group 0 (Thread[#376,Execution worker Thread 7,5,main]) started.
+destroyer locations for task group 1 (Thread[#380,Execution worker Thread 11,5,main]) started.
 
 > Task :clean-custom-classes
 Caching disabled for task ':clean-custom-classes' because:
   Build cache is disabled
 Task ':clean-custom-classes' is not up-to-date because:
   Task has not declared any outputs despite executing actions.
-Resolve mutations for :compile (Thread[#299,Execution worker,5,main]) started.
-:compile (Thread[#299,Execution worker,5,main]) started.
+Resolve mutations for :compile (Thread[#370,Execution worker,5,main]) started.
+:compile (Thread[#370,Execution worker,5,main]) started.
 
 > Task :compile
 Caching disabled for task ':compile' because:
   Build cache is disabled
 Task ':compile' is not up-to-date because:
-  Output property 'destinationDirectory' file Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\run\bin has been removed.
-  Output property 'destinationDirectory' file Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\run\bin\administration has been removed.
-  Output property 'destinationDirectory' file Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\run\bin\administration\proxies has been removed.
-  Output property 'destinationDirectory' file Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\run\bin\myfirstmodule has been removed.
-  Output property 'destinationDirectory' file Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\deployment\run\bin\system has been removed.
+  Output property 'destinationDirectory' file /Users/Grand.Julivan/repo/testProject2/deployment/run/bin has been removed.
+  Output property 'destinationDirectory' file /Users/Grand.Julivan/repo/testProject2/deployment/run/bin/administration has been removed.
+  Output property 'destinationDirectory' file /Users/Grand.Julivan/repo/testProject2/deployment/run/bin/administration/proxies has been removed.
+  Output property 'destinationDirectory' file /Users/Grand.Julivan/repo/testProject2/deployment/run/bin/myfirstmodule has been removed.
+  Output property 'destinationDirectory' file /Users/Grand.Julivan/repo/testProject2/deployment/run/bin/system has been removed.
 The input changes require a full rebuild for incremental task ':compile'.
-file or directory 'Z:\Documents\Projects\web-widgets\packages\pluggableWidgets\rich-text-web\tests\testProject\vendorlib', not found
+file or directory '/Users/Grand.Julivan/repo/testProject2/vendorlib', not found
 Full recompilation is required because no incremental change information is available. This is usually caused by clean builds or changing compiler arguments.
-Compiling with toolchain 'C:\Program Files\Eclipse Adoptium\jdk-21.0.2.13-hotspot'.
+Compiling with toolchain '/Library/Java/JavaVirtualMachines/temurin-21.jdk/Contents/Home'.
 Compiling with JDK Java compiler API.
-Class dependency analysis for incremental compilation took 0.115 secs.
-Created classpath snapshot for incremental compilation in 0.01 secs.
-Resolve mutations for :package (Thread[#299,Execution worker,5,main]) started.
-:package (Thread[#299,Execution worker,5,main]) started.
+Class dependency analysis for incremental compilation took 0.139 secs.
+Created classpath snapshot for incremental compilation in 0.0 secs.
+Resolve mutations for :package (Thread[#370,Execution worker,5,main]) started.
+:package (Thread[#370,Execution worker,5,main]) started.
 
-> Task :package UP-TO-DATE
+> Task :package
 Caching disabled for task ':package' because:
   Build cache is disabled
-Skipping task ':package' as it is up-to-date.
+Task ':package' is not up-to-date because:
+  Output property 'archiveFile' file /Users/Grand.Julivan/repo/testProject2/deployment/model/bundles/project.jar has been removed.
 
-BUILD SUCCESSFUL in 4s
-3 actionable tasks: 2 executed, 1 up-to-date
-Some of the file system contents retained in the virtual file system are on file systems that Gradle doesn't support watching. The relevant state was discarded to ensure changes to these locations are properly detected. You can override this by explicitly enabling file system watching.
-Watched directory hierarchies: []
+BUILD SUCCESSFUL in 696ms
+3 actionable tasks: 3 executed
+Watched directory hierarchies: [/Users/Grand.Julivan/repo/testProject2/deployment]
 
 Note: Some input files use unchecked or unsafe operations.
 Note: Recompile with -Xlint:unchecked for details.

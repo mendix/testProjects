@@ -1,17 +1,18 @@
-import { nodeResolve } from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@rollup/plugin-node-resolve/dist/cjs/index.js";
-import commonjs from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@rollup/plugin-commonjs/dist/cjs/index.js";
-import { babel } from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@rollup/plugin-babel/dist/cjs/index.js";
-import del from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/rollup-plugin-delete/dist/index.mjs";
-import esbuild from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/rollup-plugin-esbuild/dist/index.mjs";
-import postcss from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/rollup-plugin-postcss/dist/index.js";
-import nodePolyfills from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/rollup-plugin-polyfill-node/dist/index.js";
+import { nodeResolve } from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@rollup/plugin-node-resolve/dist/cjs/index.js";
+import commonjs from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@rollup/plugin-commonjs/dist/cjs/index.js";
+import { babel } from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@rollup/plugin-babel/dist/cjs/index.js";
+import del from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/rollup-plugin-delete/dist/index.mjs";
+import esbuild from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/rollup-plugin-esbuild/dist/index.mjs";
+import styles from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/rollup-plugin-styles/dist/index.js";
+import nodePolyfills from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/rollup-plugin-polyfill-node/dist/index.js";
 
-import mendixCopy from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/rollup-plugin-mendix-copy.mjs";
-import mendixResolve from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/rollup-plugin-mendix-resolve.mjs";
-import mendixOnlyWriteChanged from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/rollup-plugin-mendix-only-write-changed.mjs";
-import mendixServiceWorker from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/rollup-plugin-mendix-serviceworker.mjs";
-import sourcemaps from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/rollup-plugin-sourcemaps2/dist/index.js";
-import alias from "file://C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@rollup/plugin-alias/dist/index.js";
+import mendixCopy from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/rollup-plugin-mendix-copy.mjs";
+import mendixPages from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/rollup-plugin-mendix-pages.mjs";
+import mendixResolve from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/rollup-plugin-mendix-resolve.mjs";
+import mendixOnlyWriteChanged from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/rollup-plugin-mendix-only-write-changed.mjs";
+import mendixServiceWorker from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/rollup-plugin-mendix-serviceworker.mjs";
+import sourcemaps from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/rollup-plugin-sourcemaps2/dist/index.js";
+import alias from "file:///Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@rollup/plugin-alias/dist/index.js";
 
 const JAVASCRIPT_SOURCE_PATH_REGEX = /javascriptsource/;
 const MENDIX_PACKAGE_PATH_REGEX = /mendix/;
@@ -30,7 +31,16 @@ export default {
     output: {
         dir: "dist",
         format: "es",
-        chunkFileNames: isProduction ? "[hash].js" : "[name]-[hash].js",
+        chunkFileNames: isProduction ? "chunks/[hash].js" : "chunks/[name]-[hash].js",
+        // `rollup-plugin-styles` computes the extracted CSS filename via Rollup's asset naming,
+        // but calls this hook with a partial asset shape that uses `name` instead of `names`.
+        assetFileNames: (assetInfo) => {
+            const assetNames = assetInfo.names ?? (assetInfo.name ? [assetInfo.name] : []);
+
+            return assetNames.some((name) => name === "widgets" || name === "widgets.css")
+                ? "widgets.css"
+                : "assets/[name]-[hash][extname]";
+        },
         sourcemap: shouldGenerateSourceMaps,
         minifyInternalExports: isProduction,
         experimentalMinChunkSize: isProduction ? 4096 : 1,
@@ -42,9 +52,10 @@ export default {
             sourcemaps({
                 include: [PLUGGABLE_WIDGETS_PATH_FILTER, JAVASCRIPT_SOURCE_PATH_REGEX, MENDIX_PACKAGE_PATH_REGEX],
             }),
+        mendixPages(),
         mendixResolve(
-            "C:/Program Files/Mendix/11.9.1/modeler/tools/node/web-resolutions.json",
-            "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules",
+            "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/web-resolutions.json",
+            "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules",
         ),
         nodePolyfills(),
         esbuild({
@@ -61,13 +72,13 @@ export default {
             },
         }),
         nodeResolve({
-            modulePaths: ["C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules"],
+            modulePaths: ["/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules"],
         }),
         commonjs({
             transformMixedEsModules: true,
             strictRequires: "auto",
             exclude: [
-                "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/**",
+                "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/**",
                 PLUGGABLE_WIDGETS_PATH_FILTER,
             ],
         }),
@@ -76,51 +87,58 @@ export default {
             include: JAVASCRIPT_SOURCE_PATH_REGEX,
             presets: [
                 [
-                    "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@babel/preset-env",
+                    "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@babel/preset-env",
                     { targets: { safari: "13" } },
                 ],
             ],
             plugins: [
-                "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@babel/plugin-syntax-dynamic-import",
+                "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@babel/plugin-syntax-dynamic-import",
             ],
         }),
         del({
             targets: "dist",
             runOnce: true,
         }),
-        postcss({
-            extract: "widgets.css",
+        styles({
+            config: false,
+            mode: ["extract", "widgets.css"],
             minimize: isProduction,
-            sourcemap: shouldGenerateSourceMaps ? "inline" : false,
+            sourceMap: shouldGenerateSourceMaps ? "inline" : false,
+            import: false,
+            url: false,
+            autoModules: true,
         }),
         mendixCopy({
             sources: [
                 {
-                    folder: "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/deployment/web/widgets",
-                    exclude: [".js", ".mjs", ".css"],
+                    folder: "/Users/Grand.Julivan/repo/testProject2/deployment/web/widgets",
+                    ignore: ["**/*.js", "**/*.mjs", "**/*.css", "**/assets/**"],
                     include: "**",
+                },
+                {
+                    folder: "/Users/Grand.Julivan/repo/testProject2/deployment/web/widgets",
+                    include: "**/assets/**",
                 },
             ],
         }),
         mendixServiceWorker({
-            deploymentDir: "Z:/Documents/Projects/web-widgets/packages/pluggableWidgets/rich-text-web/tests/testProject/deployment",
+            deploymentDir: "/Users/Grand.Julivan/repo/testProject2/deployment",
         }),
         mendixOnlyWriteChanged(),
         alias({
             entries: {
-                "mx-api": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/mx-api",
-                "mx-api/data": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/mx-api/data",
-                "mx-api/parser":
-                    "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/mx-api/parser",
-                "mx-api/session":
-                    "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/mx-api/session",
-                "mx-api/ui": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/mx-api/ui",
-                "mx-api/pwa": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/mendix/mx-api/pwa",
-                "react": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/react",
-                "react-dom": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/react-dom",
-                "react/jsx-runtime": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/react/jsx-runtime",
-                "react/jsx-dev-runtime": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/react/jsx-dev-runtime",
-                "big.js": "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/big.js",
+                "mx-api": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/mx-api",
+                "mx-api/data": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/mx-api/data",
+                "mx-api/parser": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/mx-api/parser",
+                "mx-api/session": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/mx-api/session",
+                "mx-api/ui": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/mx-api/ui",
+                "mx-api/pwa": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/mendix/mx-api/pwa",
+                react: "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/react",
+                "react-dom": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/react-dom",
+                "react/jsx-runtime": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/react/jsx-runtime",
+                "react/jsx-dev-runtime":
+                    "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/react/jsx-dev-runtime",
+                "big.js": "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/big.js",
             },
         }),
     ],

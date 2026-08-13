@@ -1,14 +1,14 @@
 {
-  "presets": ["module:C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/@react-native/babel-preset"],
+  "presets": ["module:/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/@react-native/babel-preset"],
   "plugins": [
     [
-      "C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/babel-plugin-inline-import",
+      "/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/babel-plugin-inline-import",
       {
         "extensions": [".svg"]
       }
     ],
     [
-      "module:C:/Program Files/Mendix/11.9.1/modeler/tools/node/node_modules/react-native-reanimated/plugin"
+      "module:/Applications/Mendix Studio Pro 11.12.0 Beta.app/Contents/modeler/tools/node/node_modules/react-native-worklets/plugin"
     ]
   ]
 }
