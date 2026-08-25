@@ -16,3 +16,14 @@ widgets
 .classpath
 .project
 
+/*.launch
+/deployment/
+/.mendix-cache/
+/.classpath
+/.project
+/barcodegenerator.mpr.bak
+/barcodegenerator.mpr.lock
+/project-settings.user.json
+/mprcontents/mprjournal*
+.DS_Store
+
