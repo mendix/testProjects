@@ -21,7 +21,9 @@ public class Category implements com.mendix.systemwideinterfaces.core.IEntityPro
 	public enum MemberNames
 	{
 		Name("Name"),
-		Category_Parent("MyFirstModule.Category_Parent");
+		Order("Order"),
+		Category_Parent("MyFirstModule.Category_Parent"),
+		Category_Department("MyFirstModule.Category_Department");
 
 		private final java.lang.String metaName;
 
@@ -119,6 +121,42 @@ public class Category implements com.mendix.systemwideinterfaces.core.IEntityPro
 	}
 
 	/**
+	 * @return value of Order
+	 */
+	public final java.lang.Integer getOrder()
+	{
+		return getOrder(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Order
+	 */
+	public final java.lang.Integer getOrder(com.mendix.systemwideinterfaces.core.IContext context)
+	{
+		return (java.lang.Integer) getMendixObject().getValue(context, MemberNames.Order.toString());
+	}
+
+	/**
+	 * Set value of Order
+	 * @param order
+	 */
+	public final void setOrder(java.lang.Integer order)
+	{
+		setOrder(getContext(), order);
+	}
+
+	/**
+	 * Set value of Order
+	 * @param context
+	 * @param order
+	 */
+	public final void setOrder(com.mendix.systemwideinterfaces.core.IContext context, java.lang.Integer order)
+	{
+		getMendixObject().setValue(context, MemberNames.Order.toString(), order);
+	}
+
+	/**
 	 * @throws com.mendix.core.CoreException
 	 * @return value of Category_Parent
 	 */
@@ -162,6 +200,53 @@ public class Category implements com.mendix.systemwideinterfaces.core.IEntityPro
 			getMendixObject().setValue(context, MemberNames.Category_Parent.toString(), null);
 		} else {
 			getMendixObject().setValue(context, MemberNames.Category_Parent.toString(), category_parent.getMendixObject().getId());
+		}
+	}
+
+	/**
+	 * @throws com.mendix.core.CoreException
+	 * @return value of Category_Department
+	 */
+	public final myfirstmodule.proxies.Department getCategory_Department() throws com.mendix.core.CoreException
+	{
+		return getCategory_Department(getContext());
+	}
+
+	/**
+	 * @param context
+	 * @return value of Category_Department
+	 * @throws com.mendix.core.CoreException
+	 */
+	public final myfirstmodule.proxies.Department getCategory_Department(com.mendix.systemwideinterfaces.core.IContext context) throws com.mendix.core.CoreException
+	{
+		myfirstmodule.proxies.Department result = null;
+		com.mendix.systemwideinterfaces.core.IMendixIdentifier identifier = getMendixObject().getValue(context, MemberNames.Category_Department.toString());
+		if (identifier != null) {
+			result = myfirstmodule.proxies.Department.load(context, identifier);
+		}
+		return result;
+	}
+
+	/**
+	 * Set value of Category_Department
+	 * @param category_department
+	 */
+	public final void setCategory_Department(myfirstmodule.proxies.Department category_department)
+	{
+		setCategory_Department(getContext(), category_department);
+	}
+
+	/**
+	 * Set value of Category_Department
+	 * @param context
+	 * @param category_department
+	 */
+	public final void setCategory_Department(com.mendix.systemwideinterfaces.core.IContext context, myfirstmodule.proxies.Department category_department)
+	{
+		if (category_department == null) {
+			getMendixObject().setValue(context, MemberNames.Category_Department.toString(), null);
+		} else {
+			getMendixObject().setValue(context, MemberNames.Category_Department.toString(), category_department.getMendixObject().getId());
 		}
 	}
 

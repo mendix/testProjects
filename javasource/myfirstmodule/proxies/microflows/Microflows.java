@@ -15,6 +15,59 @@ public final class Microflows
 	private Microflows() {}
 
 	// These are the microflows for the MyFirstModule module
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_AssignRandomDepartmentsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_AssignRandomDepartments");
+		return builder;
+	}
+
+	public static void aCT_AssignRandomDepartments(IContext context)
+	{
+		aCT_AssignRandomDepartmentsBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAllCategoriesBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_DeleteAllCategories");
+		return builder;
+	}
+
+	public static void aCT_DeleteAllCategories(IContext context)
+	{
+		aCT_DeleteAllCategoriesBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_DeleteAllDepartmentsBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_DeleteAllDepartments");
+		return builder;
+	}
+
+	public static void aCT_DeleteAllDepartments(IContext context)
+	{
+		aCT_DeleteAllDepartmentsBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aCT_MoveCategoryBuilder(
+		myfirstmodule.proxies.Category _category,
+		boolean _isIncrement
+	)
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ACT_MoveCategory");
+		builder = builder.withParam("Category", _category);
+		builder = builder.withParam("IsIncrement", _isIncrement);
+		return builder;
+	}
+
+	public static void aCT_MoveCategory(
+		IContext context,
+		myfirstmodule.proxies.Category _category,
+		boolean _isIncrement
+	)
+	{
+		aCT_MoveCategoryBuilder(
+				_category,
+				_isIncrement
+			)
+			.execute(context);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSU_SeedCategoryDataBuilder()
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ASU_SeedCategoryData");
@@ -24,5 +77,25 @@ public final class Microflows
 	public static void aSU_SeedCategoryData(IContext context)
 	{
 		aSU_SeedCategoryDataBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSU_SeedDepartmentBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ASU_SeedDepartment");
+		return builder;
+	}
+
+	public static void aSU_SeedDepartment(IContext context)
+	{
+		aSU_SeedDepartmentBuilder().execute(context);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSU_SeedGeographyDataBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ASU_SeedGeographyData");
+		return builder;
+	}
+
+	public static void aSU_SeedGeographyData(IContext context)
+	{
+		aSU_SeedGeographyDataBuilder().execute(context);
 	}
 }
