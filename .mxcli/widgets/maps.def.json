@@ -1,0 +1,203 @@
+{
+  "widgetId": "com.mendix.widget.custom.Maps.Maps",
+  "mdlName": "MAPS",
+  "widgetKind": "pluggable",
+  "templateFile": "maps.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "advanced",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "apiKey",
+      "operation": "primitive",
+      "description": "API Key for usage of the map through the selected provider.Google Maps - https://developers.google.com/maps/documentation/javascript/get-api-key Map Box - https://docs.mapbox.com/help/getting-started/access-tokens/ Here Maps - https://developer.here.com/tutorials/getting-here-credentials/"
+    },
+    {
+      "propertyKey": "geodecodeApiKey",
+      "operation": "primitive",
+      "description": "Used to translate addresses to latitude and longitude. This API Key should be a Google Geocoding API Key found in https://developers.google.com/maps/documentation/geocoding/overview"
+    },
+    {
+      "propertyKey": "showCurrentLocation",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Shows the user current location marker."
+    },
+    {
+      "propertyKey": "optionDrag",
+      "value": "true",
+      "operation": "primitive",
+      "description": "The center will move when end-users drag the map."
+    },
+    {
+      "propertyKey": "optionScroll",
+      "value": "true",
+      "operation": "primitive",
+      "description": "The map is zoomed with a mouse scroll."
+    },
+    {
+      "propertyKey": "optionZoomControl",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Show zoom controls [ + ] [ - ]."
+    },
+    {
+      "propertyKey": "attributionControl",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Add attributions to the map (credits)."
+    },
+    {
+      "propertyKey": "optionStreetView",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Enables the Street View control."
+    },
+    {
+      "propertyKey": "mapTypeControl",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Enables switching between different map types."
+    },
+    {
+      "propertyKey": "fullScreenControl",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "rotateControl",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "widthUnit",
+      "value": "percentage",
+      "operation": "primitive",
+      "description": "Percentage: portion of parent size. Pixels: absolute amount of pixels."
+    },
+    {
+      "propertyKey": "width",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentageOfWidth",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "75",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "zoom",
+      "value": "automatic",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "mapProvider",
+      "value": "googleMaps",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "googleMapId",
+      "operation": "primitive",
+      "description": "Used to render and style the Google map. This MapId key from Google can be found in https://developers.google.com/maps/documentation/get-map-id"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "markers",
+      "mdlContainer": "MARKER",
+      "itemProperties": [
+        {
+          "propertyKey": "locationType",
+          "value": "address",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "address",
+          "operation": "texttemplate",
+          "description": "Address containing (a subset of) street, number, zipcode, city and country."
+        },
+        {
+          "propertyKey": "latitude",
+          "operation": "texttemplate",
+          "description": "Decimal number from -90.0 to 90.0."
+        },
+        {
+          "propertyKey": "longitude",
+          "operation": "texttemplate",
+          "description": "Decimal number from -180.0 to 180.0."
+        },
+        {
+          "propertyKey": "title",
+          "operation": "texttemplate",
+          "description": "Title displayed when clicking the marker."
+        },
+        {
+          "propertyKey": "onClick",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "markerStyle",
+          "value": "default",
+          "operation": "primitive"
+        }
+      ]
+    },
+    {
+      "propertyKey": "dynamicMarkers",
+      "mdlContainer": "DYNAMICMARKER",
+      "itemProperties": [
+        {
+          "propertyKey": "markersDS",
+          "source": "DataSource",
+          "operation": "datasource"
+        },
+        {
+          "propertyKey": "locationType",
+          "value": "address",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "address",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Address containing (a subset of) street, number, zipcode, city and country."
+        },
+        {
+          "propertyKey": "latitude",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Decimal number from -90.0 to 90.0."
+        },
+        {
+          "propertyKey": "longitude",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Decimal number from -180.0 to 180.0."
+        },
+        {
+          "propertyKey": "title",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Title displayed when clicking the marker."
+        },
+        {
+          "propertyKey": "onClickAttribute",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "markerStyleDynamic",
+          "value": "default",
+          "operation": "primitive"
+        }
+      ]
+    }
+  ]
+}

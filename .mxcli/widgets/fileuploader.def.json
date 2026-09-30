@@ -1,0 +1,114 @@
+{
+  "widgetId": "com.mendix.widget.web.fileuploader.FileUploader",
+  "mdlName": "FILEUPLOADER",
+  "widgetKind": "pluggable",
+  "templateFile": "fileuploader.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "uploadMode",
+      "value": "files",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "associatedFiles",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "associatedImages",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "readOnlyMode",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "maxFilesPerUpload",
+      "value": "10",
+      "operation": "primitive",
+      "description": "Limit the number of files per one upload."
+    },
+    {
+      "propertyKey": "maxFileSize",
+      "value": "25",
+      "operation": "primitive",
+      "description": "Reject files that are bigger than specified size."
+    },
+    {
+      "propertyKey": "objectCreationTimeout",
+      "value": "10",
+      "operation": "primitive",
+      "description": "Consider uploads unsuccessful if the Action to create new files/images does not create new objects within the configured amount of seconds."
+    },
+    {
+      "propertyKey": "enableCustomButtons",
+      "value": "false",
+      "operation": "primitive"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "allowedFileFormats",
+      "mdlContainer": "ALLOWEDFILEFORMAT",
+      "itemProperties": [
+        {
+          "propertyKey": "configMode",
+          "value": "simple",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "predefinedType",
+          "value": "pdfFile",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "mimeType",
+          "operation": "primitive",
+          "description": "For example 'image/jpeg' or 'application/pdf'"
+        },
+        {
+          "propertyKey": "extensions",
+          "operation": "primitive",
+          "description": "Comma separated list of extensions. For example: '.jpg,.jpeg'."
+        },
+        {
+          "propertyKey": "typeFormatDescription",
+          "operation": "texttemplate",
+          "description": "Shown to the end users to describe supported file types."
+        }
+      ]
+    },
+    {
+      "propertyKey": "customButtons",
+      "mdlContainer": "CUSTOMBUTTON",
+      "itemProperties": [
+        {
+          "propertyKey": "buttonCaption",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "buttonActionFile",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "buttonActionImage",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "buttonIsDefault",
+          "value": "false",
+          "operation": "primitive",
+          "description": "When set to Yes, the action will be triggered by clicking on the file entry."
+        },
+        {
+          "propertyKey": "buttonIsVisible",
+          "operation": "expression",
+          "description": "The button will be hidden when false is returned."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "widgetId": "com.mendix.widget.native.feedback.Feedback",
+  "mdlName": "FEEDBACK",
+  "widgetKind": "pluggable",
+  "templateFile": "feedback.json",
+  "defaultEditable": "Always"
+}

@@ -13,6 +13,7 @@ public class UserActionsRegistrar
     registrator.registerUserAction(feedbackmodule.actions.ValidateEmail.class);
     registrator.registerUserAction(feedbackmodule.actions.XSS_Sanitizer.class);
     registrator.registerUserAction(myfirstmodule.actions.CloneImage.class);
+    registrator.registerUserAction(myfirstmodule.actions.JA_CreateSampleImage.class);
     registrator.registerUserAction(system.actions.VerifyPassword.class);
   }
 }

@@ -1,0 +1,15 @@
+{
+  "widgetId": "com.mendix.widget.custom.badge.Badge",
+  "mdlName": "BADGE",
+  "widgetKind": "pluggable",
+  "templateFile": "badge.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "type",
+      "value": "badge",
+      "operation": "primitive",
+      "description": "Render it as either a badge or a color label"
+    }
+  ]
+}

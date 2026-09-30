@@ -1,0 +1,15 @@
+{
+  "widgetId": "com.mendix.widget.custom.switch.Switch",
+  "mdlName": "SWITCH",
+  "widgetKind": "pluggable",
+  "templateFile": "switch.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "booleanAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Attribute to toggle"
+    }
+  ]
+}

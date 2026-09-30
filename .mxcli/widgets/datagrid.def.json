@@ -1,0 +1,255 @@
+{
+  "widgetId": "com.mendix.widget.web.datagrid.Datagrid",
+  "mdlName": "DATAGRID",
+  "widgetKind": "pluggable",
+  "templateFile": "datagrid.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "advanced",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "datasource",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "refreshInterval",
+      "value": "0",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "itemSelection",
+      "source": "Selection",
+      "operation": "selection"
+    },
+    {
+      "propertyKey": "itemSelectionMethod",
+      "value": "checkbox",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "itemSelectionMode",
+      "value": "clear",
+      "operation": "primitive",
+      "description": "Defines item selection behavior."
+    },
+    {
+      "propertyKey": "showSelectAllToggle",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Show a checkbox in the grid header to check or uncheck multiple items."
+    },
+    {
+      "propertyKey": "loadingType",
+      "value": "spinner",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "columnsFilterable",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "pageSize",
+      "value": "20",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "pagination",
+      "value": "buttons",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showPagingButtons",
+      "value": "always",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showNumberOfRows",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "pagingPosition",
+      "value": "bottom",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showEmptyPlaceholder",
+      "value": "none",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "onClickTrigger",
+      "value": "single",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "columnsSortable",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Enable sorting for all columns unless specified otherwise in the column setting"
+    },
+    {
+      "propertyKey": "columnsResizable",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Enable resizing for all columns unless specified otherwise in the column setting"
+    },
+    {
+      "propertyKey": "columnsDraggable",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Enable reordering for all columns unless specified otherwise in the column setting"
+    },
+    {
+      "propertyKey": "columnsHidable",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Enable hiding for all columns unless specified otherwise in the column setting"
+    },
+    {
+      "propertyKey": "configurationStorageType",
+      "value": "attribute",
+      "operation": "primitive",
+      "description": "When Browser local storage is selected, the configuration is scoped to a browser profile. This configuration is not tied to a Mendix user."
+    },
+    {
+      "propertyKey": "configurationAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Attribute containing the personalized configuration of the capabilities. This configuration is automatically stored and loaded. The attribute requires Unlimited String."
+    },
+    {
+      "propertyKey": "storeFiltersInPersonalization",
+      "value": "true",
+      "operation": "primitive"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "emptyPlaceholder",
+      "mdlContainer": "EMPTYPLACEHOLDER",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "filtersPlaceholder",
+      "mdlContainer": "FILTERSPLACEHOLDER",
+      "operation": "widgets"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "columns",
+      "mdlContainer": "COLUMN",
+      "itemProperties": [
+        {
+          "propertyKey": "showContentAs",
+          "value": "attribute",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "attribute",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Attribute is required if the column can be sorted or filtered"
+        },
+        {
+          "propertyKey": "dynamicText",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "exportValue",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "header",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "tooltip",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "visible",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "sortable",
+          "value": "true",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "resizable",
+          "value": "true",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "draggable",
+          "value": "true",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "hidable",
+          "value": "yes",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "allowEventPropagation",
+          "value": "true",
+          "operation": "primitive",
+          "description": "If set to yes, then all default events on the row, such as \"on click\" or selection, will be triggered when the user interacts with custom content."
+        },
+        {
+          "propertyKey": "width",
+          "value": "autoFill",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "minWidth",
+          "value": "auto",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "minWidthLimit",
+          "value": "100",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "size",
+          "value": "1",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "alignment",
+          "value": "left",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "columnClass",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "wrapText",
+          "value": "false",
+          "operation": "primitive"
+        }
+      ],
+      "itemSlots": [
+        {
+          "propertyKey": "content",
+          "mdlContainer": "CONTENT",
+          "operation": "widgets"
+        },
+        {
+          "propertyKey": "filter",
+          "mdlContainer": "FILTER",
+          "operation": "widgets"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "widgetId": "com.mendix.widget.web.accessibilityhelper.AccessibilityHelper",
+  "mdlName": "ACCESSIBILITYHELPER",
+  "widgetKind": "pluggable",
+  "templateFile": "accessibilityhelper.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "targetSelector",
+      "operation": "primitive",
+      "description": "Selector to find the first HTML element you want to target which must be a valid CSS selector like '.mx-name-texbox1 input'"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "content",
+      "mdlContainer": "TEMPLATE",
+      "operation": "widgets"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "attributesList",
+      "mdlContainer": "ATTR",
+      "itemProperties": [
+        {
+          "propertyKey": "attribute",
+          "operation": "primitive",
+          "description": "The HTML attribute to be set based on the condition. The following attributes are not allowed: 'class', 'style', 'widgetid', 'data-mendix-id'."
+        },
+        {
+          "propertyKey": "valueSourceType",
+          "value": "text",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "valueExpression",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "valueText",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "attributeCondition",
+          "operation": "expression",
+          "description": "Condition to determine if the HTML attribute must be set or not"
+        }
+      ]
+    }
+  ]
+}

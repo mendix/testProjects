@@ -1,0 +1,25 @@
+{
+  "widgetId": "com.mendix.widget.custom.starrating.StarRating",
+  "mdlName": "STARRATING",
+  "widgetKind": "pluggable",
+  "templateFile": "starrating.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "rateAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "maximumStars",
+      "value": "5",
+      "operation": "primitive",
+      "description": "The number of rating icons"
+    },
+    {
+      "propertyKey": "animation",
+      "value": "true",
+      "operation": "primitive"
+    }
+  ]
+}

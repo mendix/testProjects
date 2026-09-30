@@ -1,0 +1,31 @@
+{
+  "widgetId": "com.mendix.widget.web.languageselector.LanguageSelector",
+  "mdlName": "LANGUAGESELECTOR",
+  "widgetKind": "pluggable",
+  "templateFile": "languageselector.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "languageOptions",
+      "source": "DataSource",
+      "operation": "datasource",
+      "description": "Recommended: Database data source with System.Language as entity."
+    },
+    {
+      "propertyKey": "position",
+      "value": "bottom",
+      "operation": "primitive",
+      "description": "The location of the menu relative to the current selected language (click area)."
+    },
+    {
+      "propertyKey": "trigger",
+      "value": "click",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "hideForSingle",
+      "value": "true",
+      "operation": "primitive"
+    }
+  ]
+}

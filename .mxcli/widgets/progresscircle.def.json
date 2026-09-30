@@ -1,0 +1,61 @@
+{
+  "widgetId": "com.mendix.widget.custom.progresscircle.ProgressCircle",
+  "mdlName": "PROGRESSCIRCLE",
+  "widgetKind": "pluggable",
+  "templateFile": "progresscircle.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "type",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "staticCurrentValue",
+      "value": "50",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "dynamicCurrentValue",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "staticMinValue",
+      "value": "0",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "dynamicMinValue",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "staticMaxValue",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "dynamicMaxValue",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "showLabel",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "labelType",
+      "value": "text",
+      "operation": "primitive"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "customLabel",
+      "mdlContainer": "CUSTOMLABEL",
+      "operation": "widgets"
+    }
+  ]
+}

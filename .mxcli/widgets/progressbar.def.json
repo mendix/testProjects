@@ -1,0 +1,62 @@
+{
+  "widgetId": "com.mendix.widget.custom.progressbar.ProgressBar",
+  "mdlName": "PROGRESSBAR",
+  "widgetKind": "pluggable",
+  "templateFile": "progressbar.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "type",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "staticCurrentValue",
+      "value": "50",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "dynamicCurrentValue",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "staticMinValue",
+      "value": "0",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "dynamicMinValue",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "staticMaxValue",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "dynamicMaxValue",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "showLabel",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "labelType",
+      "value": "text",
+      "operation": "primitive",
+      "description": "Note: If the Size of the progress bar is set to \"Small\" in the Appearance tab, then text and percentage labels will be shown in a tooltip and custom labels will be ignored."
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "customLabel",
+      "mdlContainer": "CUSTOMLABEL",
+      "operation": "widgets"
+    }
+  ]
+}

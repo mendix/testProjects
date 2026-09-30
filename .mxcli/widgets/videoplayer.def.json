@@ -1,0 +1,66 @@
+{
+  "widgetId": "com.mendix.widget.web.videoplayer.VideoPlayer",
+  "mdlName": "VIDEOPLAYER",
+  "widgetKind": "pluggable",
+  "templateFile": "videoplayer.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "type",
+      "value": "dynamic",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "autoStart",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Automatically start playing the video when the page loads."
+    },
+    {
+      "propertyKey": "showControls",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Display video controls (control bar, display icons, dock buttons). Available for YouTube, Dailymotion and external videos."
+    },
+    {
+      "propertyKey": "muted",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Start the video on mute."
+    },
+    {
+      "propertyKey": "loop",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Loop the video after it finishes. Available for YouTube, Vimeo, and external videos."
+    },
+    {
+      "propertyKey": "widthUnit",
+      "value": "percentage",
+      "operation": "primitive",
+      "description": "Percentage: portion of parent size. Pixels: absolute amount of pixels."
+    },
+    {
+      "propertyKey": "width",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "aspectRatio",
+      "operation": "primitive",
+      "description": "Aspect ratio: ratio of width to height. Percentage of parent: portion of parent height. Percentage of width: portion of the width. Pixels: absolute amount of pixels."
+    },
+    {
+      "propertyKey": "heightAspectRatio",
+      "value": "sixteenByNine",
+      "operation": "primitive",
+      "description": "16:9 (Widescreen, HD Video), 4:3 (Classic TV, Standard monitor), 3:2 (Classic film), 21:9 (Cinemascope), 1:1 (Square, Social media)"
+    },
+    {
+      "propertyKey": "height",
+      "value": "500",
+      "operation": "primitive"
+    }
+  ]
+}

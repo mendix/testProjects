@@ -1,0 +1,32 @@
+{
+  "widgetId": "com.mendix.widget.web.selectionhelper.SelectionHelper",
+  "mdlName": "SELECTIONHELPER",
+  "widgetKind": "pluggable",
+  "templateFile": "selectionhelper.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "renderStyle",
+      "value": "checkbox",
+      "operation": "primitive",
+      "description": "Custom enables placeholders for using widgets for the different states."
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "customAllSelected",
+      "mdlContainer": "CUSTOMALLSELECTED",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "customSomeSelected",
+      "mdlContainer": "CUSTOMSOMESELECTED",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "customNoneSelected",
+      "mdlContainer": "CUSTOMNONESELECTED",
+      "operation": "widgets"
+    }
+  ]
+}

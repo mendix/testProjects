@@ -1,0 +1,44 @@
+{
+  "widgetId": "com.mendix.widget.web.tooltip.Tooltip",
+  "mdlName": "TOOLTIP",
+  "widgetKind": "pluggable",
+  "templateFile": "tooltip.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "renderMethod",
+      "value": "text",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "tooltipPosition",
+      "value": "top",
+      "operation": "primitive",
+      "description": "How to position the tooltip in relation to the trigger element - at the top, to the left, at the bottom or to the right."
+    },
+    {
+      "propertyKey": "arrowPosition",
+      "value": "none",
+      "operation": "primitive",
+      "description": "How to position the tooltip arrow in relation to the tooltip - at the start, in the center or at the end."
+    },
+    {
+      "propertyKey": "openOn",
+      "value": "hover",
+      "operation": "primitive",
+      "description": "How the tooltip is triggered - click, hover, hover and focus. On mobile device “hover” will be triggered on touch."
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "trigger",
+      "mdlContainer": "TRIGGER",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "htmlMessage",
+      "mdlContainer": "HTMLMESSAGE",
+      "operation": "widgets"
+    }
+  ]
+}

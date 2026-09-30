@@ -1,0 +1,109 @@
+{
+  "widgetId": "com.mendix.widget.web.accordion.Accordion",
+  "mdlName": "ACCORDION",
+  "widgetKind": "pluggable",
+  "templateFile": "accordion.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "advancedMode",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "collapsible",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "expandBehavior",
+      "value": "singleExpanded",
+      "operation": "primitive",
+      "description": "Allow a single group or multiple groups to be expanded at the same time."
+    },
+    {
+      "propertyKey": "animate",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showIcon",
+      "value": "right",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "animateIcon",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Animate the icon when the group is collapsing or expanding."
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "groups",
+      "mdlContainer": "GROUP",
+      "itemProperties": [
+        {
+          "propertyKey": "headerRenderMode",
+          "value": "text",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "headerText",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "headerHeading",
+          "value": "headingThree",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "visible",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "dynamicClass",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "loadContent",
+          "value": "always",
+          "operation": "primitive",
+          "description": "This property determines when the widgets should be rendered and data is fetched. The “Always” option will always load the widgets regardless whether the group is expanded. The “When expanded” option can reduce the initial (page) load time, but will increase the load time when expanding the group."
+        },
+        {
+          "propertyKey": "initialCollapsedState",
+          "value": "collapsed",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "initiallyCollapsed",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "collapsed",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Determines whether the group is collapsed or expanded. The 'Start as' properties override the attribute value for the initial state."
+        },
+        {
+          "propertyKey": "onToggleCollapsed",
+          "operation": "action",
+          "description": "Executes an action when the 'Collapsed' attribute value changes. Note: the 'Start as' properties can prevent execution of this action when the initial state changes."
+        }
+      ],
+      "itemSlots": [
+        {
+          "propertyKey": "headerContent",
+          "mdlContainer": "HEADERCONTENT",
+          "operation": "widgets"
+        },
+        {
+          "propertyKey": "content",
+          "mdlContainer": "CONTENT",
+          "operation": "widgets"
+        }
+      ]
+    }
+  ]
+}

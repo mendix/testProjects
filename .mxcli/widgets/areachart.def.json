@@ -1,0 +1,191 @@
+{
+  "widgetId": "com.mendix.widget.web.areachart.AreaChart",
+  "mdlName": "AREACHART",
+  "widgetKind": "pluggable",
+  "templateFile": "areachart.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "enableAdvancedOptions",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showPlaygroundSlot",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showLegend",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "gridLines",
+      "value": "none",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "widthUnit",
+      "value": "percentage",
+      "operation": "primitive",
+      "description": "Percentage: portion of parent size. Pixels: absolute amount of pixels."
+    },
+    {
+      "propertyKey": "width",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentageOfWidth",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "75",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "enableThemeConfig",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customLayout",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customConfigurations",
+      "operation": "primitive"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "playground",
+      "mdlContainer": "PLAYGROUND",
+      "operation": "widgets"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "series",
+      "mdlContainer": "SERIES",
+      "itemProperties": [
+        {
+          "propertyKey": "dataSet",
+          "value": "static",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "staticDataSource",
+          "source": "DataSource",
+          "operation": "datasource",
+          "description": "Data points for a single series."
+        },
+        {
+          "propertyKey": "dynamicDataSource",
+          "source": "DataSource",
+          "operation": "datasource",
+          "description": "Data points for all series which will be divided into single series based on the Group by attribute value."
+        },
+        {
+          "propertyKey": "groupByAttribute",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "Data points within the same group form one series."
+        },
+        {
+          "propertyKey": "staticName",
+          "operation": "texttemplate",
+          "description": "The series name displayed in the legend."
+        },
+        {
+          "propertyKey": "dynamicName",
+          "operation": "texttemplate",
+          "description": "The series name displayed in the legend."
+        },
+        {
+          "propertyKey": "staticXAttribute",
+          "source": "Attribute",
+          "operation": "attribute"
+        },
+        {
+          "propertyKey": "dynamicXAttribute",
+          "source": "Attribute",
+          "operation": "attribute"
+        },
+        {
+          "propertyKey": "staticYAttribute",
+          "source": "Attribute",
+          "operation": "attribute"
+        },
+        {
+          "propertyKey": "dynamicYAttribute",
+          "source": "Attribute",
+          "operation": "attribute"
+        },
+        {
+          "propertyKey": "aggregationType",
+          "value": "none",
+          "operation": "primitive",
+          "description": "Defines how data is aggregated when multiple Y values are available for a single X value"
+        },
+        {
+          "propertyKey": "staticTooltipHoverText",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "dynamicTooltipHoverText",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "interpolation",
+          "value": "linear",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "lineStyle",
+          "value": "line",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "staticLineColor",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "dynamicLineColor",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "staticMarkerColor",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "dynamicMarkerColor",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "staticFillColor",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "dynamicFillColor",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "staticOnClickAction",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "dynamicOnClickAction",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "customSeriesOptions",
+          "operation": "primitive"
+        }
+      ]
+    }
+  ]
+}

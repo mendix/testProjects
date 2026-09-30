@@ -1,0 +1,14 @@
+{
+  "widgetId": "com.mendix.widget.web.fieldset.Fieldset",
+  "mdlName": "FIELDSET",
+  "widgetKind": "pluggable",
+  "templateFile": "fieldset.json",
+  "defaultEditable": "Always",
+  "childSlots": [
+    {
+      "propertyKey": "content",
+      "mdlContainer": "TEMPLATE",
+      "operation": "widgets"
+    }
+  ]
+}

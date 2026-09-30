@@ -1,0 +1,69 @@
+{
+  "widgetId": "com.mendix.widget.web.treenode.TreeNode",
+  "mdlName": "TREENODE",
+  "widgetKind": "pluggable",
+  "templateFile": "treenode.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "advancedMode",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "datasource",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "headerType",
+      "value": "text",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "openNodeOn",
+      "value": "headerClick",
+      "operation": "primitive",
+      "description": "Define which part of the node, when clicked, should open or close this node. \"Header is clicked\" means the whole header is clickable, while \"Icon is clicked\" means only the icon is used to switch node state."
+    },
+    {
+      "propertyKey": "hasChildren",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Indicate whether the node has children or is an end node. When set to yes, a composable region becomes available to define the child nodes."
+    },
+    {
+      "propertyKey": "startExpanded",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "animate",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showIcon",
+      "value": "left",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "animateIcon",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Animate the icon when the group is collapsing or expanding."
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "headerContent",
+      "mdlContainer": "HEADERCONTENT",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "children",
+      "mdlContainer": "CHILDREN",
+      "operation": "widgets"
+    }
+  ]
+}

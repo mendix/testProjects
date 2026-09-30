@@ -1,0 +1,122 @@
+{
+  "widgetId": "com.mendix.widget.custom.RangeSlider.RangeSlider",
+  "mdlName": "RANGESLIDER",
+  "widgetKind": "pluggable",
+  "templateFile": "rangeslider.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "lowerBoundAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The lower bound value on the slider"
+    },
+    {
+      "propertyKey": "upperBoundAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The upper bound value on the slider"
+    },
+    {
+      "propertyKey": "advanced",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "minValueType",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "staticMinimumValue",
+      "value": "0",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "minAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "maxValueType",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "staticMaximumValue",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "maxAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "stepSizeType",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "stepValue",
+      "value": "1",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "stepAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "showTooltip",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "tooltipTypeLower",
+      "value": "value",
+      "operation": "primitive",
+      "description": "By default tooltip shows current value. Choose 'Custom' to create your own template."
+    },
+    {
+      "propertyKey": "tooltipTypeUpper",
+      "value": "value",
+      "operation": "primitive",
+      "description": "By default tooltip shows current value. Choose 'Custom' to create your own template."
+    },
+    {
+      "propertyKey": "tooltipAlwaysVisible",
+      "value": "false",
+      "operation": "primitive",
+      "description": "When enabled tooltip is always visible to the user"
+    },
+    {
+      "propertyKey": "noOfMarkers",
+      "value": "1",
+      "operation": "primitive",
+      "description": "Marker ticks on the slider (visible when larger than 0)"
+    },
+    {
+      "propertyKey": "decimalPlaces",
+      "value": "0",
+      "operation": "primitive",
+      "description": "Number of decimal places for marker values"
+    },
+    {
+      "propertyKey": "orientation",
+      "value": "horizontal",
+      "operation": "primitive",
+      "description": "If orientation is 'Vertical', make sure that parent or slider itself has fixed height"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentage",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "100",
+      "operation": "primitive"
+    }
+  ]
+}

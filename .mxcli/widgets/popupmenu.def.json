@@ -1,0 +1,101 @@
+{
+  "widgetId": "com.mendix.widget.web.popupmenu.PopupMenu",
+  "mdlName": "POPUPMENU",
+  "widgetKind": "pluggable",
+  "templateFile": "popupmenu.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "advancedMode",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "trigger",
+      "value": "onclick",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "hoverCloseOn",
+      "value": "onHoverLeave",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "position",
+      "value": "bottom",
+      "operation": "primitive",
+      "description": "The location of the menu relative to the click area."
+    },
+    {
+      "propertyKey": "clippingStrategy",
+      "value": "absolute",
+      "operation": "primitive",
+      "description": "'Absolute' positions the floating element relative to its nearest positioned ancestor, while 'Fixed' breaks it out of any clipping ancestor."
+    },
+    {
+      "propertyKey": "menuToggle",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Use this to see a preview of the menu items while developing."
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "menuTrigger",
+      "mdlContainer": "MENUTRIGGER",
+      "operation": "widgets"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "basicItems",
+      "mdlContainer": "ITEM",
+      "itemProperties": [
+        {
+          "propertyKey": "itemType",
+          "value": "item",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "caption",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "visible",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "action",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "styleClass",
+          "value": "defaultStyle",
+          "operation": "primitive",
+          "description": "An extra class will be added: \"popupmenu-basic-item-[style]\""
+        }
+      ]
+    },
+    {
+      "propertyKey": "customItems",
+      "mdlContainer": "CUSTOMITEM",
+      "itemProperties": [
+        {
+          "propertyKey": "visible",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "action",
+          "operation": "action"
+        }
+      ],
+      "itemSlots": [
+        {
+          "propertyKey": "content",
+          "mdlContainer": "CONTENT",
+          "operation": "widgets"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "widgetId": "SprintrFeedbackWidget.SprintrFeedback",
+  "mdlName": "SPRINTRFEEDBACK",
+  "widgetKind": "pluggable",
+  "templateFile": "sprintrfeedback.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "sprintrapp",
+      "value": "1",
+      "operation": "primitive",
+      "description": "The App ID is added automatically by Studio Pro. You can find it in the Developer Portal under Your App \u003e Settings \u003e General. By overwriting the App ID you can send Feedback to another app."
+    },
+    {
+      "propertyKey": "showAdvancedSettings",
+      "value": "false",
+      "operation": "primitive",
+      "description": "These advanced settings control html2canvas, a backup screen capture tool the Mendix feedback widget uses when the default browser screenshot tool fails."
+    },
+    {
+      "propertyKey": "foreignObjectRendering",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Only enable this when you experience problems with creating screenshots.\n                    \nThis will enable the 'foreignObjectRendering' method which helps rendering complex HTML, including styles, SVGs, and embedded elements.\n"
+    },
+    {
+      "propertyKey": "scrollableAreaSelector",
+      "value": ".mx-scrollcontainer-fixed \u003e .mx-scrollcontainer-middle \u003e .mx-scrollcontainer-wrapper",
+      "operation": "primitive",
+      "description": "If your app doesn't use the default scrolling behavior in Studio Pro, the screenshot feature might not work correctly. Add a CSS selector to specify which element on your page scrolls the content."
+    },
+    {
+      "propertyKey": "userDefinedButtonStyle",
+      "value": "side",
+      "operation": "primitive",
+      "description": "Choose how the feedback button renders on your apps page.\nIf set to 'Do not render', the Feedback Button will not show to users visiting your app."
+    },
+    {
+      "propertyKey": "showInDesignMode",
+      "value": "true",
+      "operation": "primitive",
+      "description": "In Mendix Studio Pro you can show or hide the Feedback widget button from the page editor when using Design mode."
+    }
+  ]
+}

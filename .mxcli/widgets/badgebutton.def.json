@@ -1,0 +1,7 @@
+{
+  "widgetId": "com.mendix.widget.custom.badgebutton.BadgeButton",
+  "mdlName": "BADGEBUTTON",
+  "widgetKind": "pluggable",
+  "templateFile": "badgebutton.json",
+  "defaultEditable": "Always"
+}

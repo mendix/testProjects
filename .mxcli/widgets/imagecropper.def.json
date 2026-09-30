@@ -1,0 +1,105 @@
+{
+  "widgetId": "com.mendix.widget.web.imagecropper.ImageCropper",
+  "mdlName": "IMAGECROPPER",
+  "widgetKind": "pluggable",
+  "templateFile": "imagecropper.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "cropShape",
+      "value": "rect",
+      "operation": "primitive",
+      "description": "Shape of the crop. Circle masks the corners."
+    },
+    {
+      "propertyKey": "aspectRatio",
+      "value": "free",
+      "operation": "primitive",
+      "description": "Locks the crop proportions. Free lets the user resize freely."
+    },
+    {
+      "propertyKey": "boundaryWidth",
+      "value": "800",
+      "operation": "primitive",
+      "description": "Maximum on-screen width of the crop area. The image scales down to fit; the canvas wraps the rendered image, so smaller crops produce a smaller canvas with no blank gaps. Does not change the saved image size."
+    },
+    {
+      "propertyKey": "boundaryHeight",
+      "value": "800",
+      "operation": "primitive",
+      "description": "Maximum on-screen height of the crop area. The image scales down to fit; the canvas wraps the rendered image, so smaller crops produce a smaller canvas with no blank gaps. Does not change the saved image size."
+    },
+    {
+      "propertyKey": "resizableEnabled",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Let the user resize the selection by dragging its corners."
+    },
+    {
+      "propertyKey": "enableRotation",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Show rotate-left / rotate-right buttons. The rotation is baked into the saved image."
+    },
+    {
+      "propertyKey": "enableGrayscale",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Show a grayscale toggle. When on, the saved image is converted to grayscale (black and white)."
+    },
+    {
+      "propertyKey": "showResetButton",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Show a Reset button that restores the original image and clears zoom, rotation, and crop."
+    },
+    {
+      "propertyKey": "zoomEnabled",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Master switch for zooming. When off, the slider and mouse-wheel zoom are disabled and the image stays at 1×."
+    },
+    {
+      "propertyKey": "showZoomSlider",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Show the zoom slider below the crop area. Turn off to keep mouse-wheel zoom while hiding the slider."
+    },
+    {
+      "propertyKey": "wheelZoomMode",
+      "value": "onWithCtrl",
+      "operation": "primitive",
+      "description": "Whether the mouse wheel zooms the image. \"On (hold Ctrl)\" keeps page scroll working."
+    },
+    {
+      "propertyKey": "minZoom",
+      "value": "1",
+      "operation": "primitive",
+      "description": "Smallest zoom level. 1 = image fits the canvas. Below 1 lets the user zoom out further."
+    },
+    {
+      "propertyKey": "maxZoom",
+      "value": "4",
+      "operation": "primitive",
+      "description": "Largest zoom level. 4 means up to 4× the canvas size. Must be greater than Minimum zoom."
+    },
+    {
+      "propertyKey": "outputFormat",
+      "value": "png",
+      "operation": "primitive",
+      "description": "File format. PNG keeps transparency; JPEG produces smaller files."
+    },
+    {
+      "propertyKey": "outputQuality",
+      "value": "0.92",
+      "operation": "primitive",
+      "description": "JPEG compression. Higher = sharper and larger. Ignored for PNG."
+    },
+    {
+      "propertyKey": "outputSize",
+      "value": "original",
+      "operation": "primitive",
+      "description": "Resolution of the saved crop. Original is sharpest; Viewport matches the on-screen canvas size."
+    }
+  ]
+}

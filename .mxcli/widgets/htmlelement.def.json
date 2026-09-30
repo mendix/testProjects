@@ -1,0 +1,114 @@
+{
+  "widgetId": "com.mendix.widget.web.htmlelement.HTMLElement",
+  "mdlName": "HTMLELEMENT",
+  "widgetKind": "pluggable",
+  "templateFile": "htmlelement.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "tagName",
+      "value": "div",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "tagNameCustom",
+      "value": "div",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "tagUseRepeat",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Repeat element for each item in data source."
+    },
+    {
+      "propertyKey": "tagContentRepeatDataSource",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "tagContentMode",
+      "value": "container",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "sanitizationConfigFull",
+      "operation": "primitive",
+      "description": "Configuration for HTML sanitization in JSON format. Leave blank for default."
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "tagContentContainer",
+      "mdlContainer": "TAGCONTENTCONTAINER",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "tagContentRepeatContainer",
+      "mdlContainer": "TAGCONTENTREPEATCONTAINER",
+      "operation": "widgets"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "attributes",
+      "mdlContainer": "ATTRIBUTE",
+      "itemProperties": [
+        {
+          "propertyKey": "attributeName",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "attributeValueType",
+          "value": "expression",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "attributeValueTemplate",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "attributeValueExpression",
+          "operation": "expression"
+        },
+        {
+          "propertyKey": "attributeValueTemplateRepeat",
+          "operation": "texttemplate"
+        },
+        {
+          "propertyKey": "attributeValueExpressionRepeat",
+          "operation": "expression"
+        }
+      ]
+    },
+    {
+      "propertyKey": "events",
+      "mdlContainer": "EVENT",
+      "itemProperties": [
+        {
+          "propertyKey": "eventName",
+          "value": "onClick",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "eventAction",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "eventActionRepeat",
+          "operation": "action"
+        },
+        {
+          "propertyKey": "eventStopPropagation",
+          "value": "true",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "eventPreventDefault",
+          "value": "true",
+          "operation": "primitive"
+        }
+      ]
+    }
+  ]
+}

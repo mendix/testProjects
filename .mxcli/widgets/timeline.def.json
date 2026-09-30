@@ -1,0 +1,82 @@
+{
+  "widgetId": "com.mendix.widget.web.timeline.Timeline",
+  "mdlName": "TIMELINE",
+  "widgetKind": "pluggable",
+  "templateFile": "timeline.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "data",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "customVisualization",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Enables free to model timeline."
+    },
+    {
+      "propertyKey": "groupEvents",
+      "value": "true",
+      "operation": "primitive",
+      "description": "Shows a header between grouped events based on event date."
+    },
+    {
+      "propertyKey": "groupAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Will be used for grouping events, as a group header value. If events have no date time value, use \"Unscheduled events placement\" to control rendering."
+    },
+    {
+      "propertyKey": "groupByKey",
+      "value": "day",
+      "operation": "primitive",
+      "description": "Group events based on day, month or year."
+    },
+    {
+      "propertyKey": "groupByDayOptions",
+      "value": "dayName",
+      "operation": "primitive",
+      "description": "Format group header with current language's format"
+    },
+    {
+      "propertyKey": "groupByMonthOptions",
+      "value": "month",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "ungroupedEventsPosition",
+      "value": "end",
+      "operation": "primitive",
+      "description": "Position in the list of events without a date and time"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "customIcon",
+      "mdlContainer": "CUSTOMICON",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "customGroupHeader",
+      "mdlContainer": "CUSTOMGROUPHEADER",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "customTitle",
+      "mdlContainer": "CUSTOMTITLE",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "customEventDateTime",
+      "mdlContainer": "CUSTOMEVENTDATETIME",
+      "operation": "widgets"
+    },
+    {
+      "propertyKey": "customDescription",
+      "mdlContainer": "CUSTOMDESCRIPTION",
+      "operation": "widgets"
+    }
+  ]
+}

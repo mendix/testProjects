@@ -16,6 +16,16 @@ public final class Microflows
 	private Microflows() {}
 
 	// These are the microflows for the MyFirstModule module
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder aSU_SeedE2EImageBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.ASU_SeedE2EImage");
+		return builder;
+	}
+
+	public static void aSU_SeedE2EImage(IContext context)
+	{
+		aSU_SeedE2EImageBuilder().execute(context);
+	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder copy_MountainBuilder()
 	{
 		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.Copy_Mountain");
@@ -26,6 +36,17 @@ public final class Microflows
 	{
 		Object result = copy_MountainBuilder().execute(context);
 		return result == null ? null : myfirstmodule.proxies.Img.initialize(context, (IMendixObject) result);
+	}
+	public static com.mendix.core.actionmanagement.MicroflowCallBuilder dS_E2EFileHolderBuilder()
+	{
+		com.mendix.core.actionmanagement.MicroflowCallBuilder builder = Core.microflowCall("MyFirstModule.DS_E2EFileHolder");
+		return builder;
+	}
+
+	public static myfirstmodule.proxies.FileHolder dS_E2EFileHolder(IContext context)
+	{
+		Object result = dS_E2EFileHolderBuilder().execute(context);
+		return result == null ? null : myfirstmodule.proxies.FileHolder.initialize(context, (IMendixObject) result);
 	}
 	public static com.mendix.core.actionmanagement.MicroflowCallBuilder set_Fresh_ImgBuilder()
 	{

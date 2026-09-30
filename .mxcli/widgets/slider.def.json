@@ -1,0 +1,115 @@
+{
+  "widgetId": "com.mendix.widget.custom.slider.Slider",
+  "mdlName": "SLIDER",
+  "widgetKind": "pluggable",
+  "templateFile": "slider.json",
+  "defaultEditable": "Always",
+  "propertyMappings": [
+    {
+      "propertyKey": "valueAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "advanced",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "minValueType",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "staticMinimumValue",
+      "value": "0",
+      "operation": "primitive",
+      "description": "The minimum value of the slider."
+    },
+    {
+      "propertyKey": "minAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The minimum value of the slider."
+    },
+    {
+      "propertyKey": "maxValueType",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "staticMaximumValue",
+      "value": "100",
+      "operation": "primitive",
+      "description": "The maximum value of the slider."
+    },
+    {
+      "propertyKey": "maxAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The maximum value of the slider."
+    },
+    {
+      "propertyKey": "stepSizeType",
+      "value": "static",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "stepValue",
+      "value": "1",
+      "operation": "primitive",
+      "description": "Value to be added or subtracted on each step the slider makes. Must be greater than zero, and max - min should be evenly divisible by the step value."
+    },
+    {
+      "propertyKey": "stepAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Value to be added or subtracted on each step the slider makes. Must be greater than zero, and max - min should be evenly divisible by the step value."
+    },
+    {
+      "propertyKey": "showTooltip",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "tooltipType",
+      "value": "value",
+      "operation": "primitive",
+      "description": "By default tooltip shows current value. Choose 'Custom' to create your own template."
+    },
+    {
+      "propertyKey": "tooltipAlwaysVisible",
+      "value": "false",
+      "operation": "primitive",
+      "description": "When enabled tooltip is always visible to the user"
+    },
+    {
+      "propertyKey": "noOfMarkers",
+      "value": "2",
+      "operation": "primitive",
+      "description": "The number of marker ticks that appear along the slider’s track. (Visible when larger than 0)"
+    },
+    {
+      "propertyKey": "decimalPlaces",
+      "value": "0",
+      "operation": "primitive",
+      "description": "Number of decimal places for marker values"
+    },
+    {
+      "propertyKey": "orientation",
+      "value": "horizontal",
+      "operation": "primitive",
+      "description": "The orientation of the slider. If ‘Vertical’, make sure to set the either the height of the parent or slider to a fixed height."
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentage",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "100",
+      "operation": "primitive"
+    }
+  ]
+}
