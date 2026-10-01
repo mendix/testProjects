@@ -3,5 +3,23 @@
   "mdlName": "BADGEBUTTON",
   "widgetKind": "pluggable",
   "templateFile": "badgebutton.json",
-  "defaultEditable": "Always"
+  "defaultEditable": "Always",
+  "generatorVersion": 17,
+  "propertyMappings": [
+    {
+      "propertyKey": "label",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "value",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "onClickEvent",
+      "source": "OnClick",
+      "operation": "action"
+    }
+  ]
 }

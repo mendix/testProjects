@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "imagecropper.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "cropShape",
@@ -16,6 +17,11 @@
       "value": "free",
       "operation": "primitive",
       "description": "Locks the crop proportions. Free lets the user resize freely."
+    },
+    {
+      "propertyKey": "onCropAction",
+      "operation": "action",
+      "description": "Runs each time the crop is auto-applied to the image attribute."
     },
     {
       "propertyKey": "boundaryWidth",
@@ -84,6 +90,60 @@
       "description": "Largest zoom level. 4 means up to 4× the canvas size. Must be greater than Minimum zoom."
     },
     {
+      "propertyKey": "grayscaleCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Visible text and tooltip for the grayscale toggle."
+    },
+    {
+      "propertyKey": "resetCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Visible text and tooltip for the reset button."
+    },
+    {
+      "propertyKey": "zoomCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Visible label for the zoom slider."
+    },
+    {
+      "propertyKey": "noImageCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Shown when no image is bound to the image attribute."
+    },
+    {
+      "propertyKey": "rotateLeftLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Accessible name and tooltip for the rotate-left button."
+    },
+    {
+      "propertyKey": "rotateRightLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Accessible name and tooltip for the rotate-right button."
+    },
+    {
+      "propertyKey": "grayscaleAriaLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Accessible name for the grayscale toggle (announced by screen readers)."
+    },
+    {
+      "propertyKey": "resetAriaLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Accessible name for the reset button (announced by screen readers)."
+    },
+    {
+      "propertyKey": "zoomAriaLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Accessible name for the zoom slider (announced by screen readers)."
+    },
+    {
       "propertyKey": "outputFormat",
       "value": "png",
       "operation": "primitive",
@@ -101,5 +161,10 @@
       "operation": "primitive",
       "description": "Resolution of the saved crop. Original is sharpest; Viewport matches the on-screen canvas size."
     }
+  ],
+  "knownProperties": [
+    "image",
+    "customAspectWidth",
+    "customAspectHeight"
   ]
 }

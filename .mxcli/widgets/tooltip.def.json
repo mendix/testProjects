@@ -4,11 +4,17 @@
   "widgetKind": "pluggable",
   "templateFile": "tooltip.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "renderMethod",
       "value": "text",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "textMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     },
     {
       "propertyKey": "tooltipPosition",
@@ -39,6 +45,24 @@
       "propertyKey": "htmlMessage",
       "mdlContainer": "HTMLMESSAGE",
       "operation": "widgets"
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "htmlMessage",
+      "hiddenWhen": {
+        "propertyKey": "renderMethod",
+        "operator": "eq",
+        "value": "text"
+      }
+    },
+    {
+      "propertyKey": "textMessage",
+      "hiddenWhen": {
+        "propertyKey": "renderMethod",
+        "operator": "ne",
+        "value": "text"
+      }
     }
   ]
 }

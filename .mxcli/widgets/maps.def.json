@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "maps.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "advanced",
@@ -117,7 +118,11 @@
         {
           "propertyKey": "locationType",
           "value": "address",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "address",
+            "latlng"
+          ]
         },
         {
           "propertyKey": "address",
@@ -146,7 +151,16 @@
         {
           "propertyKey": "markerStyle",
           "value": "default",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "default",
+            "image"
+          ]
+        },
+        {
+          "propertyKey": "customMarker",
+          "operation": "image",
+          "description": "Image that replaces the default icon."
         }
       ]
     },
@@ -162,42 +176,287 @@
         {
           "propertyKey": "locationType",
           "value": "address",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "address",
+            "latlng"
+          ]
         },
         {
           "propertyKey": "address",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Address containing (a subset of) street, number, zipcode, city and country."
+          "description": "Address containing (a subset of) street, number, zipcode, city and country.",
+          "dataSource": "markersDS"
         },
         {
           "propertyKey": "latitude",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Decimal number from -90.0 to 90.0."
+          "description": "Decimal number from -90.0 to 90.0.",
+          "dataSource": "markersDS"
         },
         {
           "propertyKey": "longitude",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Decimal number from -180.0 to 180.0."
+          "description": "Decimal number from -180.0 to 180.0.",
+          "dataSource": "markersDS"
         },
         {
           "propertyKey": "title",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Title displayed when clicking the marker."
+          "description": "Title displayed when clicking the marker.",
+          "dataSource": "markersDS"
         },
         {
           "propertyKey": "onClickAttribute",
-          "operation": "action"
+          "operation": "action",
+          "dataSource": "markersDS"
         },
         {
           "propertyKey": "markerStyleDynamic",
           "value": "default",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "default",
+            "image"
+          ]
+        },
+        {
+          "propertyKey": "customMarkerDynamic",
+          "operation": "image",
+          "description": "Image that replaces the default icon."
         }
       ]
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "apiKey",
+      "hiddenWhen": {
+        "propertyKey": "apiKey",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "geodecodeApiKeyExp",
+      "hiddenWhen": {
+        "propertyKey": "geodecodeApiKey",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "geodecodeApiKey",
+      "hiddenWhen": {
+        "propertyKey": "geodecodeApiKey",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "apiKeyExp",
+      "hiddenWhen": {
+        "propertyKey": "apiKeyExp",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "geodecodeApiKey",
+      "hiddenWhen": {
+        "propertyKey": "geodecodeApiKeyExp",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "geodecodeApiKeyExp",
+      "hiddenWhen": {
+        "propertyKey": "geodecodeApiKeyExp",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "mapProvider",
+      "hiddenWhen": {
+        "propertyKey": "advanced",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "latitude",
+      "listPropertyKey": "markers",
+      "hiddenWhen": {
+        "propertyKey": "locationType",
+        "operator": "eq",
+        "value": "address",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "longitude",
+      "listPropertyKey": "markers",
+      "hiddenWhen": {
+        "propertyKey": "locationType",
+        "operator": "eq",
+        "value": "address",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "address",
+      "listPropertyKey": "markers",
+      "hiddenWhen": {
+        "propertyKey": "locationType",
+        "operator": "ne",
+        "value": "address",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "customMarker",
+      "listPropertyKey": "markers",
+      "hiddenWhen": {
+        "propertyKey": "markerStyle",
+        "operator": "eq",
+        "value": "default",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "latitude",
+      "listPropertyKey": "dynamicMarkers",
+      "hiddenWhen": {
+        "propertyKey": "locationType",
+        "operator": "eq",
+        "value": "address",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "longitude",
+      "listPropertyKey": "dynamicMarkers",
+      "hiddenWhen": {
+        "propertyKey": "locationType",
+        "operator": "eq",
+        "value": "address",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "address",
+      "listPropertyKey": "dynamicMarkers",
+      "hiddenWhen": {
+        "propertyKey": "locationType",
+        "operator": "ne",
+        "value": "address",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "customMarkerDynamic",
+      "listPropertyKey": "dynamicMarkers",
+      "hiddenWhen": {
+        "propertyKey": "markerStyleDynamic",
+        "operator": "eq",
+        "value": "default",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "optionStreetView",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "ne",
+        "value": "googleMaps"
+      }
+    },
+    {
+      "propertyKey": "mapTypeControl",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "ne",
+        "value": "googleMaps"
+      }
+    },
+    {
+      "propertyKey": "fullScreenControl",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "ne",
+        "value": "googleMaps"
+      }
+    },
+    {
+      "propertyKey": "rotateControl",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "ne",
+        "value": "googleMaps"
+      }
+    },
+    {
+      "propertyKey": "googleMapId",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "ne",
+        "value": "googleMaps"
+      }
+    },
+    {
+      "propertyKey": "apiKeyExp",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "eq",
+        "value": "openStreet"
+      },
+      "and": [
+        {
+          "propertyKey": "mapProvider",
+          "operator": "ne",
+          "value": "googleMaps"
+        }
+      ]
+    },
+    {
+      "propertyKey": "apiKey",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "eq",
+        "value": "openStreet"
+      },
+      "and": [
+        {
+          "propertyKey": "mapProvider",
+          "operator": "ne",
+          "value": "googleMaps"
+        }
+      ]
+    },
+    {
+      "propertyKey": "attributionControl",
+      "hiddenWhen": {
+        "propertyKey": "mapProvider",
+        "operator": "eq",
+        "value": "googleMaps"
+      }
+    },
+    {
+      "propertyKey": "geodecodeApiKey",
+      "hiddenWhen": {
+        "propertyKey": "markers",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "geodecodeApiKeyExp",
+      "hiddenWhen": {
+        "propertyKey": "markers",
+        "operator": "falsy"
+      }
+    }
+  ],
+  "knownProperties": [
+    "apiKeyExp",
+    "geodecodeApiKeyExp"
   ]
 }

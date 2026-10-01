@@ -1,0 +1,197 @@
+{
+  "widgetId": "com.mendix.widget.web.customchart.CustomChart",
+  "mdlName": "CUSTOMCHART",
+  "widgetKind": "pluggable",
+  "templateFile": "customchart.json",
+  "defaultEditable": "Always",
+  "generatorVersion": 17,
+  "propertyMappings": [
+    {
+      "propertyKey": "dataStatic",
+      "operation": "primitive",
+      "description": "Data JSON array based on https://plot.ly/javascript/reference/"
+    },
+    {
+      "propertyKey": "dataAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The attribute data will merge and overwrite 'Static' data"
+    },
+    {
+      "propertyKey": "sampleData",
+      "operation": "primitive",
+      "description": "Data for preview. It will be merged with the 'Static data' in the web modeler or at runtime when no 'Source attribute' is selected"
+    },
+    {
+      "propertyKey": "showPlaygroundSlot",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "layoutStatic",
+      "operation": "primitive",
+      "description": "JSON object based on https://plot.ly/javascript/reference/"
+    },
+    {
+      "propertyKey": "layoutAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Attribute layout will merge and overwrite static layout options"
+    },
+    {
+      "propertyKey": "sampleLayout",
+      "operation": "primitive",
+      "description": "Layout options for preview. It will be merged with the 'Static' in the web modeler or at runtime when no 'Source attribute' is selected"
+    },
+    {
+      "propertyKey": "configurationOptions",
+      "operation": "primitive",
+      "description": "The JSON containing the Plotly configuration options"
+    },
+    {
+      "propertyKey": "widthUnit",
+      "value": "percentage",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "width",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentageOfWidth",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "minHeightUnit",
+      "value": "none",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "minHeight",
+      "value": "250",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "maxHeightUnit",
+      "value": "none",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "maxHeight",
+      "value": "250",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "OverflowY",
+      "value": "auto",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "onClick",
+      "source": "OnClick",
+      "operation": "action"
+    },
+    {
+      "propertyKey": "eventDataAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The attribute to store received raw data from the chart event. https://plot.ly/javascript/plotlyjs-events/#event-data"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "playground",
+      "mdlContainer": "PLAYGROUND",
+      "operation": "widgets"
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "playground",
+      "hiddenWhen": {
+        "propertyKey": "showPlaygroundSlot",
+        "operator": "eq",
+        "value": "false"
+      }
+    },
+    {
+      "propertyKey": "height",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "eq",
+        "value": "percentageOfWidth"
+      }
+    },
+    {
+      "propertyKey": "minHeight",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "ne",
+        "value": "percentageOfWidth"
+      }
+    },
+    {
+      "propertyKey": "minHeightUnit",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "ne",
+        "value": "percentageOfWidth"
+      }
+    },
+    {
+      "propertyKey": "maxHeight",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "ne",
+        "value": "percentageOfWidth"
+      }
+    },
+    {
+      "propertyKey": "maxHeightUnit",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "ne",
+        "value": "percentageOfWidth"
+      }
+    },
+    {
+      "propertyKey": "OverflowY",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "ne",
+        "value": "percentageOfWidth"
+      }
+    },
+    {
+      "propertyKey": "minHeight",
+      "hiddenWhen": {
+        "propertyKey": "minHeightUnit",
+        "operator": "eq",
+        "value": "none"
+      }
+    },
+    {
+      "propertyKey": "maxHeight",
+      "hiddenWhen": {
+        "propertyKey": "maxHeightUnit",
+        "operator": "eq",
+        "value": "none"
+      }
+    },
+    {
+      "propertyKey": "OverflowY",
+      "hiddenWhen": {
+        "propertyKey": "maxHeightUnit",
+        "operator": "eq",
+        "value": "none"
+      }
+    }
+  ]
+}

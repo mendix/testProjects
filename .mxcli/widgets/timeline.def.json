@@ -4,11 +4,27 @@
   "widgetKind": "pluggable",
   "templateFile": "timeline.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "data",
       "source": "DataSource",
       "operation": "datasource"
+    },
+    {
+      "propertyKey": "title",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "description",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "timeIndication",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     },
     {
       "propertyKey": "customVisualization",
@@ -50,6 +66,11 @@
       "value": "end",
       "operation": "primitive",
       "description": "Position in the list of events without a date and time"
+    },
+    {
+      "propertyKey": "onClick",
+      "source": "OnClick",
+      "operation": "action"
     }
   ],
   "childSlots": [
@@ -78,5 +99,108 @@
       "mdlContainer": "CUSTOMDESCRIPTION",
       "operation": "widgets"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "customIcon",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customTitle",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customEventDateTime",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customDescription",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customGroupHeader",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "groupAttribute",
+      "hiddenWhen": {
+        "propertyKey": "groupEvents",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "groupByKey",
+      "hiddenWhen": {
+        "propertyKey": "groupEvents",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "groupByDayOptions",
+      "hiddenWhen": {
+        "propertyKey": "groupEvents",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "groupByMonthOptions",
+      "hiddenWhen": {
+        "propertyKey": "groupEvents",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "ungroupedEventsPosition",
+      "hiddenWhen": {
+        "propertyKey": "groupEvents",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customGroupHeader",
+      "hiddenWhen": {
+        "propertyKey": "groupEvents",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "title",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "description",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "timeIndication",
+      "hiddenWhen": {
+        "propertyKey": "customVisualization",
+        "operator": "truthy"
+      }
+    }
+  ],
+  "knownProperties": [
+    "icon"
   ]
 }

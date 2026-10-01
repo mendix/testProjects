@@ -1,8 +1,8 @@
 {
-  "widgetId": "com.mendix.widget.web.areachart.AreaChart",
-  "mdlName": "AREACHART",
+  "widgetId": "com.mendix.widget.web.bubblechart.BubbleChart",
+  "mdlName": "BUBBLECHART",
   "widgetKind": "pluggable",
-  "templateFile": "areachart.json",
+  "templateFile": "bubblechart.json",
   "defaultEditable": "Always",
   "generatorVersion": 17,
   "propertyMappings": [
@@ -80,8 +80,8 @@
   ],
   "objectLists": [
     {
-      "propertyKey": "series",
-      "mdlContainer": "SERIES",
+      "propertyKey": "lines",
+      "mdlContainer": "LINE",
       "itemProperties": [
         {
           "propertyKey": "dataSet",
@@ -96,30 +96,30 @@
           "propertyKey": "staticDataSource",
           "source": "DataSource",
           "operation": "datasource",
-          "description": "Data points for a single series."
+          "description": "Data points for a single line."
         },
         {
           "propertyKey": "dynamicDataSource",
           "source": "DataSource",
           "operation": "datasource",
-          "description": "Data points for all series which will be divided into single series based on the Group by attribute value."
+          "description": "Data points for all lines which will be divided into single lines based on the Group by attribute value."
         },
         {
           "propertyKey": "groupByAttribute",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Data points within the same group form one series.",
+          "description": "Data points within the same group form one line.",
           "dataSource": "dynamicDataSource"
         },
         {
           "propertyKey": "staticName",
           "operation": "texttemplate",
-          "description": "The series name displayed in the legend."
+          "description": "The line name displayed in the legend."
         },
         {
           "propertyKey": "dynamicName",
           "operation": "texttemplate",
-          "description": "The series name displayed in the legend.",
+          "description": "The line name displayed in the legend.",
           "dataSource": "dynamicDataSource"
         },
         {
@@ -165,6 +165,31 @@
           ]
         },
         {
+          "propertyKey": "staticSizeAttribute",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "The value determines the bubble size",
+          "dataSource": "staticDataSource"
+        },
+        {
+          "propertyKey": "dynamicSizeAttribute",
+          "source": "Attribute",
+          "operation": "attribute",
+          "description": "The value determines the bubble size",
+          "dataSource": "dynamicDataSource"
+        },
+        {
+          "propertyKey": "autosize",
+          "value": "true",
+          "operation": "primitive"
+        },
+        {
+          "propertyKey": "sizeref",
+          "value": "10",
+          "operation": "primitive",
+          "description": "When “Auto scale” is set to false, use the scale factor to determine the rendered size of the bubble, it will multiply the value of “bubble size” by this factor."
+        },
+        {
           "propertyKey": "staticTooltipHoverText",
           "operation": "texttemplate",
           "dataSource": "staticDataSource"
@@ -175,51 +200,12 @@
           "dataSource": "dynamicDataSource"
         },
         {
-          "propertyKey": "interpolation",
-          "value": "linear",
-          "operation": "primitive",
-          "enumValues": [
-            "linear",
-            "spline"
-          ]
-        },
-        {
-          "propertyKey": "lineStyle",
-          "value": "line",
-          "operation": "primitive",
-          "enumValues": [
-            "line",
-            "lineWithMarkers",
-            "custom"
-          ]
-        },
-        {
-          "propertyKey": "staticLineColor",
-          "operation": "expression",
-          "dataSource": "staticDataSource"
-        },
-        {
-          "propertyKey": "dynamicLineColor",
-          "operation": "expression",
-          "dataSource": "dynamicDataSource"
-        },
-        {
           "propertyKey": "staticMarkerColor",
           "operation": "expression",
           "dataSource": "staticDataSource"
         },
         {
           "propertyKey": "dynamicMarkerColor",
-          "operation": "expression",
-          "dataSource": "dynamicDataSource"
-        },
-        {
-          "propertyKey": "staticFillColor",
-          "operation": "expression",
-          "dataSource": "staticDataSource"
-        },
-        {
-          "propertyKey": "dynamicFillColor",
           "operation": "expression",
           "dataSource": "dynamicDataSource"
         },
@@ -251,7 +237,7 @@
     },
     {
       "propertyKey": "dynamicDataSource",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -261,7 +247,7 @@
     },
     {
       "propertyKey": "dynamicXAttribute",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -271,7 +257,17 @@
     },
     {
       "propertyKey": "dynamicYAttribute",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
+      "hiddenWhen": {
+        "propertyKey": "dataSet",
+        "operator": "eq",
+        "value": "static",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "dynamicSizeAttribute",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -281,7 +277,7 @@
     },
     {
       "propertyKey": "dynamicName",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -291,7 +287,7 @@
     },
     {
       "propertyKey": "dynamicTooltipHoverText",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -301,7 +297,7 @@
     },
     {
       "propertyKey": "groupByAttribute",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -311,27 +307,7 @@
     },
     {
       "propertyKey": "dynamicMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "eq",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "dynamicLineColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "eq",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "dynamicFillColor",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "eq",
@@ -341,7 +317,7 @@
     },
     {
       "propertyKey": "staticDataSource",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
@@ -351,7 +327,7 @@
     },
     {
       "propertyKey": "staticXAttribute",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
@@ -361,7 +337,17 @@
     },
     {
       "propertyKey": "staticYAttribute",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
+      "hiddenWhen": {
+        "propertyKey": "dataSet",
+        "operator": "ne",
+        "value": "static",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "staticSizeAttribute",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
@@ -371,7 +357,7 @@
     },
     {
       "propertyKey": "staticName",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
@@ -381,17 +367,7 @@
     },
     {
       "propertyKey": "staticTooltipHoverText",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "ne",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "staticLineColor",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
@@ -401,7 +377,7 @@
     },
     {
       "propertyKey": "staticMarkerColor",
-      "listPropertyKey": "series",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
@@ -410,32 +386,11 @@
       }
     },
     {
-      "propertyKey": "staticFillColor",
-      "listPropertyKey": "series",
+      "propertyKey": "sizeref",
+      "listPropertyKey": "lines",
       "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "ne",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "staticMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "lineStyle",
-        "operator": "ne",
-        "value": "lineWithMarkers",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "dynamicMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "lineStyle",
-        "operator": "ne",
-        "value": "lineWithMarkers",
+        "propertyKey": "autosize",
+        "operator": "truthy",
         "scope": "item"
       }
     }

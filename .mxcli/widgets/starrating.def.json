@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "starrating.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "rateAttribute",
@@ -20,6 +21,15 @@
       "propertyKey": "animation",
       "value": "true",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "onChange",
+      "source": "OnChange",
+      "operation": "action"
     }
+  ],
+  "knownProperties": [
+    "emptyIcon",
+    "icon"
   ]
 }

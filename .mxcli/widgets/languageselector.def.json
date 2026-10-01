@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "languageselector.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "languageOptions",
@@ -26,6 +27,15 @@
       "propertyKey": "hideForSingle",
       "value": "true",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "screenReaderLabelCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Assistive technology will read this upon reaching the input element."
     }
+  ],
+  "knownProperties": [
+    "languageCaption"
   ]
 }

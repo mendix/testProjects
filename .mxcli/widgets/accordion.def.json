@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "accordion.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "advancedMode",
@@ -46,7 +47,11 @@
         {
           "propertyKey": "headerRenderMode",
           "value": "text",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "text",
+            "custom"
+          ]
         },
         {
           "propertyKey": "headerText",
@@ -55,7 +60,15 @@
         {
           "propertyKey": "headerHeading",
           "value": "headingThree",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "headingOne",
+            "headingTwo",
+            "headingThree",
+            "headingFour",
+            "headingFive",
+            "headingSix"
+          ]
         },
         {
           "propertyKey": "visible",
@@ -69,12 +82,21 @@
           "propertyKey": "loadContent",
           "value": "always",
           "operation": "primitive",
-          "description": "This property determines when the widgets should be rendered and data is fetched. The “Always” option will always load the widgets regardless whether the group is expanded. The “When expanded” option can reduce the initial (page) load time, but will increase the load time when expanding the group."
+          "description": "This property determines when the widgets should be rendered and data is fetched. The “Always” option will always load the widgets regardless whether the group is expanded. The “When expanded” option can reduce the initial (page) load time, but will increase the load time when expanding the group.",
+          "enumValues": [
+            "always",
+            "whenExpanded"
+          ]
         },
         {
           "propertyKey": "initialCollapsedState",
           "value": "collapsed",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "expanded",
+            "collapsed",
+            "dynamic"
+          ]
         },
         {
           "propertyKey": "initiallyCollapsed",
@@ -105,5 +127,186 @@
         }
       ]
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "headerContent",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "headerRenderMode",
+        "operator": "eq",
+        "value": "text",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "headerText",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "headerRenderMode",
+        "operator": "ne",
+        "value": "text",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "headerHeading",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "headerRenderMode",
+        "operator": "ne",
+        "value": "text",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "initiallyCollapsed",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "initialCollapsedState",
+        "operator": "ne",
+        "value": "dynamic",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "collapsed",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "onToggleCollapsed",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "initialCollapsedState",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "initiallyCollapsed",
+      "listPropertyKey": "groups",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "expandBehavior",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "animate",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "showIcon",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "icon",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "expandIcon",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "collapseIcon",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "animateIcon",
+      "hiddenWhen": {
+        "propertyKey": "collapsible",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "icon",
+      "hiddenWhen": {
+        "propertyKey": "showIcon",
+        "operator": "eq",
+        "value": "no"
+      }
+    },
+    {
+      "propertyKey": "expandIcon",
+      "hiddenWhen": {
+        "propertyKey": "showIcon",
+        "operator": "eq",
+        "value": "no"
+      }
+    },
+    {
+      "propertyKey": "collapseIcon",
+      "hiddenWhen": {
+        "propertyKey": "showIcon",
+        "operator": "eq",
+        "value": "no"
+      }
+    },
+    {
+      "propertyKey": "animateIcon",
+      "hiddenWhen": {
+        "propertyKey": "showIcon",
+        "operator": "eq",
+        "value": "no"
+      }
+    },
+    {
+      "propertyKey": "expandIcon",
+      "hiddenWhen": {
+        "propertyKey": "animateIcon",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "collapseIcon",
+      "hiddenWhen": {
+        "propertyKey": "animateIcon",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "icon",
+      "hiddenWhen": {
+        "propertyKey": "animateIcon",
+        "operator": "falsy"
+      }
+    }
+  ],
+  "knownProperties": [
+    "icon",
+    "expandIcon",
+    "collapseIcon"
   ]
 }

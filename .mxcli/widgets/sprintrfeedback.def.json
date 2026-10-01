@@ -4,7 +4,13 @@
   "widgetKind": "pluggable",
   "templateFile": "sprintrfeedback.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
+    {
+      "propertyKey": "feedbackButtonAction",
+      "operation": "action",
+      "description": "The default on-click action is the 'ACT_Open_Feedback_Modal' nanoflow, which opens the Feedback Modal pop-up."
+    },
     {
       "propertyKey": "sprintrapp",
       "value": "1",
@@ -30,6 +36,37 @@
       "description": "If your app doesn't use the default scrolling behavior in Studio Pro, the screenshot feature might not work correctly. Add a CSS selector to specify which element on your page scrolls the content."
     },
     {
+      "propertyKey": "title_label",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "take_screenshot_label",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "annotate_label",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "done_label",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "cancel_label",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "clear_label",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "\nThese button labels are only used by the Feedback Button, Take Screenshot and Annotation tool.\n                    \nIf you would like to edit the button labels for the Feedback modal pop-up, please navigate to Feedback Module \u003e USE_ME \u003e Pages."
+    },
+    {
       "propertyKey": "userDefinedButtonStyle",
       "value": "side",
       "operation": "primitive",
@@ -40,6 +77,22 @@
       "value": "true",
       "operation": "primitive",
       "description": "In Mendix Studio Pro you can show or hide the Feedback widget button from the page editor when using Design mode."
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "foreignObjectRendering",
+      "hiddenWhen": {
+        "propertyKey": "showAdvancedSettings",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "scrollableAreaSelector",
+      "hiddenWhen": {
+        "propertyKey": "showAdvancedSettings",
+        "operator": "falsy"
+      }
     }
   ]
 }

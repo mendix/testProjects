@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "datagrid.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "advanced",
@@ -78,6 +79,11 @@
       "operation": "primitive"
     },
     {
+      "propertyKey": "loadMoreButtonCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
       "propertyKey": "showEmptyPlaceholder",
       "value": "none",
       "operation": "primitive"
@@ -86,6 +92,15 @@
       "propertyKey": "onClickTrigger",
       "value": "single",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "onClick",
+      "source": "OnClick",
+      "operation": "action"
+    },
+    {
+      "propertyKey": "onSelectionChange",
+      "operation": "action"
     },
     {
       "propertyKey": "columnsSortable",
@@ -127,6 +142,40 @@
       "propertyKey": "storeFiltersInPersonalization",
       "value": "true",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "onConfigurationChange",
+      "operation": "action"
+    },
+    {
+      "propertyKey": "filterSectionTitle",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Assistive technology will read this upon reaching a filtering or sorting section."
+    },
+    {
+      "propertyKey": "exportDialogLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Assistive technology will read this upon reaching a export dialog."
+    },
+    {
+      "propertyKey": "cancelExportLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Assistive technology will read this upon reaching a cancel button."
+    },
+    {
+      "propertyKey": "selectRowLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "If selection is enabled, assistive technology will read this upon reaching a checkbox."
+    },
+    {
+      "propertyKey": "selectAllRowsLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "If selection is enabled, assistive technology will read this upon reaching 'Select all' checkbox."
     }
   ],
   "childSlots": [
@@ -137,7 +186,7 @@
     },
     {
       "propertyKey": "filtersPlaceholder",
-      "mdlContainer": "FILTERSPLACEHOLDER",
+      "mdlContainer": "CONTROLBAR",
       "operation": "widgets"
     }
   ],
@@ -149,29 +198,44 @@
         {
           "propertyKey": "showContentAs",
           "value": "attribute",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "attribute",
+            "dynamicText",
+            "customContent"
+          ]
         },
         {
           "propertyKey": "attribute",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Attribute is required if the column can be sorted or filtered"
+          "description": "Attribute is required if the column can be sorted or filtered",
+          "dataSource": "../datasource"
         },
         {
           "propertyKey": "dynamicText",
-          "operation": "texttemplate"
+          "operation": "texttemplate",
+          "mdlAliases": [
+            "Content"
+          ],
+          "dataSource": "../datasource"
         },
         {
           "propertyKey": "exportValue",
-          "operation": "texttemplate"
+          "operation": "texttemplate",
+          "dataSource": "../datasource"
         },
         {
           "propertyKey": "header",
-          "operation": "texttemplate"
+          "operation": "texttemplate",
+          "mdlAliases": [
+            "Caption"
+          ]
         },
         {
           "propertyKey": "tooltip",
-          "operation": "texttemplate"
+          "operation": "texttemplate",
+          "dataSource": "../datasource"
         },
         {
           "propertyKey": "visible",
@@ -195,7 +259,12 @@
         {
           "propertyKey": "hidable",
           "value": "yes",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "yes",
+            "hidden",
+            "no"
+          ]
         },
         {
           "propertyKey": "allowEventPropagation",
@@ -206,12 +275,25 @@
         {
           "propertyKey": "width",
           "value": "autoFill",
-          "operation": "primitive"
+          "operation": "primitive",
+          "mdlAliases": [
+            "ColumnWidth"
+          ],
+          "enumValues": [
+            "autoFill",
+            "autoFit",
+            "manual"
+          ]
         },
         {
           "propertyKey": "minWidth",
           "value": "auto",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "auto",
+            "minContent",
+            "manual"
+          ]
         },
         {
           "propertyKey": "minWidthLimit",
@@ -226,11 +308,20 @@
         {
           "propertyKey": "alignment",
           "value": "left",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "left",
+            "center",
+            "right"
+          ]
         },
         {
           "propertyKey": "columnClass",
-          "operation": "expression"
+          "operation": "expression",
+          "mdlAliases": [
+            "DynamicCellClass"
+          ],
+          "dataSource": "../datasource"
         },
         {
           "propertyKey": "wrapText",
@@ -247,9 +338,243 @@
         {
           "propertyKey": "filter",
           "mdlContainer": "FILTER",
-          "operation": "widgets"
+          "operation": "widgets",
+          "acceptedChildTypes": [
+            "textfilter",
+            "numberfilter",
+            "datefilter",
+            "dropdownfilter"
+          ]
         }
       ]
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "dynamicText",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "showContentAs",
+        "operator": "ne",
+        "value": "dynamicText",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "content",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "showContentAs",
+        "operator": "ne",
+        "value": "customContent",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "allowEventPropagation",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "showContentAs",
+        "operator": "ne",
+        "value": "customContent",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "exportValue",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "showContentAs",
+        "operator": "ne",
+        "value": "customContent",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "tooltip",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "showContentAs",
+        "operator": "eq",
+        "value": "customContent",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "sortable",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "columnsSortable",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "filter",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "columnsFilterable",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "resizable",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "columnsResizable",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "draggable",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "columnsDraggable",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "hidable",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "columnsHidable",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "size",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "width",
+        "operator": "ne",
+        "value": "manual",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "minWidth",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "width",
+        "operator": "ne",
+        "value": "autoFit",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "minWidthLimit",
+      "listPropertyKey": "columns",
+      "hiddenWhen": {
+        "propertyKey": "minWidth",
+        "operator": "ne",
+        "value": "manual",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "showNumberOfRows",
+      "hiddenWhen": {
+        "propertyKey": "pagination",
+        "operator": "eq",
+        "value": "buttons"
+      }
+    },
+    {
+      "propertyKey": "showPagingButtons",
+      "hiddenWhen": {
+        "propertyKey": "pagination",
+        "operator": "ne",
+        "value": "buttons"
+      }
+    },
+    {
+      "propertyKey": "pagingPosition",
+      "hiddenWhen": {
+        "propertyKey": "showNumberOfRows",
+        "operator": "eq",
+        "value": "false"
+      },
+      "and": [
+        {
+          "propertyKey": "pagination",
+          "operator": "ne",
+          "value": "buttons"
+        }
+      ]
+    },
+    {
+      "propertyKey": "loadMoreButtonCaption",
+      "hiddenWhen": {
+        "propertyKey": "pagination",
+        "operator": "ne",
+        "value": "loadMore"
+      }
+    },
+    {
+      "propertyKey": "emptyPlaceholder",
+      "hiddenWhen": {
+        "propertyKey": "showEmptyPlaceholder",
+        "operator": "eq",
+        "value": "none"
+      }
+    },
+    {
+      "propertyKey": "itemSelectionMethod",
+      "hiddenWhen": {
+        "propertyKey": "itemSelection",
+        "operator": "eq",
+        "value": "None"
+      }
+    },
+    {
+      "propertyKey": "itemSelectionMode",
+      "hiddenWhen": {
+        "propertyKey": "itemSelection",
+        "operator": "eq",
+        "value": "None"
+      }
+    },
+    {
+      "propertyKey": "onSelectionChange",
+      "hiddenWhen": {
+        "propertyKey": "itemSelection",
+        "operator": "eq",
+        "value": "None"
+      }
+    },
+    {
+      "propertyKey": "itemSelectionMode",
+      "hiddenWhen": {
+        "propertyKey": "itemSelectionMethod",
+        "operator": "eq",
+        "value": "checkbox"
+      }
+    },
+    {
+      "propertyKey": "showSelectAllToggle",
+      "hiddenWhen": {
+        "propertyKey": "itemSelectionMethod",
+        "operator": "ne",
+        "value": "checkbox"
+      }
+    },
+    {
+      "propertyKey": "configurationAttribute",
+      "hiddenWhen": {
+        "propertyKey": "configurationStorageType",
+        "operator": "eq",
+        "value": "localStorage"
+      }
+    },
+    {
+      "propertyKey": "onConfigurationChange",
+      "hiddenWhen": {
+        "propertyKey": "configurationStorageType",
+        "operator": "eq",
+        "value": "localStorage"
+      }
+    }
+  ],
+  "knownProperties": [
+    "rowClass"
   ]
 }

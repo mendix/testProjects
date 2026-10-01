@@ -3,5 +3,6 @@
   "mdlName": "FEEDBACK",
   "widgetKind": "pluggable",
   "templateFile": "feedback.json",
-  "defaultEditable": "Always"
+  "defaultEditable": "Always",
+  "generatorVersion": 17
 }

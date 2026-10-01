@@ -4,11 +4,30 @@
   "widgetKind": "pluggable",
   "templateFile": "videoplayer.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "type",
       "value": "dynamic",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "videoUrl",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "The web address of the video: YouTube, Vimeo, Dailymotion or MP4."
+    },
+    {
+      "propertyKey": "posterUrl",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "The web address of the poster image. A poster image is a custom preview image that will be shown in the player until the user starts the video."
+    },
+    {
+      "propertyKey": "iframeTitle",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "description": "Describe the purpose of the video (e.g., 'Video tutorial on accessibility')."
     },
     {
       "propertyKey": "autoStart",
@@ -62,5 +81,59 @@
       "value": "500",
       "operation": "primitive"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "height",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "eq",
+        "value": "aspectRatio"
+      }
+    },
+    {
+      "propertyKey": "heightAspectRatio",
+      "hiddenWhen": {
+        "propertyKey": "heightUnit",
+        "operator": "ne",
+        "value": "aspectRatio"
+      }
+    },
+    {
+      "propertyKey": "urlExpression",
+      "hiddenWhen": {
+        "propertyKey": "type",
+        "operator": "eq",
+        "value": "dynamic"
+      }
+    },
+    {
+      "propertyKey": "posterExpression",
+      "hiddenWhen": {
+        "propertyKey": "type",
+        "operator": "eq",
+        "value": "dynamic"
+      }
+    },
+    {
+      "propertyKey": "videoUrl",
+      "hiddenWhen": {
+        "propertyKey": "type",
+        "operator": "eq",
+        "value": "expression"
+      }
+    },
+    {
+      "propertyKey": "posterUrl",
+      "hiddenWhen": {
+        "propertyKey": "type",
+        "operator": "eq",
+        "value": "expression"
+      }
+    }
+  ],
+  "knownProperties": [
+    "urlExpression",
+    "posterExpression"
   ]
 }

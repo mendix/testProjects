@@ -4,12 +4,23 @@
   "widgetKind": "pluggable",
   "templateFile": "badge.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "type",
       "value": "badge",
       "operation": "primitive",
       "description": "Render it as either a badge or a color label"
+    },
+    {
+      "propertyKey": "value",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "onClick",
+      "source": "OnClick",
+      "operation": "action"
     }
   ]
 }

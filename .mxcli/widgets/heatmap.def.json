@@ -1,0 +1,208 @@
+{
+  "widgetId": "com.mendix.widget.web.heatmap.HeatMap",
+  "mdlName": "HEATMAP",
+  "widgetKind": "pluggable",
+  "templateFile": "heatmap.json",
+  "defaultEditable": "Always",
+  "generatorVersion": 17,
+  "propertyMappings": [
+    {
+      "propertyKey": "seriesDataSource",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "seriesValueAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "The attribute used to display “heat” at an “x y” location.",
+      "mdlAliases": [
+        "ValueAttribute"
+      ]
+    },
+    {
+      "propertyKey": "horizontalAxisAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "horizontalSortAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Attribute to use for sorting the data. Sorting can only be used when data source is ‘Database’. For data source ‘Microflow’, the sorting should be done within the microflow."
+    },
+    {
+      "propertyKey": "horizontalSortOrder",
+      "value": "asc",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "verticalAxisAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "verticalSortAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "description": "Attribute to use for sorting the data. Sorting can only be used when data source is ‘Database’. For data source ‘Microflow’, the sorting should be done within the microflow."
+    },
+    {
+      "propertyKey": "verticalSortOrder",
+      "value": "asc",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "enableAdvancedOptions",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showPlaygroundSlot",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "xAxisLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "yAxisLabel",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "showScale",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "gridLines",
+      "value": "none",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "smoothColor",
+      "value": "false",
+      "operation": "primitive",
+      "description": "Gradual color gradient between data points"
+    },
+    {
+      "propertyKey": "showValues",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "valuesColor",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "widthUnit",
+      "value": "percentage",
+      "operation": "primitive",
+      "description": "Percentage: portion of parent size. Pixels: absolute amount of pixels."
+    },
+    {
+      "propertyKey": "width",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentageOfWidth",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "75",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "onClickAction",
+      "source": "OnClick",
+      "operation": "action"
+    },
+    {
+      "propertyKey": "tooltipHoverText",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "enableThemeConfig",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customLayout",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customConfigurations",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customSeriesOptions",
+      "operation": "primitive"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "playground",
+      "mdlContainer": "PLAYGROUND",
+      "operation": "widgets"
+    }
+  ],
+  "objectLists": [
+    {
+      "propertyKey": "scaleColors",
+      "mdlContainer": "SCALECOLOR",
+      "itemProperties": [
+        {
+          "propertyKey": "valuePercentage",
+          "value": "0",
+          "operation": "primitive",
+          "description": "The percentage at which the color should be applied. This value must be between 0 and 100."
+        },
+        {
+          "propertyKey": "colour",
+          "operation": "primitive",
+          "description": "The CSS value e.g. blue, #48B0F7 or rgb(0,0,0)",
+          "mdlAliases": [
+            "ColorValue"
+          ]
+        }
+      ]
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "customLayout",
+      "hiddenWhen": {
+        "propertyKey": "enableAdvancedOptions",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customConfigurations",
+      "hiddenWhen": {
+        "propertyKey": "enableAdvancedOptions",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "customSeriesOptions",
+      "hiddenWhen": {
+        "propertyKey": "enableAdvancedOptions",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "enableThemeConfig",
+      "hiddenWhen": {
+        "propertyKey": "enableAdvancedOptions",
+        "operator": "falsy"
+      }
+    }
+  ]
+}

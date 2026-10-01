@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "progresscircle.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "type",
@@ -41,6 +42,11 @@
       "operation": "attribute"
     },
     {
+      "propertyKey": "onClick",
+      "source": "OnClick",
+      "operation": "action"
+    },
+    {
       "propertyKey": "showLabel",
       "value": "false",
       "operation": "primitive"
@@ -49,6 +55,11 @@
       "propertyKey": "labelType",
       "value": "text",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "labelText",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     }
   ],
   "childSlots": [
@@ -57,5 +68,47 @@
       "mdlContainer": "CUSTOMLABEL",
       "operation": "widgets"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "labelText",
+      "hiddenWhen": {
+        "propertyKey": "labelType",
+        "operator": "ne",
+        "value": "text"
+      },
+      "and": [
+        {
+          "propertyKey": "showLabel",
+          "operator": "truthy"
+        }
+      ]
+    },
+    {
+      "propertyKey": "customLabel",
+      "hiddenWhen": {
+        "propertyKey": "showLabel",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "labelText",
+      "hiddenWhen": {
+        "propertyKey": "showLabel",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "labelType",
+      "hiddenWhen": {
+        "propertyKey": "showLabel",
+        "operator": "falsy"
+      }
+    }
+  ],
+  "knownProperties": [
+    "expressionCurrentValue",
+    "expressionMinValue",
+    "expressionMaxValue"
   ]
 }

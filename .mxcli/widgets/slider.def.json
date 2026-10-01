@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "slider.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "valueAttribute",
@@ -78,6 +79,11 @@
       "description": "By default tooltip shows current value. Choose 'Custom' to create your own template."
     },
     {
+      "propertyKey": "tooltip",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
       "propertyKey": "tooltipAlwaysVisible",
       "value": "false",
       "operation": "primitive",
@@ -110,6 +116,56 @@
       "propertyKey": "height",
       "value": "100",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "onChange",
+      "source": "OnChange",
+      "operation": "action"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "tooltip",
+      "hiddenWhen": {
+        "propertyKey": "showTooltip",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "tooltipType",
+      "hiddenWhen": {
+        "propertyKey": "showTooltip",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "heightUnit",
+      "hiddenWhen": {
+        "propertyKey": "orientation",
+        "operator": "eq",
+        "value": "horizontal"
+      }
+    },
+    {
+      "propertyKey": "height",
+      "hiddenWhen": {
+        "propertyKey": "orientation",
+        "operator": "eq",
+        "value": "horizontal"
+      }
+    },
+    {
+      "propertyKey": "tooltip",
+      "hiddenWhen": {
+        "propertyKey": "tooltipType",
+        "operator": "eq",
+        "value": "value"
+      }
+    }
+  ],
+  "knownProperties": [
+    "expressionMinimumValue",
+    "expressionMaximumValue",
+    "expressionStepSize"
   ]
 }

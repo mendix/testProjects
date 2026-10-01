@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "accessibilityhelper.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "targetSelector",
@@ -31,7 +32,11 @@
         {
           "propertyKey": "valueSourceType",
           "value": "text",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "text",
+            "expression"
+          ]
         },
         {
           "propertyKey": "valueExpression",
@@ -47,6 +52,28 @@
           "description": "Condition to determine if the HTML attribute must be set or not"
         }
       ]
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "valueExpression",
+      "listPropertyKey": "attributesList",
+      "hiddenWhen": {
+        "propertyKey": "valueSourceType",
+        "operator": "eq",
+        "value": "text",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "valueText",
+      "listPropertyKey": "attributesList",
+      "hiddenWhen": {
+        "propertyKey": "valueSourceType",
+        "operator": "eq",
+        "value": "expression",
+        "scope": "item"
+      }
     }
   ]
 }

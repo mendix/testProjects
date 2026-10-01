@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "treenode.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "advancedMode",
@@ -25,6 +26,11 @@
       "value": "headerClick",
       "operation": "primitive",
       "description": "Define which part of the node, when clicked, should open or close this node. \"Header is clicked\" means the whole header is clickable, while \"Icon is clicked\" means only the icon is used to switch node state."
+    },
+    {
+      "propertyKey": "headerCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     },
     {
       "propertyKey": "hasChildren",
@@ -65,5 +71,92 @@
       "mdlContainer": "CHILDREN",
       "operation": "widgets"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "expandedIcon",
+      "hiddenWhen": {
+        "propertyKey": "showIcon",
+        "operator": "eq",
+        "value": "no"
+      }
+    },
+    {
+      "propertyKey": "collapsedIcon",
+      "hiddenWhen": {
+        "propertyKey": "showIcon",
+        "operator": "eq",
+        "value": "no"
+      }
+    },
+    {
+      "propertyKey": "headerContent",
+      "hiddenWhen": {
+        "propertyKey": "headerType",
+        "operator": "eq",
+        "value": "text"
+      }
+    },
+    {
+      "propertyKey": "openNodeOn",
+      "hiddenWhen": {
+        "propertyKey": "headerType",
+        "operator": "eq",
+        "value": "text"
+      }
+    },
+    {
+      "propertyKey": "startExpanded",
+      "hiddenWhen": {
+        "propertyKey": "hasChildren",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "children",
+      "hiddenWhen": {
+        "propertyKey": "hasChildren",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "showIcon",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "expandedIcon",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "collapsedIcon",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "animate",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "animateIcon",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "falsy"
+      }
+    }
+  ],
+  "knownProperties": [
+    "expandedIcon",
+    "collapsedIcon"
   ]
 }

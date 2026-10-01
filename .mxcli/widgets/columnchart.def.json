@@ -1,13 +1,13 @@
 {
-  "widgetId": "com.mendix.widget.web.areachart.AreaChart",
-  "mdlName": "AREACHART",
+  "widgetId": "com.mendix.widget.web.columnchart.ColumnChart",
+  "mdlName": "COLUMNCHART",
   "widgetKind": "pluggable",
-  "templateFile": "areachart.json",
+  "templateFile": "columnchart.json",
   "defaultEditable": "Always",
   "generatorVersion": 17,
   "propertyMappings": [
     {
-      "propertyKey": "enableAdvancedOptions",
+      "propertyKey": "advancedOptions",
       "value": "false",
       "operation": "primitive"
     },
@@ -34,6 +34,11 @@
     {
       "propertyKey": "gridLines",
       "value": "none",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "barmode",
+      "value": "group",
       "operation": "primitive"
     },
     {
@@ -96,30 +101,30 @@
           "propertyKey": "staticDataSource",
           "source": "DataSource",
           "operation": "datasource",
-          "description": "Data points for a single series."
+          "description": "Data points for a single column."
         },
         {
           "propertyKey": "dynamicDataSource",
           "source": "DataSource",
           "operation": "datasource",
-          "description": "Data points for all series which will be divided into single series based on the Group by attribute value."
+          "description": "Data points for all columns which will be divided into single columns based on the Group by attribute value."
         },
         {
           "propertyKey": "groupByAttribute",
           "source": "Attribute",
           "operation": "attribute",
-          "description": "Data points within the same group form one series.",
+          "description": "Data points within the same group form one column.",
           "dataSource": "dynamicDataSource"
         },
         {
           "propertyKey": "staticName",
           "operation": "texttemplate",
-          "description": "The series name displayed in the legend."
+          "description": "The column name displayed in the legend."
         },
         {
           "propertyKey": "dynamicName",
           "operation": "texttemplate",
-          "description": "The series name displayed in the legend.",
+          "description": "The column name displayed in the legend.",
           "dataSource": "dynamicDataSource"
         },
         {
@@ -175,51 +180,12 @@
           "dataSource": "dynamicDataSource"
         },
         {
-          "propertyKey": "interpolation",
-          "value": "linear",
-          "operation": "primitive",
-          "enumValues": [
-            "linear",
-            "spline"
-          ]
-        },
-        {
-          "propertyKey": "lineStyle",
-          "value": "line",
-          "operation": "primitive",
-          "enumValues": [
-            "line",
-            "lineWithMarkers",
-            "custom"
-          ]
-        },
-        {
-          "propertyKey": "staticLineColor",
+          "propertyKey": "staticBarColor",
           "operation": "expression",
           "dataSource": "staticDataSource"
         },
         {
-          "propertyKey": "dynamicLineColor",
-          "operation": "expression",
-          "dataSource": "dynamicDataSource"
-        },
-        {
-          "propertyKey": "staticMarkerColor",
-          "operation": "expression",
-          "dataSource": "staticDataSource"
-        },
-        {
-          "propertyKey": "dynamicMarkerColor",
-          "operation": "expression",
-          "dataSource": "dynamicDataSource"
-        },
-        {
-          "propertyKey": "staticFillColor",
-          "operation": "expression",
-          "dataSource": "staticDataSource"
-        },
-        {
-          "propertyKey": "dynamicFillColor",
+          "propertyKey": "dynamicBarColor",
           "operation": "expression",
           "dataSource": "dynamicDataSource"
         },
@@ -310,27 +276,7 @@
       }
     },
     {
-      "propertyKey": "dynamicMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "eq",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "dynamicLineColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "eq",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "dynamicFillColor",
+      "propertyKey": "dynamicBarColor",
       "listPropertyKey": "series",
       "hiddenWhen": {
         "propertyKey": "dataSet",
@@ -390,52 +336,12 @@
       }
     },
     {
-      "propertyKey": "staticLineColor",
+      "propertyKey": "staticBarColor",
       "listPropertyKey": "series",
       "hiddenWhen": {
         "propertyKey": "dataSet",
         "operator": "ne",
         "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "staticMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "ne",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "staticFillColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "dataSet",
-        "operator": "ne",
-        "value": "static",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "staticMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "lineStyle",
-        "operator": "ne",
-        "value": "lineWithMarkers",
-        "scope": "item"
-      }
-    },
-    {
-      "propertyKey": "dynamicMarkerColor",
-      "listPropertyKey": "series",
-      "hiddenWhen": {
-        "propertyKey": "lineStyle",
-        "operator": "ne",
-        "value": "lineWithMarkers",
         "scope": "item"
       }
     }

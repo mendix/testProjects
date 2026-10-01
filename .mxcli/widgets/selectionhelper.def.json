@@ -4,12 +4,18 @@
   "widgetKind": "pluggable",
   "templateFile": "selectionhelper.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "renderStyle",
       "value": "checkbox",
       "operation": "primitive",
       "description": "Custom enables placeholders for using widgets for the different states."
+    },
+    {
+      "propertyKey": "checkboxCaption",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     }
   ],
   "childSlots": [
@@ -27,6 +33,40 @@
       "propertyKey": "customNoneSelected",
       "mdlContainer": "CUSTOMNONESELECTED",
       "operation": "widgets"
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "customNoneSelected",
+      "hiddenWhen": {
+        "propertyKey": "renderStyle",
+        "operator": "eq",
+        "value": "checkbox"
+      }
+    },
+    {
+      "propertyKey": "customSomeSelected",
+      "hiddenWhen": {
+        "propertyKey": "renderStyle",
+        "operator": "eq",
+        "value": "checkbox"
+      }
+    },
+    {
+      "propertyKey": "customAllSelected",
+      "hiddenWhen": {
+        "propertyKey": "renderStyle",
+        "operator": "eq",
+        "value": "checkbox"
+      }
+    },
+    {
+      "propertyKey": "checkboxCaption",
+      "hiddenWhen": {
+        "propertyKey": "renderStyle",
+        "operator": "ne",
+        "value": "checkbox"
+      }
     }
   ]
 }

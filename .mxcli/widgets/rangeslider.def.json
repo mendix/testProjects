@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "rangeslider.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "lowerBoundAttribute",
@@ -79,10 +80,20 @@
       "description": "By default tooltip shows current value. Choose 'Custom' to create your own template."
     },
     {
+      "propertyKey": "tooltipLower",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
       "propertyKey": "tooltipTypeUpper",
       "value": "value",
       "operation": "primitive",
       "description": "By default tooltip shows current value. Choose 'Custom' to create your own template."
+    },
+    {
+      "propertyKey": "tooltipUpper",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     },
     {
       "propertyKey": "tooltipAlwaysVisible",
@@ -117,6 +128,78 @@
       "propertyKey": "height",
       "value": "100",
       "operation": "primitive"
+    },
+    {
+      "propertyKey": "onChange",
+      "source": "OnChange",
+      "operation": "action"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "tooltipLower",
+      "hiddenWhen": {
+        "propertyKey": "showTooltip",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "tooltipTypeLower",
+      "hiddenWhen": {
+        "propertyKey": "showTooltip",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "tooltipUpper",
+      "hiddenWhen": {
+        "propertyKey": "showTooltip",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "tooltipTypeUpper",
+      "hiddenWhen": {
+        "propertyKey": "showTooltip",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "tooltipLower",
+      "hiddenWhen": {
+        "propertyKey": "tooltipTypeLower",
+        "operator": "eq",
+        "value": "value"
+      }
+    },
+    {
+      "propertyKey": "tooltipUpper",
+      "hiddenWhen": {
+        "propertyKey": "tooltipTypeUpper",
+        "operator": "eq",
+        "value": "value"
+      }
+    },
+    {
+      "propertyKey": "heightUnit",
+      "hiddenWhen": {
+        "propertyKey": "orientation",
+        "operator": "eq",
+        "value": "horizontal"
+      }
+    },
+    {
+      "propertyKey": "height",
+      "hiddenWhen": {
+        "propertyKey": "orientation",
+        "operator": "eq",
+        "value": "horizontal"
+      }
+    }
+  ],
+  "knownProperties": [
+    "expressionMinimumValue",
+    "expressionMaximumValue",
+    "expressionStepSize"
   ]
 }

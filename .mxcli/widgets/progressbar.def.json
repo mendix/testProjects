@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "progressbar.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "type",
@@ -41,6 +42,11 @@
       "operation": "attribute"
     },
     {
+      "propertyKey": "onClick",
+      "source": "OnClick",
+      "operation": "action"
+    },
+    {
       "propertyKey": "showLabel",
       "value": "false",
       "operation": "primitive"
@@ -50,6 +56,11 @@
       "value": "text",
       "operation": "primitive",
       "description": "Note: If the Size of the progress bar is set to \"Small\" in the Appearance tab, then text and percentage labels will be shown in a tooltip and custom labels will be ignored."
+    },
+    {
+      "propertyKey": "labelText",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     }
   ],
   "childSlots": [
@@ -58,5 +69,47 @@
       "mdlContainer": "CUSTOMLABEL",
       "operation": "widgets"
     }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "labelText",
+      "hiddenWhen": {
+        "propertyKey": "labelType",
+        "operator": "ne",
+        "value": "text"
+      },
+      "and": [
+        {
+          "propertyKey": "showLabel",
+          "operator": "truthy"
+        }
+      ]
+    },
+    {
+      "propertyKey": "customLabel",
+      "hiddenWhen": {
+        "propertyKey": "showLabel",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "labelText",
+      "hiddenWhen": {
+        "propertyKey": "showLabel",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "labelType",
+      "hiddenWhen": {
+        "propertyKey": "showLabel",
+        "operator": "falsy"
+      }
+    }
+  ],
+  "knownProperties": [
+    "expressionCurrentValue",
+    "expressionMinValue",
+    "expressionMaxValue"
   ]
 }

@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "popupmenu.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "advancedMode",
@@ -54,7 +55,11 @@
         {
           "propertyKey": "itemType",
           "value": "item",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "item",
+            "divider"
+          ]
         },
         {
           "propertyKey": "caption",
@@ -72,7 +77,16 @@
           "propertyKey": "styleClass",
           "value": "defaultStyle",
           "operation": "primitive",
-          "description": "An extra class will be added: \"popupmenu-basic-item-[style]\""
+          "description": "An extra class will be added: \"popupmenu-basic-item-[style]\"",
+          "enumValues": [
+            "defaultStyle",
+            "inverseStyle",
+            "primaryStyle",
+            "infoStyle",
+            "successStyle",
+            "warningStyle",
+            "dangerStyle"
+          ]
         }
       ]
     },
@@ -96,6 +110,70 @@
           "operation": "widgets"
         }
       ]
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "basicItems",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "customItems",
+      "hiddenWhen": {
+        "propertyKey": "advancedMode",
+        "operator": "falsy"
+      }
+    },
+    {
+      "propertyKey": "caption",
+      "listPropertyKey": "basicItems",
+      "hiddenWhen": {
+        "propertyKey": "itemType",
+        "operator": "eq",
+        "value": "divider",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "action",
+      "listPropertyKey": "basicItems",
+      "hiddenWhen": {
+        "propertyKey": "itemType",
+        "operator": "eq",
+        "value": "divider",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "styleClass",
+      "listPropertyKey": "basicItems",
+      "hiddenWhen": {
+        "propertyKey": "itemType",
+        "operator": "eq",
+        "value": "divider",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "visible",
+      "listPropertyKey": "basicItems",
+      "hiddenWhen": {
+        "propertyKey": "itemType",
+        "operator": "eq",
+        "value": "divider",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "hoverCloseOn",
+      "hiddenWhen": {
+        "propertyKey": "trigger",
+        "operator": "ne",
+        "value": "onhover"
+      }
     }
   ]
 }

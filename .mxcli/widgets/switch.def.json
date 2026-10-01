@@ -4,12 +4,18 @@
   "widgetKind": "pluggable",
   "templateFile": "switch.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "booleanAttribute",
       "source": "Attribute",
       "operation": "attribute",
       "description": "Attribute to toggle"
+    },
+    {
+      "propertyKey": "action",
+      "operation": "action",
+      "description": "Action to be performed when the switch is toggled"
     }
   ]
 }

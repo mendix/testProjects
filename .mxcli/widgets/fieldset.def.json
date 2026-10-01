@@ -4,6 +4,14 @@
   "widgetKind": "pluggable",
   "templateFile": "fieldset.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
+  "propertyMappings": [
+    {
+      "propertyKey": "legend",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    }
+  ],
   "childSlots": [
     {
       "propertyKey": "content",

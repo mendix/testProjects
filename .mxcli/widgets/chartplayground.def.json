@@ -1,0 +1,8 @@
+{
+  "widgetId": "com.mendix.widget.web.chartplayground.ChartPlayground",
+  "mdlName": "CHARTPLAYGROUND",
+  "widgetKind": "pluggable",
+  "templateFile": "chartplayground.json",
+  "defaultEditable": "Always",
+  "generatorVersion": 17
+}

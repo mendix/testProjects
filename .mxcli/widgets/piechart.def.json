@@ -1,0 +1,135 @@
+{
+  "widgetId": "com.mendix.widget.web.piechart.PieChart",
+  "mdlName": "PIECHART",
+  "widgetKind": "pluggable",
+  "templateFile": "piechart.json",
+  "defaultEditable": "Always",
+  "generatorVersion": 17,
+  "propertyMappings": [
+    {
+      "propertyKey": "seriesDataSource",
+      "source": "DataSource",
+      "operation": "datasource"
+    },
+    {
+      "propertyKey": "seriesName",
+      "source": "TextTemplate",
+      "operation": "texttemplate",
+      "mdlAliases": [
+        "SeriesName"
+      ]
+    },
+    {
+      "propertyKey": "seriesValueAttribute",
+      "source": "Attribute",
+      "operation": "attribute",
+      "mdlAliases": [
+        "ValueAttribute"
+      ]
+    },
+    {
+      "propertyKey": "seriesSortAttribute",
+      "source": "Attribute",
+      "operation": "attribute"
+    },
+    {
+      "propertyKey": "seriesSortOrder",
+      "value": "asc",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "seriesItemSelection",
+      "source": "Selection",
+      "operation": "selection"
+    },
+    {
+      "propertyKey": "enableAdvancedOptions",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showPlaygroundSlot",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "showLegend",
+      "value": "true",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "holeRadius",
+      "value": "0",
+      "operation": "primitive",
+      "description": "A percentage between 0 and 100 indicating the radius of the hole in the pie chart relative to the chart itself. Defaults to 0."
+    },
+    {
+      "propertyKey": "tooltipHoverText",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "widthUnit",
+      "value": "percentage",
+      "operation": "primitive",
+      "description": "Percentage: portion of parent size. Pixels: absolute amount of pixels."
+    },
+    {
+      "propertyKey": "width",
+      "value": "100",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "heightUnit",
+      "value": "percentageOfWidth",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "height",
+      "value": "75",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "onClickAction",
+      "source": "OnClick",
+      "operation": "action"
+    },
+    {
+      "propertyKey": "enableThemeConfig",
+      "value": "false",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customLayout",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customConfigurations",
+      "operation": "primitive"
+    },
+    {
+      "propertyKey": "customSeriesOptions",
+      "operation": "primitive"
+    }
+  ],
+  "childSlots": [
+    {
+      "propertyKey": "playground",
+      "mdlContainer": "PLAYGROUND",
+      "operation": "widgets"
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "playground",
+      "hiddenWhen": {
+        "propertyKey": "showPlaygroundSlot",
+        "operator": "eq",
+        "value": "false"
+      }
+    }
+  ],
+  "knownProperties": [
+    "seriesColorAttribute"
+  ]
+}

@@ -4,6 +4,7 @@
   "widgetKind": "pluggable",
   "templateFile": "fileuploader.json",
   "defaultEditable": "Always",
+  "generatorVersion": 17,
   "propertyMappings": [
     {
       "propertyKey": "uploadMode",
@@ -26,6 +27,16 @@
       "operation": "primitive"
     },
     {
+      "propertyKey": "createFileAction",
+      "operation": "action",
+      "description": "Nanoflow that creates a file object, associates it to the current object and commits it."
+    },
+    {
+      "propertyKey": "createImageAction",
+      "operation": "action",
+      "description": "Nanoflow that creates an image object, associates it to the current object and commits it."
+    },
+    {
       "propertyKey": "maxFilesPerUpload",
       "value": "10",
       "operation": "primitive",
@@ -36,6 +47,76 @@
       "value": "25",
       "operation": "primitive",
       "description": "Reject files that are bigger than specified size."
+    },
+    {
+      "propertyKey": "dropzoneIdleMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "dropzoneAcceptedMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "dropzoneRejectedMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "uploadInProgressMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "uploadSuccessMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "uploadFailureGenericMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "uploadFailureInvalidFileFormatMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "uploadFailureFileIsTooBigMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "uploadFailureTooManyFilesMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "unavailableCreateActionMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "downloadButtonTextMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "removeButtonTextMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "removeSuccessMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
+    },
+    {
+      "propertyKey": "removeErrorMessage",
+      "source": "TextTemplate",
+      "operation": "texttemplate"
     },
     {
       "propertyKey": "objectCreationTimeout",
@@ -57,12 +138,29 @@
         {
           "propertyKey": "configMode",
           "value": "simple",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "simple",
+            "advanced"
+          ]
         },
         {
           "propertyKey": "predefinedType",
           "value": "pdfFile",
-          "operation": "primitive"
+          "operation": "primitive",
+          "enumValues": [
+            "pdfFile",
+            "msWordFile",
+            "msExcelFile",
+            "msPowerPointFile",
+            "plainTextFile",
+            "csvFile",
+            "zipArchiveFile",
+            "anyTextFile",
+            "anyImageFile",
+            "anyAudioFile",
+            "anyVideoFile"
+          ]
         },
         {
           "propertyKey": "mimeType",
@@ -91,11 +189,13 @@
         },
         {
           "propertyKey": "buttonActionFile",
-          "operation": "action"
+          "operation": "action",
+          "dataSource": "../associatedFiles"
         },
         {
           "propertyKey": "buttonActionImage",
-          "operation": "action"
+          "operation": "action",
+          "dataSource": "../associatedImages"
         },
         {
           "propertyKey": "buttonIsDefault",
@@ -109,6 +209,113 @@
           "description": "The button will be hidden when false is returned."
         }
       ]
+    }
+  ],
+  "propertyVisibility": [
+    {
+      "propertyKey": "associatedImages",
+      "hiddenWhen": {
+        "propertyKey": "uploadMode",
+        "operator": "eq",
+        "value": "files"
+      }
+    },
+    {
+      "propertyKey": "associatedFiles",
+      "hiddenWhen": {
+        "propertyKey": "uploadMode",
+        "operator": "ne",
+        "value": "files"
+      }
+    },
+    {
+      "propertyKey": "createImageAction",
+      "hiddenWhen": {
+        "propertyKey": "readOnlyMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "createFileAction",
+      "hiddenWhen": {
+        "propertyKey": "readOnlyMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "allowedFileFormats",
+      "hiddenWhen": {
+        "propertyKey": "readOnlyMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "maxFilesPerUpload",
+      "hiddenWhen": {
+        "propertyKey": "readOnlyMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "maxFileSize",
+      "hiddenWhen": {
+        "propertyKey": "readOnlyMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "objectCreationTimeout",
+      "hiddenWhen": {
+        "propertyKey": "readOnlyMode",
+        "operator": "truthy"
+      }
+    },
+    {
+      "propertyKey": "mimeType",
+      "listPropertyKey": "allowedFileFormats",
+      "hiddenWhen": {
+        "propertyKey": "configMode",
+        "operator": "eq",
+        "value": "simple",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "extensions",
+      "listPropertyKey": "allowedFileFormats",
+      "hiddenWhen": {
+        "propertyKey": "configMode",
+        "operator": "eq",
+        "value": "simple",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "typeFormatDescription",
+      "listPropertyKey": "allowedFileFormats",
+      "hiddenWhen": {
+        "propertyKey": "configMode",
+        "operator": "eq",
+        "value": "simple",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "predefinedType",
+      "listPropertyKey": "allowedFileFormats",
+      "hiddenWhen": {
+        "propertyKey": "configMode",
+        "operator": "ne",
+        "value": "simple",
+        "scope": "item"
+      }
+    },
+    {
+      "propertyKey": "customButtons",
+      "hiddenWhen": {
+        "propertyKey": "enableCustomButtons",
+        "operator": "falsy"
+      }
     }
   ]
 }
