@@ -47,7 +47,7 @@
                                         autocapitalize="none"
                                         autocomplete="off"
                                     />
-                                    <span class="glyphicon glyphicon-eye-close" onClick="togglePassword()"></span>
+                                    <span class="glyphicon glyphicon-eye-close" id="passwordToggle"></span>
                                 </div>
                             </div>
                             <button id="loginButton" type="submit" class="btn btn-success btn-lg">Sign in</button>
@@ -58,7 +58,7 @@
                             <hr />
                         </div>
 
-                        <a id="ssoButton" href="/openid/login" class="btn btn-default btn-lg">
+                        <a id="ssoButton" href="openid/login" class="btn btn-default btn-lg">
                             <img src="logo.png" />
                             <span class="loginpage-signin">Mendix Account</span>
                         </a>
@@ -66,23 +66,12 @@
                 </div>
             </div>
             <div class="loginpage-logo">
-                <img src="/logo.png" role="presentation" height="45" alt="" />
+                <img src="logo.png" role="presentation" height="45" alt="" />
             </div>
         </div>
 
         <script src="js/login_i18n.js?{{cachebust}}"></script>
         <script src="js/login.js?{{cachebust}}"></script>
-        <script>
-            function togglePassword() {
-                const icon = document.querySelector("[class*=glyphicon-eye]");
-                if (icon.classList.contains("glyphicon-eye-close"))
-                    icon.classList.replace("glyphicon-eye-close", "glyphicon-eye-open");
-                else icon.classList.replace("glyphicon-eye-open", "glyphicon-eye-close");
-
-                const input = document.querySelector("#passwordInput");
-                if (input.type === "password") input.type = "text";
-                else input.type = "password";
-            }
-        </script>
+        <script src="js/toggle-password.js?{{cachebust}}"></script>
     </body>
 </html>
