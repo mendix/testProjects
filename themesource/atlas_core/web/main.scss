@@ -29,8 +29,12 @@
     @include bootstrap-rtl();
 }
 @import "core/_legacy/mxui";
+@import "core/_legacy/mxui-core";
 @if not $exclude-mxui {
     @include mxui();
+} 
+@else {
+    @include mxui-core();
 }
 
 //================================== CORE ==================================\\
@@ -310,6 +314,11 @@
 @import "core/widgets/progress";
 @if not $exclude-progress {
     @include progress();
+}
+
+@import "core/widgets/combobox";
+@if not $exclude-combobox {
+    @include combobox();
 }
 
 @import "core/widgets/progress-bar";
