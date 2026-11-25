@@ -1,0 +1,34 @@
+// Color variations
+// This file emits CSS. Import it once, from main.scss. Files that only need
+// $brand-colors, $lightness-steps or adjust-color-lightness() should import
+// color-variants-defaults instead.
+@import "color-variants-defaults";
+
+// generate corresponding CSS variables
+:root {
+    @each $name, $bg-class, $text-class, $base-color in $brand-colors {
+        @each $shade, $adjustment in $lightness-steps {
+            --#{$name}-#{$shade}: #{adjust-color-lightness($base-color, $adjustment)};
+        }
+
+        @if ($bg-class != "") {
+            .#{$bg-class} {
+                @each $shade, $adjustment in $lightness-steps {
+                    &.shade-#{$shade} {
+                        background-color: adjust-color-lightness($base-color, $adjustment);
+                    }
+                }
+            }
+        }
+
+        @if ($text-class != "") {
+            .#{$text-class} {
+                @each $shade, $adjustment in $lightness-steps {
+                    &.shade-#{$shade} {
+                        color: adjust-color-lightness($base-color, $adjustment);
+                    }
+                }
+            }
+        }
+    }
+}
