@@ -74,35 +74,29 @@
 
 // Grid spacing small
 .widget-gallery.widget-gallery-gridgap-small {
-    --gallery-gap: var(--spacing-small, $spacing-small);
+    --gallery-gap: var(--spacing-small, #{$spacing-small});
 }
 
 // Grid spacing medium
 .widget-gallery.widget-gallery-gridgap-medium {
-    --gallery-gap: var(--spacing-medium, $spacing-medium);
+    --gallery-gap: var(--spacing-medium, #{$spacing-medium});
 }
 
 // Grid spacing large
 .widget-gallery.widget-gallery-gridgap-large {
-    --gallery-gap: var(--spacing-large, $spacing-large);
+    --gallery-gap: var(--spacing-large, #{$spacing-large});
 }
 
-// Pagination left
-.widget-gallery-pagination-left {
-    .widget-gallery-pagination {
-        .pagination-bar {
-            justify-content: flex-start;
-        }
-    }
-}
-
-// Pagination center
-.widget-gallery-pagination-center {
-    .widget-gallery-pagination {
-        .pagination-bar {
-            justify-content: center;
-        }
-    }
+// Pagination alignment
+//
+// The widget renders the pagination controls in the bar slot named by these classes -- start for
+// left, middle for center, end for right -- so alignment needs no CSS of its own. The classes stay
+// declared here because they are the design property's stored values, and because the widget reads
+// them from its root class list to decide placement.
+.widget-gallery-pagination-left,
+.widget-gallery-pagination-center,
+.widget-gallery-pagination-right {
+    /* stylelint-disable-line no-empty-rules */
 }
 
 .widget-gallery-disable-selected-items-highlight {
